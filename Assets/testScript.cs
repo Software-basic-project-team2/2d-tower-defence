@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class testScript : MonoBehaviour
 {
+
+    //이 코멘트가 보인다면
+    //연동 성공!!
+
     private void OnCollisionEnter(Collision collision)
     {
         
