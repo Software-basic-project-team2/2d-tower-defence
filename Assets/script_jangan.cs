@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class script_jangan : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    //ÀÌÀå¾È ¿¬µ¿¿Ï·á!!
+    //ì´ì¥ì•ˆ ì—°ë™ì™„ë£Œ!!
 
     void Start()
     {

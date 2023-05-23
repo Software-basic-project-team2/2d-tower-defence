@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class testScript : MonoBehaviour
 {
 
-    //ÀÌ ÄÚ¸àÆ®°¡ º¸ÀÎ´Ù¸é
-    //¿¬µ¿ ¼º°ø!!
+    //ì´ ì½”ë©˜íŠ¸ê°€ ë³´ì¸ë‹¤ë©´
+    //ì—°ë™ ì„±ê³µ!!
 
     private void OnCollisionEnter(Collision collision)
     {
