@@ -218,8 +218,8 @@ GameObject:
   - component: {fileID: 619662622}
   - component: {fileID: 619662621}
   - component: {fileID: 619662623}
-  - component: {fileID: 619662624}
   - component: {fileID: 619662625}
+  - component: {fileID: 619662626}
   m_Layer: 3
   m_Name: Enemies_6
   m_TagString: Enemy
@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619662620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.32, y: 0.12, z: 0}
+  m_LocalPosition: {x: -7.11, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,19 +310,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.5678556, y: -0.15706646}
   m_Size: {x: 1.2510388, y: 2.0726173}
   m_Direction: 0
---- !u!114 &619662624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619662620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d6259d127353b40a98ab0547c0cba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialHp: 31
 --- !u!50 &619662625
 Rigidbody2D:
   serializedVersion: 4
@@ -344,6 +331,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &619662626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619662620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d6259d127353b40a98ab0547c0cba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHp: 32
 --- !u!1 &1743226381 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5743635944944444753, guid: b48391d971006414da407a563de2b6b4, type: 3}
@@ -386,7 +386,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
---- !u!114 &1743226385
+--- !u!114 &1743226387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,9 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f9e36984670754da0adadc6d71404c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 11
+  TowerType: 0
 --- !u!1001 &6387814800090721643
 PrefabInstance:
   m_ObjectHideFlags: 0
