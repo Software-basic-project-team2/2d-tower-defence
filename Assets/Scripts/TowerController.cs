@@ -8,58 +8,57 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     private CircleCollider2D circleCollider;
-    private Tower towerData;
+    private Tower tower;
     private Collider2D attackingCollider;
+    public LayerMask layer;
 
-
+    
     private void Awake()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        Vector2 tower_pos = new Vector2(transform.position.x, transform.position.y);
-        towerData = new Tower1(tower_pos, circleCollider.radius, 1, 5);
+        tower = new Tower1(transform.position, circleCollider.radius, 1, 5);
     }
 
-    #region Trigger
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        towerData.IsAttacking = true;
-        attackingCollider = collision;
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    tower.IsAttacking = true;
+    //    attackingCollider = collision;
+    //}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Attack();
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    Attack();
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Exit!!");
-        towerData.IsAttacking = false;
-        attackingCollider = null;
-    }
+    //}
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    Debug.Log("Exit!!");
+    //    tower.IsAttacking = false;
+    //    attackingCollider = null;
+    //}
 
     private void Attack()
     {
-        if (!towerData.IsAttackable) return;
+        if (!tower.IsAttackable) return;
         if (attackingCollider.gameObject.tag != "Enemy") return;
 
-        towerData.IsAttackable = false;
+        tower.IsAttackable = false;
         StartCoroutine("SetAttackCycle");
 
         Enemy target = attackingCollider.gameObject.GetComponent<Enemy>();
-        target.Hp -= towerData.AttackPower;
+        target.Hp -= tower.AttackPower;
         Debug.Log("Current HP: " + target.Hp);
     }
-    #endregion
 
     private void Update()
     {
-        if (towerData.IsAttacking) Attack();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, circleCollider.radius); 
     }
 
     IEnumerator SetAttackCycle()
     {
-        yield return new WaitForSeconds(towerData.AttackCycleSecond);
-        towerData.IsAttackable = true;
+        yield return new WaitForSeconds(tower.AttackCycleSecond);
+        tower.IsAttackable = true;
     }
 }
