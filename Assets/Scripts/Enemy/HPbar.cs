@@ -20,6 +20,13 @@ public class HPbar : MonoBehaviour
     {
         // HP 바 업데이트
         UpdateHPBar();
+
+        // HP가 0 이하로 떨어진 경우 처리
+        if (currentHP <= 0)
+        {
+            // 캐릭터 사망 처리
+            Die();
+        }
     }
 
     // HP 바 업데이트 함수
@@ -42,8 +49,9 @@ public class HPbar : MonoBehaviour
         // HP가 0 이하로 떨어진 경우 처리
         if (currentHP <= 0)
         {
-            currentHP = 0;
-            // 캐릭터 사망 등의 추가 처리
+            // 캐릭터 사망 처리
+            Die();
+
         }
     }
 
@@ -57,5 +65,12 @@ public class HPbar : MonoBehaviour
         {
             currentHP = maxHP;
         }
+    }
+
+    // enemy 사망 처리
+    private void Die()
+    {
+        // enemy 삭제
+        Destroy(gameObject);
     }
 }

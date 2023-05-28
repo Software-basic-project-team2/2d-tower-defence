@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4075677726617584280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2539836641715945498}
@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6ae99ae25bcae4198ae32c191b8808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 4075677726617584285}
   hpBarSpriteRenderer: {fileID: 2539836641449686633}
   currentHP: 0
 --- !u!1001 &4075677726135650012
