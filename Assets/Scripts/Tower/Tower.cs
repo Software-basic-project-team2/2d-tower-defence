@@ -164,7 +164,11 @@ public class TowerBuilder
 
     public Tower Build()
     {
+<<<<<<< Updated upstream
         // tower.SpriteIndex();
+=======
+        tower.MatchSprite();
+>>>>>>> Stashed changes
         return tower;
     }
 }

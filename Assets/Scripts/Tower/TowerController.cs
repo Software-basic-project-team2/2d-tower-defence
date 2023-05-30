@@ -17,11 +17,11 @@ public class TowerController : MonoBehaviour
         CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
 
         Transform tBody = transform.Find("body");
-        Transform plate = tBody.Find("plate");
+        Transform tPlate = tBody.Find("plate");
 
         SpriteRenderer body = tBody.GetComponent<SpriteRenderer>();
-        SpriteRenderer front = plate.Find("front").GetComponent<SpriteRenderer>();
-        SpriteRenderer back = plate.Find("back").GetComponent<SpriteRenderer>();
+        SpriteRenderer front = tPlate.Find("front").GetComponent<SpriteRenderer>();
+        SpriteRenderer back = tPlate.Find("back").GetComponent<SpriteRenderer>();
 
         tower = Tower.Builder(TowerType)
             .BodySprite(body)
