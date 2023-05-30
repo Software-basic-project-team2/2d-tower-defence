@@ -56,9 +56,9 @@ public class TowerBuilder : MonoBehaviour
         tower.Damage = damage; return this;
     }
 
-    public Tower Build()
-    {
-        tower.MatchSprite();
-        return tower;
-    }
+    //public Tower Build()
+    //{
+    //    tower.MatchSprite();
+    //    return tower;
+    //}
 }

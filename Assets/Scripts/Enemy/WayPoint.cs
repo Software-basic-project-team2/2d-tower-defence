@@ -14,7 +14,7 @@ public class WayPoint : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
 
         // 현재 Waypoint에 도착한 경우 다음 Waypoint로 이동
-        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
+        if (currentWaypointIndex < waypoints.Length && Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
         {
             currentWaypointIndex++;
 
