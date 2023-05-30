@@ -24,9 +24,11 @@ public class TowerController : MonoBehaviour
         SpriteRenderer front = tPlate.Find("front").GetComponent<SpriteRenderer>();
         SpriteRenderer back = tPlate.Find("back").GetComponent<SpriteRenderer>();
 
+        //towerSpriteModifyTest
+        //Test22222
+
         tower = Tower.Builder(TowerType)
-            .BodySprite(body)
-            .PlateSprite(front, back)
+            .ConnectSprite(body, front, back)
             .Level(1)
             .Position(transform.position)
             .AttackRadius(circleCollider.radius)
@@ -68,5 +70,9 @@ public class TowerController : MonoBehaviour
         {
             attackingEnemy = null;
         }
+
+
+        //DetectingEnemyTest
+        //TestTest
     }
 }
