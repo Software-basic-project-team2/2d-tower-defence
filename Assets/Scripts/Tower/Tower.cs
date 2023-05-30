@@ -164,7 +164,7 @@ public class TowerBuilder
 
     public Tower Build()
     {
-        tower.SpriteIndex();
+        // tower.SpriteIndex();
         return tower;
     }
 }
