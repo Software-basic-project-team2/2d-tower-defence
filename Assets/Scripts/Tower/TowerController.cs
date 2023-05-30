@@ -23,6 +23,9 @@ public class TowerController : MonoBehaviour
         SpriteRenderer front = tPlate.Find("front").GetComponent<SpriteRenderer>();
         SpriteRenderer back = tPlate.Find("back").GetComponent<SpriteRenderer>();
 
+        //towerSpriteModifyTest
+        //Test22222
+
         tower = Tower.Builder(TowerType)
             .BodySprite(body)
             .PlateSprite(front, back)
@@ -66,5 +69,7 @@ public class TowerController : MonoBehaviour
         {
             attackingEnemy = null;
         }
+
+        
     }
 }
