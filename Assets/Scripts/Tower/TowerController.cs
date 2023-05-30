@@ -5,7 +5,7 @@ using UnityEngine;
 //Function: 타워를 컨트롤한다.
 //  
 public class TowerController : MonoBehaviour
-{
+{    
     public TowerType TowerType; //컨트롤할 타워 유형을 외부에서 받아옴
 
     private Tower tower;
@@ -15,7 +15,18 @@ public class TowerController : MonoBehaviour
     private void Awake()
     {
         CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+
+        Transform tBody = transform.Find("body");
+        Transform plate = tBody.Find("plate");
+
+        SpriteRenderer body = tBody.GetComponent<SpriteRenderer>();
+        SpriteRenderer front = plate.Find("front").GetComponent<SpriteRenderer>();
+        SpriteRenderer back = plate.Find("back").GetComponent<SpriteRenderer>();
+
         tower = Tower.Builder(TowerType)
+            .BodySprite(body)
+            .PlateSprite(front, back)
+            .Level(1)
             .Position(transform.position)
             .AttackRadius(circleCollider.radius)
             .AttackCycleSecond(1)
