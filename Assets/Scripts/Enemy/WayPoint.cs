@@ -5,7 +5,7 @@ using UnityEngine;
 public class WayPoint : MonoBehaviour
 {
     public Transform[] waypoints; // Waypoints를 저장할 배열
-    public float moveSpeed = 3f; // 캐릭터의 이동 속도
+    public float moveSpeed = 6f; // 캐릭터의 이동 속도
     private int currentWaypointIndex = 0; // 현재 Waypoint 인덱스
 
     private void Update()
