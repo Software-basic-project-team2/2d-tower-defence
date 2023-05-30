@@ -2,24 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public abstract class Tower : MonoBehaviour
 {
-    //레벨마다 다른 모양이 되기위한 참조변수
-    private SpriteRenderer body;
-    private SpriteRenderer plate_front;
-    private SpriteRenderer plate_back;
-
     //타워 상태 저장변수
     public const int MaxLevel = 3;
     public float AttackRadius { get; set; }
     public float AttackCycleSecond { get; set; }
     public int Damage { get; set; }
     public int Level { get; set; }
-    public string projectileName;
+
+    //레벨마다 다른 모양이 되기위한 참조변수
+    private SpriteRenderer body;
+    private SpriteRenderer plate_front;
+    private SpriteRenderer plate_back;
     private bool attackable;
-    public LayerMask layerMask;
 
     private void Awake()
     {
@@ -40,12 +37,15 @@ public abstract class Tower : MonoBehaviour
             .Damage(5)
             .Build();
         */
-        
+
         //타워 상태 설정
-        AttackRadius = 10f;
+
+        Level = 3;
+        AttackRadius = GetComponent<CircleCollider2D>().radius;
         AttackCycleSecond = 1f;
         Damage = 5;
         attackable = true;
+        MatchSprite();
     }
 
     /* (무시(지우지는 X))
@@ -65,7 +65,7 @@ public abstract class Tower : MonoBehaviour
     {
         if (!attackable) return null;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackRadius, layerMask);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackRadius, LayerMask.GetMask("Enemy"));
 
         if (colliders.Length == 0) return null;
         return colliders[0].GetComponent<Enemy>();
