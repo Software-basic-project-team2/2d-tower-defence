@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//이 부분은 일단 무시
 //디자인패턴: 빌더 패턴을 따름    
-public class TowerBuilder
+public class TowerBuilder : MonoBehaviour
 {
     private Tower tower;
 
