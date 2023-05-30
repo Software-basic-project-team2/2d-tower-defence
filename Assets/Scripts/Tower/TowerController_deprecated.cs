@@ -4,10 +4,14 @@ using UnityEngine;
 
 //Function: 타워를 컨트롤한다.
 //  
-public class TowerController : MonoBehaviour
+public class TowerController_deprecated : MonoBehaviour
 {    
-    public TowerType TowerType; //컨트롤할 타워 유형을 외부에서 받아옴
+    //public TowerType TowerType; //컨트롤할 타워 유형을 외부에서 받아옴
 
+
+
+    /*
+     *   
     private Tower tower;
     private bool attackable;
     private GameObject attackingEnemy;
@@ -24,9 +28,6 @@ public class TowerController : MonoBehaviour
         SpriteRenderer front = tPlate.Find("front").GetComponent<SpriteRenderer>();
         SpriteRenderer back = tPlate.Find("back").GetComponent<SpriteRenderer>();
 
-        //towerSpriteModifyTest
-        //Test22222
-
         tower = Tower.Builder(TowerType)
             .ConnectSprite(body, front, back)
             .Level(1)
@@ -38,6 +39,7 @@ public class TowerController : MonoBehaviour
         attackable = true;
         attackingEnemy = null;
     }
+    
 
     public void Attack()
     {
@@ -75,4 +77,5 @@ public class TowerController : MonoBehaviour
         //DetectingEnemyTest
         //TestTest
     }
+    */
 }
