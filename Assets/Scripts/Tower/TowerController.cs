@@ -10,7 +10,8 @@ public class TowerController : MonoBehaviour
 
     private Tower tower;
     private bool attackable;
-    private Enemy attackingEnemy;
+    private GameObject attackingEnemy;
+    public GameObject projectile;
 
     private void Awake()
     {
@@ -41,9 +42,10 @@ public class TowerController : MonoBehaviour
         if (!attackable) return;
         if (attackingEnemy == null) return;
 
-        tower.Attack(attackingEnemy);
-
+        //tower.Attack(attackingEnemy);
         StartCoroutine("SetAttackCycle");
+        GameObject newProjectile = Instantiate(projectile, gameObject.GetComponent<Transform>());
+        newProjectile.GetComponent<Projectile>().target = attackingEnemy;
     }
 
     IEnumerator SetAttackCycle()
@@ -59,7 +61,7 @@ public class TowerController : MonoBehaviour
 
         if (colliders.Length != 0)
         {
-            attackingEnemy = colliders[0].gameObject.GetComponent<Enemy>();
+            //attackingEnemy = colliders[0].gameObject.GetComponent<Enemy>();
             Attack();
         }
         else
