@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -344,70 +344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHp: 32
-<<<<<<< Updated upstream
-=======
---- !u!1001 &1288936648
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2097858060272287922, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_Name
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653489954865560379, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7740053321553295954, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 56a23550c04d73643a206a0bf3034e85, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f32e69d96f42204398d0ae1dd395729, type: 3}
->>>>>>> Stashed changes
 --- !u!1001 &1979132870
 PrefabInstance:
   m_ObjectHideFlags: 0
