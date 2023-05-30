@@ -66,5 +66,8 @@ public class TowerController : MonoBehaviour
         {
             attackingEnemy = null;
         }
+
+        //DetectingEnemyTest
+        //TestTest
     }
 }
