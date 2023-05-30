@@ -125,13 +125,9 @@ public class TowerBuilder
         }
     }
 
-    public TowerBuilder BodySprite(SpriteRenderer body)
+    public TowerBuilder ConnectSprite(SpriteRenderer body, SpriteRenderer front, SpriteRenderer back)
     {
-        tower.body = body; return this;
-    }
-
-    public TowerBuilder PlateSprite(SpriteRenderer front, SpriteRenderer back)
-    {
+        tower.body = body;
         tower.plate_front = front;
         tower.plate_back = back;
         return this;

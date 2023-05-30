@@ -27,8 +27,7 @@ public class TowerController : MonoBehaviour
         //Test22222
 
         tower = Tower.Builder(TowerType)
-            .BodySprite(body)
-            .PlateSprite(front, back)
+            .ConnectSprite(body, front, back)
             .Level(1)
             .Position(transform.position)
             .AttackRadius(circleCollider.radius)
