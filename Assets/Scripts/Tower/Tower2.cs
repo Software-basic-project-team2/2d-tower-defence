@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Tower2 : Tower
 {
-    protected override int SpriteIndex(int level, SpriteType type)
+    protected override string ProjectileName()
+    {
+        return "";
+    }
+    protected override int SpriteIndex(int level, int type)
     {
         return new int[,] {
             /*Level 1*/ { 12, 9, 8 },
