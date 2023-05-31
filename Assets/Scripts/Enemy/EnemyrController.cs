@@ -24,8 +24,17 @@ public class EnemyrController : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         if (waypoints == null || waypoints.Length == 0)
             return;
+=======
+
+        if (currentWaypointIndex >= waypoints.Length) return;
+
+        if (waypoints == null || waypoints.Length == 0)
+            return;
+
+>>>>>>> Stashed changes
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
