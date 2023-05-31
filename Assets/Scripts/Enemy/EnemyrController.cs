@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyrController : MonoBehaviour
 {
     public Transform[] waypoints; // Waypoints를 저장할 배열
-    public float moveSpeed = 5f; // 캐릭터의 이동 속도
+    public float moveSpeed = 6f; // 캐릭터의 이동 속도
     private int currentWaypointIndex = 0; // 현재 Waypoint 인덱스
 
     private void Start()
@@ -26,6 +26,7 @@ public class EnemyrController : MonoBehaviour
     {
 
         if (currentWaypointIndex >= waypoints.Length) return;
+        
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
