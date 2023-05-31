@@ -24,12 +24,9 @@ public class EnemyrController : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD:Assets/Scripts/Enemy/WayPoint.cs
+
         if (currentWaypointIndex >= waypoints.Length) return;
-=======
-        if (waypoints == null || waypoints.Length == 0)
-            return;
->>>>>>> 메인씬-+-이동-코드-수정:Assets/Scripts/Enemy/EnemyrController.cs
+        
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
