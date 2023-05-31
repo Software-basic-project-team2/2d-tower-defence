@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5761341075227836331}
   - component: {fileID: 5761341075227836328}
   - component: {fileID: 5761341075227836329}
-  - component: {fileID: -5429634317978100848}
   m_Layer: 0
   m_Name: Enemy_17
   m_TagString: Untagged
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7efcd27bdb845734e8798cdcc51b3bbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -140,20 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBarSpriteRenderer: {fileID: 7928792914493773682}
   currentHP: 0
---- !u!114 &-5429634317978100848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5761341075227836334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e5e63c91091e8499a2eb6364f17b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: []
-  moveSpeed: 5
 --- !u!1001 &8482604191999698887
 PrefabInstance:
   m_ObjectHideFlags: 0

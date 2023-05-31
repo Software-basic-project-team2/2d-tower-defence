@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 289461477721985269}
   - component: {fileID: 289461477721985268}
   - component: {fileID: 289461477721985275}
-  - component: {fileID: 929091157655067551}
   m_Layer: 0
   m_Name: Enemy_2
   m_TagString: Untagged
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8adb94347623da44591e92ff25f8b333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,8 +101,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.046076894, y: 1.1173846}
-  m_Size: {x: 1.5177307, y: 2.6624043}
+  m_Offset: {x: -0.6752615, y: -0.14031398}
+  m_Size: {x: 1.3368075, y: 2.6171734}
   m_Direction: 0
 --- !u!50 &289461477721985268
 Rigidbody2D:
@@ -140,20 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBarSpriteRenderer: {fileID: 2284634641326031605}
   currentHP: 0
---- !u!114 &929091157655067551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289461477721985274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e5e63c91091e8499a2eb6364f17b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: []
-  moveSpeed: 5
 --- !u!1001 &289461478088700480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,11 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.z

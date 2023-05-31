@@ -1,35 +1,16 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyrController : MonoBehaviour
+public class WayPoint : MonoBehaviour
 {
     public Transform[] waypoints; // Waypoints를 저장할 배열
     public float moveSpeed = 6f; // 캐릭터의 이동 속도
     private int currentWaypointIndex = 0; // 현재 Waypoint 인덱스
 
-    private void Start()
-    {
-        if (GameManager.instance.easyMode) // 이지 모드가 선택되었을 때
-        {
-            waypoints = GameObject.FindGameObjectsWithTag("easy").Select(obj => obj.transform).ToArray();
-        }
-
-        if (GameManager.instance.hardMode) // 하드 모드가 선택되었을 때
-        {
-            waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
-        }
-
-
-    }
-
     private void Update()
     {
-<<<<<<< HEAD:Assets/Scripts/Enemy/WayPoint.cs
         if (currentWaypointIndex >= waypoints.Length) return;
-=======
-        if (waypoints == null || waypoints.Length == 0)
-            return;
->>>>>>> 메인씬-+-이동-코드-수정:Assets/Scripts/Enemy/EnemyrController.cs
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
@@ -38,6 +19,8 @@ public class EnemyrController : MonoBehaviour
         if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
         {
             currentWaypointIndex++;
+
+
         }
     }
 }
