@@ -6810,6 +6810,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 9218695294948279258, guid: b06f395975beb3146b28d320e3ae721e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218695294948279258, guid: b06f395975beb3146b28d320e3ae721e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218695294948279258, guid: b06f395975beb3146b28d320e3ae721e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9218695294948279260, guid: b06f395975beb3146b28d320e3ae721e, type: 3}
       propertyPath: m_Enabled
       value: 1

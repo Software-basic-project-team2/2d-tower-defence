@@ -24,7 +24,6 @@ public class HPbar : MonoBehaviour
         // 현재 HP에 따른 바의 길이 계산
         float barLength =  (float)enemy.Hp / enemy.InitialHp;
 
-
         // 바의 스케일 값 조절하여 길이 변경
         hpBarSpriteRenderer.transform.localScale = new Vector3((float)(barLength * 0.3420351), 0.397248f, 1f);
 

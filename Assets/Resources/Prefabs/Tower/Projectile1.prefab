@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 498685007683681428}
   - component: {fileID: 498685007683681429}
-  - component: {fileID: 6497339436026614085}
   - component: {fileID: 4124209775503118438}
+  - component: {fileID: -3022736530335321689}
   m_Layer: 0
   m_Name: Projectile1
   m_TagString: Untagged
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6497339436026614085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498685007683681435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a7b9701451f1a409c8af767f8b713c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  damage: 0
-  speed: 10
-  haveAttacked: 0
 --- !u!95 &4124209775503118438
 Animator:
   serializedVersion: 5
@@ -123,3 +107,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3022736530335321689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498685007683681435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a573174504da43948a88f39a6bde3b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  damage: 0
+  speed: 10
+  haveAttacked: 0
