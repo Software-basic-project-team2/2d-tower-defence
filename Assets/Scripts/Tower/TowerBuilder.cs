@@ -15,7 +15,6 @@ public class TowerBuilder
         for (int i = 0; i < Tower.TypeCount; i++)
         {
             towers[i] = Resources.Load<GameObject>("Prefabs\\Tower\\Tower" + (i + 1));
-            Debug.Log(towers[i].name);
         }
     }
 
