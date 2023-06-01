@@ -16,7 +16,7 @@ public abstract class Tower : MonoBehaviour
     private SpriteRenderer body;
     private SpriteRenderer plate_front;
     private SpriteRenderer plate_back;
-    private bool attackable;
+    protected bool attackable;
 
     private void Awake()
     {
@@ -64,22 +64,31 @@ public abstract class Tower : MonoBehaviour
     protected Enemy FindAttackable()
     {
         if (!attackable) return null;
-
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackRadius, LayerMask.GetMask("Enemy"));
-
         if (colliders.Length == 0) return null;
-        return colliders[0].GetComponent<Enemy>();
+        int idx = 0;
+        float minDistance = 0;
+        for(int i = 0; i < colliders.Length; i++)
+        {
+            float distance = (transform.position - colliders[i].transform.position).magnitude;
+            if (distance < minDistance)
+            {
+                idx = i;
+                minDistance = distance;
+            }
+        }
+        return colliders[idx].GetComponent<Enemy>();
     }
 
     //인자로 들어온 enemy 공격
-    protected void Attack(Enemy enemy)
+    protected virtual void Attack(Enemy enemy)
     {
-        // Projectile p = GetProjectile();
         if (!attackable) return;
         Projectile newProjectile = Instantiate(Resources.Load<GameObject>(ProjectileName()), transform).GetComponent<Projectile>();
-        StartCoroutine("SetAttackCycle");
         newProjectile.target = enemy;
         newProjectile.damage = Damage;
+
+        StartCoroutine("SetAttackCycle");
     }
     //디자인 패턴: 템플릿 메소드 패턴 사용
     //각 타워에 맞는 투사체(Projectile) 이름을 다형적으로 반환

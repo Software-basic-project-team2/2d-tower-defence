@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4600301330811819523}
   - component: {fileID: 4600301330811819522}
   - component: {fileID: 4600301330811819533}
-  - component: {fileID: 7140190278698613714}
+  - component: {fileID: 3108637503288264071}
   m_Layer: 0
   m_Name: Projectile3
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7140190278698613714
+--- !u!114 &3108637503288264071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4600301330811819532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a7b9701451f1a409c8af767f8b713c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1728cd1c1f88bfb438a888d30d5c3df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}

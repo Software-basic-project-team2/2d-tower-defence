@@ -18,8 +18,6 @@ public class EnemyrController : MonoBehaviour
         {
             waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
         }
-
-
     }
 
     private void Update()
@@ -27,7 +25,6 @@ public class EnemyrController : MonoBehaviour
 
         if (currentWaypointIndex >= waypoints.Length) return;
         
-
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
 
