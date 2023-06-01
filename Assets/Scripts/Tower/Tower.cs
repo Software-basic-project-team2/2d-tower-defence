@@ -8,13 +8,6 @@ public abstract class Tower : MonoBehaviour
     public static readonly int MaxLevel = 3;
     public static readonly int TypeCount = 4;
 
-    #region Outer Reference
-    //레벨마다 다른 모양이 되기위한 참조변수
-    private SpriteRenderer body;
-    private SpriteRenderer plate_front;
-    private SpriteRenderer plate_back;
-    #endregion
-
     //타워 상태 저장변수
     #region Tower Variables
     public float AttackRadius //공격 범위
@@ -38,7 +31,14 @@ public abstract class Tower : MonoBehaviour
         } 
     } private int level; //타워 레벨
 
+    #region Inner Variables
+    //레벨마다 다른 모양이 되기위한 참조변수
+    private SpriteRenderer body;
+    private SpriteRenderer plate_front;
+    private SpriteRenderer plate_back;
     protected bool attackable;
+    #endregion
+
     #endregion
 
     #region Initialize Logic

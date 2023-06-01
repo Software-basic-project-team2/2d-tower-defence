@@ -6,6 +6,13 @@ using UnityEngine;
 //디자인패턴: 빌더 패턴을 따름    
 public class TowerBuilder
 {
+    #region Sington / Initiallization
+    private static TowerBuilder singleton = new TowerBuilder();
+    private TowerBuilder() {
+        if (towers == null) LoadTowers();
+    }
+    public static TowerBuilder Instance() { return singleton; }
+
     private static GameObject[] towers;
     //instantiate로 복제할 타워 원본 프리팹 생성 (최초 1회)
     private static void LoadTowers()
@@ -17,17 +24,9 @@ public class TowerBuilder
             towers[i] = Resources.Load<GameObject>("Prefabs\\Tower\\Tower" + (i + 1));
         }
     }
-
-    #region Sington
-    private static TowerBuilder singleton = new TowerBuilder();
-    private TowerBuilder() {
-        if (towers == null) LoadTowers();
-    }
-    public static TowerBuilder Instance() { return singleton; }
-    
-
     #endregion
 
+    #region Variables Setting
     private Vector2 position;
     Tower.Type type;
     private int level;
@@ -59,6 +58,8 @@ public class TowerBuilder
     {
         this.damage = damage; return this;
     }
+    #endregion
+
     public GameObject Build()
     {
         GameObject obj = GameObject.Instantiate(towers[(int)type], position, Quaternion.identity, GameObject.Find("Towers").transform);
