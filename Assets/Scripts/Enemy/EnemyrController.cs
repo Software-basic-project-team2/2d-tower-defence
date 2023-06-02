@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyrController : MonoBehaviour
@@ -11,16 +12,13 @@ public class EnemyrController : MonoBehaviour
     {
         if (GameManager.instance.easyMode) // 이지 모드가 선택되었을 때
         {
-            Debug.Log("ModeEasy");
             waypoints = GameObject.FindGameObjectsWithTag("easy").Select(obj => obj.transform).ToArray();
         }
 
         if (GameManager.instance.hardMode) // 하드 모드가 선택되었을 때
         {
-            Debug.Log("ModeHard");
             waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
         }
-        Debug.Log(waypoints);
     }
 
     private void Update()
