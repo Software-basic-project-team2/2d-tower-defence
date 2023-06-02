@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - easy
-  - hard
+  - Easy
+  - Hard
+  - EasyWaypoint
+  - HardWaypoint
   layers:
   - Default
   - TransparentFX
