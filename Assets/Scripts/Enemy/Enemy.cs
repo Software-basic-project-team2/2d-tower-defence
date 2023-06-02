@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour {
 
     public enum EnemyState {Idle, Burned };
 
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
             if (hp <= 0) Destroy(gameObject);
             else if (hp > InitialHp) hp = InitialHp;
         }
- 홍식
+ 
     }  
     public EnemyState State = EnemyState.Idle;
     public float leftTimeToRecover;
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         //{
         //    waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
         //}
-    }  private int hp;
+    }
 
     private void Start()
     {
