@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    public enum EnemyState {Idle, Burned };
+    public enum EnemyState {Idle, Burned, Stunned };
 
     public Transform[] waypoints; // Waypoints를 저장할 배열
+    private float initialMoveSpeed = 6f;
     public float moveSpeed = 6f; // 캐릭터의 이동 속도
     private int currentWaypointIndex = 0; // 현재 Waypoint 인덱스
     public int InitialHp;       //초기 HP
@@ -38,15 +39,6 @@ public class Enemy : MonoBehaviour {
     {
         Hp = InitialHp;
 
-        //if (GameManager.instance.easyMode) // 이지 모드가 선택되었을 때
-        //{
-        //    waypoints = GameObject.FindGameObjectsWithTag("easy").Select(obj => obj.transform).ToArray();
-        //}
-
-        //if (GameManager.instance.hardMode) // 하드 모드가 선택되었을 때
-        //{
-        //    waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
-        //}
     }
 
     private void Start()
@@ -70,12 +62,9 @@ public class Enemy : MonoBehaviour {
             currentWaypointIndex++;
         }
 
-        Debug.Log("out");
-
         if (leftTimeToRecover > 0)
         {
             leftTimeToRecover -= Time.deltaTime;
-            Debug.Log("in");
         }
         else SetStateToIdle();
     }
@@ -84,13 +73,22 @@ public class Enemy : MonoBehaviour {
     {
         State = EnemyState.Idle;
         gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        moveSpeed = initialMoveSpeed;
     }
 
     public void GetBurned(float duration)
     {
+        SetStateToIdle();
         State = EnemyState.Burned;
         leftTimeToRecover = duration;
         gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 128, 128, 255);
-
+    }
+     
+    public void GetStunned(float duration)
+    {
+        SetStateToIdle();
+        State = EnemyState.Stunned;
+        leftTimeToRecover = duration;
+        moveSpeed = 0;
     }
 }

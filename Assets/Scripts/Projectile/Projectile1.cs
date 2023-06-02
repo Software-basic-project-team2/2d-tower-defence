@@ -11,7 +11,6 @@ public class Projectile1 : Projectile
         gameObject.GetComponent<Animator>().SetBool("isCollided", true);
         Target.Hp -= Damage;
         HasCollided = true;
-        Destroy(gameObject, 0.3f);
     }
 
 }

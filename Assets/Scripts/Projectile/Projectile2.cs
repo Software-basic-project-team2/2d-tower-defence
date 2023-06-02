@@ -9,8 +9,8 @@ public class Projectile2 : Projectile
     //public int Damage;
     //public float Speed = 10f;
     //public bool HasCollided = false;
-    protected float blastRadius = 4f;
-    protected float duration = 1f;
+    protected float blastRadius = 3f;
+    protected float duration = 2f;
 
 
     protected override void Collide()
@@ -24,7 +24,6 @@ public class Projectile2 : Projectile
         }
         
         HasCollided = true;
-        Destroy(gameObject, 0.3f);
     }
 
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Enemy Target;
-    public int Damage;
+    public int Damage = 5;
     public float Speed = 10f;
     public bool HasCollided = false;
 
@@ -24,6 +24,8 @@ public class Projectile : MonoBehaviour
         {
             Collide();
         }
+        Destroy(gameObject, 0.3f);
+
     }
 
     protected virtual void Collide()
