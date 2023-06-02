@@ -5,18 +5,29 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Enemy target;
-    public int damage;
-    public float speed = 10f;
-    public bool haveAttacked = false;
+    public Enemy Target;
+    public int Damage;
+    public float Speed = 10f;
+    public bool HasCollided = false;
 
     private void Awake()
     {        
         transform.localPosition = new Vector3(0, 1.2f, 0);
     }
 
-    protected virtual void Update()
+    private void Update()
     {
-        
+        if (Target == null) return;
+        transform.position = Vector3.Lerp(transform.position, Target.GetComponent<Transform>().position, Speed * Time.deltaTime);
+
+        if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1 && HasCollided == false)
+        {
+            Collide();
+        }
+    }
+
+    protected virtual void Collide()
+    {
+
     }
 }

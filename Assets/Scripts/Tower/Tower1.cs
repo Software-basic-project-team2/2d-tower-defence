@@ -24,8 +24,8 @@ public class Tower1 : Tower
     //    GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), transform);
     //    Debug.Log(obj.name);
     //    Projectile newProjectile = obj.GetComponent<Projectile>();
-    //    newProjectile.target = enemy;
-    //    newProjectile.damage = Damage;
+    //    newProjectile.Target = enemy;
+    //    newProjectile.Damage = Damage;
 
     //    StartCoroutine("SetAttackCycle");
     //}
