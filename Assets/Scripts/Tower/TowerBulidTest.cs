@@ -18,9 +18,9 @@ public class TowerBulidTest : MonoBehaviour
             Tower.Type.Tower2
         };
         int[] level = { 2, 3, 1, 2, 2, 3 };
-        float[] attackCycleSecond = { 0.5f, 1f, 0.2f, 0.8f, 4f, 0.1f };
-        float[] attackRadius = { 1f, 3.8f, 2f, 2f, 6f, 0.5f };
-        int[] damage = { 2, 5, 3, 2, 9, 1 };
+        float[] attackCycleSecond = { 0.5f, 1f, 0.5f, 0.8f, 5f, 0.5f };
+        float[] attackRadius = { 7f, 3.8f, 5f, 2f, 6f, 0.5f };
+        int[] damage = { 2, 3, 4, 2, 3, 4 };
 
 
         for (int i = 0; i < positions.Count; i++)
