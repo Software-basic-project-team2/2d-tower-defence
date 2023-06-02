@@ -38,7 +38,7 @@ public abstract class Tower : MonoBehaviour
         } 
     } private int level; //타워 레벨
 
-    private bool attackable;
+    protected bool attackable;
     #endregion
 
     #region Initialize Logic
