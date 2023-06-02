@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 9218695294948279259}
   - component: {fileID: 9218695294948279256}
   - component: {fileID: 9218695294948279260}
-  - component: {fileID: 4780802139349837465}
-  m_Layer: 0
+  - component: {fileID: 4220800124094829688}
+  m_Layer: 3
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,8 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSpriteRenderer: {fileID: 9218695296064833300}
-  currentHP: 0
---- !u!114 &4780802139349837465
+--- !u!114 &4220800124094829688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,11 +148,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 9218695294948279257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e5e63c91091e8499a2eb6364f17b0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 70d6259d127353b40a98ab0547c0cba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  moveSpeed: 5
+  moveSpeed: 6
+  InitialHp: 150
+  hp: 0
+  State: 0
+  leftTimeToRecover: 0
 --- !u!1001 &7232669071000139681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,9 +164,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9218695294948279261}
     m_Modifications:
+    - target: {fileID: 1995368088184860851, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995368088295770520, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253957, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_Name
       value: HPbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995368088451253957, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_RootOrder
