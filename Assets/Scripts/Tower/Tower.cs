@@ -124,7 +124,8 @@ public abstract class Tower : MonoBehaviour
     protected virtual void Attack(Enemy enemy)
     {
         if (!attackable) return;
-        Projectile newProjectile = Instantiate(Resources.Load<GameObject>(ProjectileName()), transform).GetComponent<Projectile>();
+        GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), transform);
+        Projectile newProjectile = obj.GetComponent<Projectile>();
         newProjectile.target = enemy;
         newProjectile.damage = Damage;
 

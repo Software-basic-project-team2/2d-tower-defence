@@ -9,11 +9,6 @@ public class TowerBulidTest : MonoBehaviour
 
     void Start()
     {
-        //TowerBuildTest();
-    }
-
-    void TowerBuildTest()
-    {
         Tower.Type[] type = {
             Tower.Type.Tower1,
             Tower.Type.Tower3,

@@ -6,7 +6,7 @@ public class Tower3 : Tower
 {
     protected override string ProjectileName()
     {
-        return "Prefabs\\Tower\\Projectile3";
+        return "Projectile3";
     }
     protected override int SpriteIndex(int level, int type)
     {
