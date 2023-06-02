@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // 싱글톤 인스턴스
 
-    public bool easyMode = false; // 이지 모드 선택 여부
+    public bool easyMode; // 이지 모드 선택 여부
 
-    public bool hardMode = false; // 하드 모드 선택 여부
+    public bool hardMode; // 하드 모드 선택 여부
 
     
     private void Awake()
@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            easyMode = true;
+            hardMode = false;
             DontDestroyOnLoad(gameObject);
         }
         else
