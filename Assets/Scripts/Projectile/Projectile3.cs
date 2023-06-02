@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class Projectile3 : Projectile
 {
-    //투사체가 타워에 의해 생성되면 매프레임마다 실행
-    //protected override void Update()
-    //{
-    //    if (Target == null) return;
-    //    transform.position = Vector3.Lerp(transform.position, Target.GetComponent<Transform>().position, Speed * Time.deltaTime);
+    public override void InitializeField()
+    {
+        transform.localPosition = new Vector3(0, 1.2f, 0);
+        Speed = 10f;
+    }
 
-    //    //투사체가 타겟에 닿으면 타겟 체력 감소시키고 소멸
-    //    if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1)
-    //    {
-    //        gameObject.GetComponent<Animator>().SetBool("isCollided", true);
-    //        if (!HasCollided)
-    //        {
-    //            Target.Hp -= Damage;
-    //            HasCollided = true;
-    //        }
-    //        Destroy(gameObject, 0.3f);
-    //    }
-    //}
+
+    protected override void Collide()
+    {
+        gameObject.GetComponent<Animator>().SetBool("isCollided", true);
+        Target.Hp -= Damage;
+        HasCollided = true;
+    }
 }

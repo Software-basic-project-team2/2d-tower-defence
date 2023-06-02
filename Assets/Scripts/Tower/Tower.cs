@@ -128,6 +128,7 @@ public abstract class Tower : MonoBehaviour
         Projectile newProjectile = obj.GetComponent<Projectile>();
         newProjectile.Target = enemy;
         newProjectile.Damage = Damage;
+        newProjectile.InitializeField();
 
         StartCoroutine("SetAttackCycle");
     }
