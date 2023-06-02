@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
+
     public enum EnemyState {Idle, Burned };
 
     public Transform[] waypoints; // Waypoints를 저장할 배열
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     private int currentWaypointIndex = 0; // 현재 Waypoint 인덱스
     public int InitialHp;       //초기 HP
     public int hp;
+
     public int Hp 
     {
         get { return hp; }
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
             if (hp <= 0) Destroy(gameObject);
             else if (hp > InitialHp) hp = InitialHp;
         }
+ 홍식
     }  
     public EnemyState State = EnemyState.Idle;
     public float leftTimeToRecover;
@@ -44,10 +47,26 @@ public class Enemy : MonoBehaviour
         //{
         //    waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
         //}
+    }  private int hp;
+
+    private void Start()
+    {
+        Hp = InitialHp;
+
+        if (GameManager.instance.easyMode) // 이지 모드가 선택되었을 때
+        {
+            waypoints = GameObject.FindGameObjectsWithTag("easy").Select(obj => obj.transform).ToArray();
+        }
+
+        if (GameManager.instance.hardMode) // 하드 모드가 선택되었을 때
+        {
+            waypoints = GameObject.FindGameObjectsWithTag("hard").Select(obj => obj.transform).ToArray();
+        }
     }
 
     private void Update()
     {
+
         if (currentWaypointIndex >= waypoints.Length) return;
 
         // 현재 Waypoint를 향해 이동
@@ -80,5 +99,6 @@ public class Enemy : MonoBehaviour
         State = EnemyState.Burned;
         leftTimeToRecover = duration;
         gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 128, 128, 255);
+
     }
 }
