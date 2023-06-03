@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -48,6 +49,16 @@ public class GameManager : MonoBehaviour
         }
 
         InitWaypoints();
+    }
+
+    internal static void LoadScene(string v)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static void LoadGameScene()
+    {
+        throw new NotImplementedException();
     }
     #endregion
 
