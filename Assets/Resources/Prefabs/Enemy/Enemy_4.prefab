@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7104378707802184908}
   - component: {fileID: 7104378707802184907}
   - component: {fileID: 7104378707802184906}
-  - component: {fileID: -3498052431068700253}
-  m_Layer: 0
+  - component: {fileID: -936032858676019264}
+  m_Layer: 3
   m_Name: Enemy_4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7104378707802184905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6865841, y: 0.08877151, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8729993129390490393}
@@ -139,8 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSpriteRenderer: {fileID: 8729993129656776042}
-  currentHP: 0
---- !u!114 &-3498052431068700253
+--- !u!114 &-936032858676019264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,11 +148,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7104378707802184905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e5e63c91091e8499a2eb6364f17b0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 70d6259d127353b40a98ab0547c0cba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBurned: 0
+  isStunned: 0
+  burnTimeRemaing: 0
+  stunTimeRemaing: 0
   waypoints: []
-  moveSpeed: 5
+  moveSpeed: 8
+  InitialHp: 200
+  hp: 200
 --- !u!1001 &7104378707403490783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,9 +166,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7104378707802184910}
     m_Modifications:
+    - target: {fileID: 1995368088184860851, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995368088295770520, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253957, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_Name
       value: HPbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995368088451253957, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_RootOrder
