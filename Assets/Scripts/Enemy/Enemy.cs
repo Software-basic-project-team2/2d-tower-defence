@@ -34,13 +34,9 @@ public class Enemy : MonoBehaviour {
         }
     }  
 
-    private void Awake()
-    {
-        Hp = InitialHp;
-    }
-
     private void Start()
     {
+        waypoints = GameManager.instance.GetWaypoints();
         Hp = InitialHp;
     }
 
