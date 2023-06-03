@@ -50,16 +50,6 @@ public class GameManager : MonoBehaviour
 
         InitWaypoints();
     }
-
-    internal static void LoadScene(string v)
-    {
-        throw new NotImplementedException();
-    }
-
-    internal static void LoadGameScene()
-    {
-        throw new NotImplementedException();
-    }
     #endregion
 
     #region Waypoints 코드
