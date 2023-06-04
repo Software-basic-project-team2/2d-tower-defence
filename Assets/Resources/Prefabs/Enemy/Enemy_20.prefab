@@ -13,8 +13,14 @@ GameObject:
   - component: {fileID: 9049113916434211171}
   - component: {fileID: 9049113916434211170}
   - component: {fileID: 9049113916434211169}
+<<<<<<< Updated upstream
   - component: {fileID: -7326971479149667296}
   m_Layer: 0
+=======
+  - component: {fileID: 567189886559087968}
+  - component: {fileID: 1619289957586264026}
+  m_Layer: 3
+>>>>>>> Stashed changes
   m_Name: Enemy_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +159,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
+<<<<<<< Updated upstream
   moveSpeed: 5
+=======
+  moveSpeed: 8
+  InitialHp: 200
+  hp: 200
+--- !u!95 &1619289957586264026
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049113916434211168}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e415df41ffebc8142832fb4fb69e6a00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> Stashed changes
 --- !u!1001 &9049113917108120496
 PrefabInstance:
   m_ObjectHideFlags: 0
