@@ -19,7 +19,7 @@ public class TowerBulidTest : MonoBehaviour
         };
         int[] level = { 2, 3, 1, 2, 2, 3 };
         float[] attackCycleSecond = { 0.5f, 1f, 0.5f, 0.8f, 5f, 0.5f };
-        float[] attackRadius = { 7f, 3.8f, 5f, 2f, 6f, 0.5f };
+        float[] attackRadius = { 5f, 5f, 5f, 5f, 5f, 5f };
         int[] damage = { 2, 3, 4, 2, 3, 4 };
 
 

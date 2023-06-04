@@ -9,7 +9,7 @@ public class Projectile2 : Projectile
     //public int Damage;
     //public float Speed = 10f;
     //public bool HasCollided = false;
-    protected float blastRadius = 2f;
+    protected float blastRadius = 14f;
     protected float duration = 1.5f;
     public Vector3 TargetPos;
     public Vector2 InitialTowerPos;
@@ -20,24 +20,21 @@ public class Projectile2 : Projectile
         Speed = 5f;
         InitialTowerPos = gameObject.transform.position;
         TargetPos = Target.GetComponent<Transform>().position;
-        transform.localPosition = new Vector3(0, 1.2f, 0);
-        Speed = 10f;
-        Vector2 direction = Target.transform.position - transform.position;
+        Vector2 direction = TargetPos - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
     }
 
 
     protected override void Update()
     {
-        if (Target == null) return;
-
         transform.position = Vector3.Lerp(transform.position, TargetPos, Speed * Time.deltaTime);
 
-        if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1 && HasCollided == false)
+        // 타겟과 충분히 가까울때 충돌
+        if ((TargetPos - transform.position).magnitude <= 1f && HasCollided == false)
         {
             Collide();
+            Destroy(gameObject, 0.15f);
         }
-        Destroy(gameObject, 0.3f);
     }
 
     protected override void Collide()
@@ -49,7 +46,6 @@ public class Projectile2 : Projectile
             colliders[i].transform.GetComponent<Enemy>().GetBurned(duration);
             colliders[i].transform.GetComponent<Enemy>().Hp -= Damage;
         }
-        
         HasCollided = true;
     }
 

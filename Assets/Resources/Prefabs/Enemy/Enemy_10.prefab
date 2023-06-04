@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6470588243720866772}
   - component: {fileID: 8136455841640411752}
   - component: {fileID: 2083568598499015409}
+  - component: {fileID: 4621648247814299821}
   m_Layer: 3
   m_Name: Enemy_10
   m_TagString: Enemy
@@ -147,6 +148,9 @@ MonoBehaviour:
   InitialHp: 200
 --- !u!210 &2083568598499015409
 SortingGroup:
+--- !u!95 &4621648247814299821
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,6 +160,18 @@ SortingGroup:
   m_SortingLayerID: -2021860623
   m_SortingLayer: 1
   m_SortingOrder: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7cb775fb9ff322e44a1eb72f35232533, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6470588244349263608
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,27 +12,7 @@ public abstract class Projectile : MonoBehaviour
 
     public abstract void InitializeField();
 
-    protected virtual void Awake()
-    {
-        //Time.timeScale = 0.1f;
-    }
-
-    protected virtual void Update()
-    {
-        if (Target == null) return;
-
-        Vector2 direction = Target.transform.position - transform.position;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-
-        transform.position = Vector3.Lerp(transform.position, Target.GetComponent<Transform>().position, Speed * Time.deltaTime);
-
-        if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1f && HasCollided == false)
-        {
-            Collide();
-            Destroy(gameObject, 0.15f);
-
-        }
-    }
+    protected abstract void Update();
 
     protected abstract void Collide();
 }
