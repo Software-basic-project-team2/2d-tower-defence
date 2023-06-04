@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9215956230880608272}
   - component: {fileID: 9215956230880608274}
   - component: {fileID: 9215956230880608273}
-  - component: {fileID: 9215956230880608275}
   - component: {fileID: -4141069531275928757}
   m_Layer: 3
   m_Name: Enemy_14
@@ -126,19 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9215956230880608275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9215956230880608268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d6ae99ae25bcae4198ae32c191b8808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBarSpriteRenderer: {fileID: 4761191672877844171}
 --- !u!114 &-4141069531275928757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +144,6 @@ MonoBehaviour:
   waypoints: []
   moveSpeed: 8
   InitialHp: 200
-  hp: 200
 --- !u!1001 &6459250577800312446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,11 +213,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
---- !u!212 &4761191672877844171 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1995368088184860853, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
-  m_PrefabInstance: {fileID: 6459250577800312446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4761191673144258744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
