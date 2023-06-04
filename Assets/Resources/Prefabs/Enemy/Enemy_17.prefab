@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5761341075227836309}
   - component: {fileID: 5761341075227836330}
-  - component: {fileID: 5761341075227836331}
   - component: {fileID: 5761341075227836328}
+  - component: {fileID: 5761341075227836331}
   - component: {fileID: 5761341075227836329}
   - component: {fileID: 900137600144393121}
   m_Layer: 3
@@ -89,6 +89,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &5761341075227836328
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761341075227836334}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04, y: 0.99}
+  m_Size: {x: 1.16, y: 2.12}
+  m_Direction: 0
 --- !u!50 &5761341075227836331
 Rigidbody2D:
   serializedVersion: 4
@@ -110,22 +126,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &5761341075227836328
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5761341075227836334}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: 0.99}
-  m_Size: {x: 1.16, y: 2.12}
-  m_Direction: 0
 --- !u!114 &5761341075227836329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,11 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.45
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.08
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.z
