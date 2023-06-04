@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
     public Enemy Target;
     public int Damage = 5;
@@ -38,8 +38,5 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    protected virtual void Collide()
-    {
-
-    }
+    protected abstract void Collide();
 }

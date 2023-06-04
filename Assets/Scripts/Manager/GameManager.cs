@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -52,17 +53,17 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Waypoints 코드
-    private static Transform[] waypoints;
+    private Transform[] waypoints;
 
-    public static Transform[] GetWaypoints()
+    public Transform[] GetWaypoints()
     {
         if (waypoints == null) InitWaypoints();
         return waypoints;
     }
 
-    private static void InitWaypoints()
+    private void InitWaypoints()
     {
-        waypoints = GameObject.FindGameObjectsWithTag(GameManager.instance.Mode.ToString() + "Waypoint").Select(obj => obj.transform).ToArray();
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint").Select(obj => obj.transform).ToArray();
     }
     #endregion
 
