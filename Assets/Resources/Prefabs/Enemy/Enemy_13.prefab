@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8213183385229301746}
   - component: {fileID: 8213183385229301749}
-  - component: {fileID: 8213183385229301748}
   - component: {fileID: 8213183385229301751}
-  - component: {fileID: 8213183385229301750}
+  - component: {fileID: 8213183385229301748}
   - component: {fileID: 2572709408784980123}
   m_Layer: 3
   m_Name: Enemy_13
@@ -89,6 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &8213183385229301751
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213183385229301737}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: 0.73}
+  m_Size: {x: 1.0402129, y: 1.5518358}
+  m_Direction: 0
 --- !u!50 &8213183385229301748
 Rigidbody2D:
   serializedVersion: 4
@@ -110,35 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &8213183385229301751
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8213183385229301737}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.4935652, y: -0.15238059}
-  m_Size: {x: 1.0402129, y: 1.5518358}
-  m_Direction: 0
---- !u!114 &8213183385229301750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8213183385229301737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d6ae99ae25bcae4198ae32c191b8808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBarSpriteRenderer: {fileID: 7659477766602104061}
 --- !u!114 &2572709408784980123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +144,6 @@ MonoBehaviour:
   waypoints: []
   moveSpeed: 8
   InitialHp: 200
-  hp: 200
 --- !u!1001 &8213183386160376904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -188,11 +173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0.433
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.38
+      value: 0.524
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -231,10 +216,5 @@ PrefabInstance:
 --- !u!4 &7659477766335834766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
-  m_PrefabInstance: {fileID: 8213183386160376904}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &7659477766602104061 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1995368088184860853, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
   m_PrefabInstance: {fileID: 8213183386160376904}
   m_PrefabAsset: {fileID: 0}

@@ -14,30 +14,44 @@ public class Enemy : MonoBehaviour {
     private int currentWaypointIndex = 0;
     private float initialMoveSpeed = 6f;
     public float moveSpeed = 6f;
+
+    #region HP Logic
+    private SpriteRenderer hpBarSprite; // HP 바의 Sprite Renderer 컴포넌트
     public int InitialHp;
-    public int hp;
+    private int hp;
     public int Hp 
     {
         get { return hp; }
         set {
-            if (isBurned)
-            {
-                hp = hp - (hp - value) * 2;
-            }
-            else if(isBurned)
-            {
-                hp = value;
-            }
 
-            if (hp <= 0) Destroy(gameObject);
-            else if (hp > InitialHp) hp = InitialHp;
+            if (isBurned)
+                hp = hp - (hp - value) * 2;
+            else
+                hp = value;
+            
+            if (hp > InitialHp) hp = InitialHp;
+            else if (hp <= 0) Destroy(gameObject);            
+
+            UpdateHPBar();
         }
-    }  
+    }
+
+    // HP 바 업데이트 함수
+    private void UpdateHPBar()
+    {
+        // 현재 HP에 따른 바의 길이 계산
+        float barLength = (float)Hp / InitialHp;
+
+        // 바의 스케일 값 조절하여 길이 변경
+        hpBarSprite.transform.localScale = new Vector3((float)(barLength * 0.3420351), 0.397248f, 1f);
+    }
+    #endregion
 
     private void Start()
     {
         waypoints = GameManager.instance.GetWaypoints();
-        Hp = InitialHp;
+        hpBarSprite = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        hp = InitialHp;
     }
 
     private void Update()
