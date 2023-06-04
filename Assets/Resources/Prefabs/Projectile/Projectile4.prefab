@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3538899745722798901}
   - component: {fileID: 1066015274123436296}
   - component: {fileID: 8561111471577402916}
+  - component: {fileID: 6133347620738864484}
   m_Layer: 0
   m_Name: Projectile4
   m_TagString: Untagged
@@ -125,3 +126,14 @@ MonoBehaviour:
   HasCollided: 0
   TargetPos: {x: 0, y: 0, z: 0}
   InitialTowerPos: {x: 0, y: 0}
+--- !u!210 &6133347620738864484
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3538899745722798907}
+  m_Enabled: 1
+  m_SortingLayerID: -1787478379
+  m_SortingLayer: 2
+  m_SortingOrder: 0

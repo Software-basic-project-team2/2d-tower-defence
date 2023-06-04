@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7ae52feca847f674dacc59ca5b33e0a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3548582419012091317}
   - component: {fileID: 685301554113759240}
   - component: {fileID: 685301554113759241}
+  - component: {fileID: 3604452}
   m_Layer: 0
   m_Name: Image_Tower2
   m_TagString: Untagged
@@ -152,9 +153,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.52}
   serializedVersion: 2
   m_Radius: 3
+--- !u!210 &3604452
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202757072970909244}
+  m_Enabled: 1
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &4494673525807732265
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +272,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2021860623
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6082fb0fb61545b43b2cb54e2de456fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -343,8 +355,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 821bb93b2e6c8834ea548ac539c2afcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
