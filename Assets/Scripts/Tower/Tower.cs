@@ -48,27 +48,17 @@ public abstract class Tower : MonoBehaviour
         Transform tBody = transform.Find("body");
         Transform tPlate = tBody.Find("plate");
 
+        //Inner Variables 초기화
         body = tBody.GetComponent<SpriteRenderer>();
         plate_front = tPlate.Find("front").GetComponent<SpriteRenderer>();
         plate_back = tPlate.Find("back").GetComponent<SpriteRenderer>();
+        attackable = true;
 
-        /* (--무시(지우지는 X)--)
-        tower = Tower.Builder(TowerType)
-            .ConnectSprite(body, front, back)
-            .Level(1)
-            .Position(transform.position)
-            .AttackRadius(circleCollider.radius)
-            .AttackCycleSecond(1)
-            .Damage(5)
-            .Build();
-        */
-
-        //타워 상태 설정
-
-        Level = 3;
+        //타워 상태 설정(기본값)
+        AttackRadius = 1f;
         AttackCycleSecond = 1f;
         Damage = 5;
-        attackable = true;
+        Level = 1;
         LoadSprites();
         SyncSprite();
     }

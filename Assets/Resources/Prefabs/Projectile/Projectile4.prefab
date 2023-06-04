@@ -123,3 +123,5 @@ MonoBehaviour:
   Damage: 0
   Speed: 10
   HasCollided: 0
+  TargetPos: {x: 0, y: 0, z: 0}
+  InitialTowerPos: {x: 0, y: 0}

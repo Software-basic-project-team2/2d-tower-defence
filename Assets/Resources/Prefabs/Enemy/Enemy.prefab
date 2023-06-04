@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9218695294948279258}
   - component: {fileID: 9218695294948279259}
   - component: {fileID: 9218695294948279256}
-  - component: {fileID: 9218695294948279260}
   - component: {fileID: 4220800124094829688}
   m_Layer: 3
   m_Name: Enemy
@@ -29,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9218695294948279257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.062, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9218695296335442279}
@@ -103,7 +102,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.13925374, y: 1.0513899}
-  m_Size: {x: 1.4333732, y: 2.4036436}
+  m_Size: {x: 1.21, y: 2.4036436}
   m_Direction: 0
 --- !u!50 &9218695294948279256
 Rigidbody2D:
@@ -126,19 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9218695294948279260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9218695294948279257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d6ae99ae25bcae4198ae32c191b8808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBarSpriteRenderer: {fileID: 9218695296064833300}
 --- !u!114 &4220800124094829688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,20 +137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d6259d127353b40a98ab0547c0cba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  moveSpeed: 0
-  InitialHp: 150
-  hp: 0
-  State: 0
-  leftTimeToRecover: 0
+  isBurned: 0
+  isStunned: 0
+  burnTimeRemaing: 0
+  stunTimeRemaing: 0
+  waypoints: []
+  moveSpeed: 8
+  InitialHp: 200
 --- !u!1001 &7232669071000139681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,11 +193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.29
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.09
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -254,11 +233,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
---- !u!212 &9218695296064833300 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1995368088184860853, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
-  m_PrefabInstance: {fileID: 7232669071000139681}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9218695296335442279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1995368088451253958, guid: 4071656ebecec3949a9bff3aaf7b4cfd, type: 3}
