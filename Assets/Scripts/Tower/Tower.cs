@@ -94,7 +94,7 @@ public abstract class Tower : MonoBehaviour
     protected Enemy FindAttackable()
     {
         if (!attackable) return null;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackRadius, LayerMask.GetMask("Enemy"));
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackRadius * gameObject.transform.localScale.x, LayerMask.GetMask("Enemy"));
         if (colliders.Length == 0) return null;
         int idx = 0;
         float minDistance = 0;

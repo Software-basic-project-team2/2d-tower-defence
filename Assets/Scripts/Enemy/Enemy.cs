@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-
     public bool isBurned = false;
     public bool isStunned = false;
     public float burnTimeRemaing = 0;
@@ -19,19 +18,32 @@ public class Enemy : MonoBehaviour {
     private SpriteRenderer hpBarSprite; // HP 바의 Sprite Renderer 컴포넌트
     public int InitialHp;
     private int hp;
+    private bool isDead = false;
     public int Hp 
     {
         get { return hp; }
         set {
+            if (isDead)
+            {
+                gameObject.GetComponent<Animator>().SetBool("isDead", true);
+                return;
+            }
+
+            if (hp <= 0)
+            {
+                hp = 0;
+                isDead = true;
+                moveSpeed = 0;
+                gameObject.GetComponent<Animator>().SetBool("isDying", true);
+                Destroy(gameObject, 3f);
+                UpdateHPBar();
+                return;
+            }
 
             if (isBurned)
                 hp = hp - (hp - value) * 2;
             else
                 hp = value;
-            
-            if (hp > InitialHp) hp = InitialHp;
-            else if (hp <= 0) Destroy(gameObject);            
-
             UpdateHPBar();
         }
     }
@@ -52,6 +64,7 @@ public class Enemy : MonoBehaviour {
         waypoints = GameManager.instance.GetWaypoints();
         hpBarSprite = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         hp = InitialHp;
+        gameObject.GetComponent<Animator>().SetBool("isWalking", true);
     }
 
     private void Update()
@@ -91,6 +104,7 @@ public class Enemy : MonoBehaviour {
                 isStunned = false;
                 stunTimeRemaing = 0;
                 moveSpeed = initialMoveSpeed;
+                gameObject.GetComponent<Animator>().SetBool("isStunned", false);
             }
         }
 
@@ -108,5 +122,6 @@ public class Enemy : MonoBehaviour {
         isStunned = true;
         stunTimeRemaing = duration;
         moveSpeed = 0;
+        gameObject.GetComponent<Animator>().SetBool("isStunned", true);
     }
 }

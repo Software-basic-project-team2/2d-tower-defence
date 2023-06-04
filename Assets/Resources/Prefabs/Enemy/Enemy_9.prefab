@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7506116646614057353}
   - component: {fileID: 7506116646614057352}
   - component: {fileID: -7712440981442778204}
+  - component: {fileID: 3490601020996672251}
   m_Layer: 3
   m_Name: Enemy_9
   m_TagString: Enemy
@@ -144,6 +145,27 @@ MonoBehaviour:
   waypoints: []
   moveSpeed: 8
   InitialHp: 200
+--- !u!95 &3490601020996672251
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506116646614057355}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4079129861d3b8147995ae52578e7659, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7506116646944210322
 PrefabInstance:
   m_ObjectHideFlags: 0
