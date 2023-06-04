@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 54b0440d3db739c4c9c049d1acc72dab
   - enabled: 1
-    path: Assets/Scenes/Deprecated_GameScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MapEasy.unity
+    guid: 1c6b4dad9c5662243ac46d856853a178
+  - enabled: 1
+    path: Assets/Scenes/MapHard.unity
+    guid: 811dc0ddae9940f4d9606a5448aab39d
+  - enabled: 1
+    path: Assets/Scenes/MapDesert.unity
+    guid: 98c0db3220a49474f9e80ecdf4aaea12
+  - enabled: 1
+    path: Assets/Scenes/MapDungeon.unity
+    guid: 1be61566af785354ca1fc8724c664fd5
   m_configObjects: {}
