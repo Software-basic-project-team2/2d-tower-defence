@@ -30,10 +30,11 @@ public abstract class Projectile : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, Target.GetComponent<Transform>().position, Speed * Time.deltaTime);
 
-        if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 0.5f && HasCollided == false)
+        if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1f && HasCollided == false)
         {
             Collide();
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject, 0.15f);
+
         }
     }
 
