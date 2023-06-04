@@ -34,6 +34,28 @@ public class TowerBuilder
     private float attackCycleSecond;
     private int damage;
 
+    public TowerBuilder DefaultTower(Tower.Type type)
+    {
+        Position(Vector2.zero);
+        Type(type);
+        Level(1);
+        AttackRadius(5);
+        AttackCycleSecond(1);
+        Damage(1);
+        switch(type)
+        {
+            case Tower.Type.Tower1:
+                break;
+            case Tower.Type.Tower2:
+                break;
+            case Tower.Type.Tower3:
+                break;
+            case Tower.Type.Tower4:
+                break;
+        }
+        return this;
+    }
+
     public TowerBuilder Position(Vector2 position)
     {
         this.position = position; return this;
