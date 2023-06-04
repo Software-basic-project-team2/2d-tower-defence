@@ -10,11 +10,7 @@ public abstract class Projectile : MonoBehaviour
     public float Speed = 10f;
     public bool HasCollided = false;
 
-    public virtual void InitializeField()
-    {
-
-
-    }
+    public abstract void InitializeField();
 
     protected virtual void Awake()
     {
