@@ -13,10 +13,10 @@ public abstract class Tower : MonoBehaviour
     public float AttackRadius //공격 범위
     {
         get {
-            return GetComponent<CircleCollider2D>().radius * scale;
+            return GetComponent<CircleCollider2D>().radius;
         }
         set {            
-            GetComponent<CircleCollider2D>().radius = value * scale;
+            GetComponent<CircleCollider2D>().radius = value;
         }
     } 
     public float AttackCycleSecond { get; set; } //공격 주기
@@ -57,7 +57,7 @@ public abstract class Tower : MonoBehaviour
         attackable = true;
 
         //타워 상태 설정(기본값)
-        AttackRadius = GetComponent<CircleCollider2D>().radius / scale;
+        AttackRadius = GetComponent<CircleCollider2D>().radius;
         AttackCycleSecond = 1f;
         Damage = 5;
         Level = 1;
@@ -97,7 +97,7 @@ public abstract class Tower : MonoBehaviour
     {
         if (!attackable) return null;
         Vector2 offsetPosition = (Vector2)transform.position + GetComponent<CircleCollider2D>().offset;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(offsetPosition, AttackRadius, LayerMask.GetMask("Enemy"));
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(offsetPosition, AttackRadius * scale, LayerMask.GetMask("Enemy"));
         if (colliders.Length == 0) return null;
         int idx = 0;
         float minDistance = 0;

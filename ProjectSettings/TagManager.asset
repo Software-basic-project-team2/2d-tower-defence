@@ -43,11 +43,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: tower
+  - name: tower_enemy
     uniqueID: 2273106673
-    locked: 0
-  - name: enemy
-    uniqueID: 2054688471
     locked: 0
   - name: projectile
     uniqueID: 2507488917
