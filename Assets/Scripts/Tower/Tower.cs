@@ -13,10 +13,10 @@ public abstract class Tower : MonoBehaviour
     public float AttackRadius //공격 범위
     {
         get {
-            return GetComponent<CircleCollider2D>().radius;
+            return GetComponent<CircleCollider2D>().radius * scale;
         }
         set {            
-            GetComponent<CircleCollider2D>().radius = value;
+            GetComponent<CircleCollider2D>().radius = value * scale;
         }
     } 
     public float AttackCycleSecond { get; set; } //공격 주기
@@ -36,6 +36,7 @@ public abstract class Tower : MonoBehaviour
     private SpriteRenderer body;
     private SpriteRenderer plate_front;
     private SpriteRenderer plate_back;
+    private float scale;
     protected bool attackable;
     #endregion
 
@@ -52,10 +53,11 @@ public abstract class Tower : MonoBehaviour
         body = tBody.GetComponent<SpriteRenderer>();
         plate_front = tPlate.Find("front").GetComponent<SpriteRenderer>();
         plate_back = tPlate.Find("back").GetComponent<SpriteRenderer>();
+        scale = transform.localScale.x;
         attackable = true;
 
         //타워 상태 설정(기본값)
-        AttackRadius = 1f;
+        AttackRadius = GetComponent<CircleCollider2D>().radius / scale;
         AttackCycleSecond = 1f;
         Damage = 5;
         Level = 1;
@@ -94,7 +96,8 @@ public abstract class Tower : MonoBehaviour
     protected Enemy FindAttackable()
     {
         if (!attackable) return null;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackRadius * gameObject.transform.localScale.x, LayerMask.GetMask("Enemy"));
+        Vector2 offsetPosition = (Vector2)transform.position + GetComponent<CircleCollider2D>().offset;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(offsetPosition, AttackRadius, LayerMask.GetMask("Enemy"));
         if (colliders.Length == 0) return null;
         int idx = 0;
         float minDistance = 0;

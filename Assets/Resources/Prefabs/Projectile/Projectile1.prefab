@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 498685007683681429}
   - component: {fileID: 4124209775503118438}
   - component: {fileID: -3022736530335321689}
+  - component: {fileID: 6829458789397228461}
   m_Layer: 0
   m_Name: Projectile1
   m_TagString: Untagged
@@ -123,3 +124,14 @@ MonoBehaviour:
   Damage: 0
   Speed: 10
   HasCollided: 0
+--- !u!210 &6829458789397228461
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498685007683681435}
+  m_Enabled: 1
+  m_SortingLayerID: -1787478379
+  m_SortingLayer: 2
+  m_SortingOrder: 0

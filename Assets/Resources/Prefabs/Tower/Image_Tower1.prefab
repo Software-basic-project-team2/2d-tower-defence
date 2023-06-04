@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1612338691640377058}
   - component: {fileID: 3377026501605559135}
   - component: {fileID: 3377026501605559134}
+  - component: {fileID: 124354500}
   m_Layer: 0
   m_Name: Image_Tower1
   m_TagString: Untagged
@@ -101,9 +102,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.52}
   serializedVersion: 2
   m_Radius: 3
+--- !u!210 &124354500
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165537687422879083}
+  m_Enabled: 1
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &4199661692327425414
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,8 +186,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e0a32078afb8154d94ad71a861d5e94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -213,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6542973214221607209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.86, z: 0}
+  m_LocalPosition: {x: 0.04, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -259,8 +271,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3c18a1c01c2346b4593bb1bd5e85819a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -345,7 +357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2021860623
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a072fefc97952744d8a29b98b6de3c4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

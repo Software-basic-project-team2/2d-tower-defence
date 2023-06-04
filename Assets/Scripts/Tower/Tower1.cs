@@ -17,16 +17,4 @@ public class Tower1 : Tower
             /*Level 3*/ { 7, 5, 4 }
         }[level - 1, type];        
     }
-
-    //protected override void Attack(Enemy enemy)
-    //{
-    //    if (!attackable) return;
-    //    GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), transform);
-    //    Debug.Log(obj.name);
-    //    Projectile newProjectile = obj.GetComponent<Projectile>();
-    //    newProjectile.Target = enemy;
-    //    newProjectile.Damage = Damage;
-
-    //    StartCoroutine("SetAttackCycle");
-    //}
 }
