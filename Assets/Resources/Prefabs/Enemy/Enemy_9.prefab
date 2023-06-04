@@ -148,9 +148,6 @@ MonoBehaviour:
   InitialHp: 200
 --- !u!210 &7521137234127276382
 SortingGroup:
---- !u!95 &3490601020996672251
-Animator:
-  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,6 +157,15 @@ Animator:
   m_SortingLayerID: -2021860623
   m_SortingLayer: 1
   m_SortingOrder: 0
+--- !u!95 &3490601020996672251
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506116646614057355}
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4079129861d3b8147995ae52578e7659, type: 2}
   m_CullingMode: 0
