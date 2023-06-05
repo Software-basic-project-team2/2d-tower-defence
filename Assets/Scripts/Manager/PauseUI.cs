@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameUI : MonoBehaviour
+public class PauseUI : MonoBehaviour
 {
-    public GameObject gameUI;
+    public GameObject pauseUI;
     private bool isPaused = false;
 
     private void Start()
@@ -30,25 +30,38 @@ public class GameUI : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1f;
-        gameUI.SetActive(false);
+        pauseUI.SetActive(false);
         isPaused = false;
     }
 
     private void PauseGame()
     {
         Time.timeScale = 0;
-        gameUI.SetActive(true);
+        pauseUI.SetActive(true);
         isPaused = true;
     }
 
-    public void OnMainButtonClicked()
+    public void OnXButtonClicked()
+    {
+        ResumeGame();
+    }
+
+    public void OnHomeButtonClicked()
     {
         SceneManager.LoadScene("MainScene");
     }
-
-    //리셋버튼
+        
     public void OnRestartButtonClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnExitButtonClicked()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
