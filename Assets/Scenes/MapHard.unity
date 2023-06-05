@@ -444,8 +444,6 @@ GameObject:
   - component: {fileID: 703500746}
   - component: {fileID: 703500748}
   - component: {fileID: 703500747}
-  - component: {fileID: 703500750}
-  - component: {fileID: 703500749}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -63389,42 +63387,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &703500749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703500745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574697b72b8bedf4bb70d0be19ccff74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  Damage: 0
-  Speed: 10
-  HasCollided: 0
-  TargetPos: {x: 0, y: 0, z: 0}
-  InitialTowerPos: {x: 0, y: 0}
---- !u!114 &703500750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703500745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574697b72b8bedf4bb70d0be19ccff74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  Damage: 0
-  Speed: 10
-  HasCollided: 0
-  TargetPos: {x: 0, y: 0, z: 0}
-  InitialTowerPos: {x: 0, y: 0}
 --- !u!1001 &732012991
 PrefabInstance:
   m_ObjectHideFlags: 0
