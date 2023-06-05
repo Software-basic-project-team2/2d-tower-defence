@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour {
                 isDead = true;
                 moveSpeed = 0;
                 gameObject.GetComponent<Animator>().SetBool("isDying", true);
-                Destroy(gameObject, 3f);
+                Destroy(gameObject, 1f);
                 UpdateHPBar();
                 return;
             }
