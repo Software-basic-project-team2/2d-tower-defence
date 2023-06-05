@@ -33,7 +33,7 @@ public class Projectile2 : Projectile
         if ((TargetPos - transform.position).magnitude <= 1f && HasCollided == false)
         {
             Collide();
-            Destroy(gameObject, 0.15f);
+            Destroy(gameObject, 0.1f);
         }
     }
 

@@ -20,6 +20,7 @@ public abstract class Tower : MonoBehaviour
         }
     } 
     public float AttackCycleSecond { get; set; } //공격 주기
+    public bool CanAttack = true;
     public int Damage { get; set; } //타워 공격력
     public int Level 
     {
@@ -88,8 +89,17 @@ public abstract class Tower : MonoBehaviour
     #region Update Logic
     private void Update()
     {
+        if (CanAttack == false) return;
+        CanAttack = false;
+        StartCoroutine("WaitAttackCycle");
         Enemy target = FindAttackable(); //공격 대상 탐색
         if (target != null) Attack(target); //탐색되면 공격
+    }
+
+    IEnumerator WaitAttackCycle()
+    {
+        yield return new WaitForSeconds(AttackCycleSecond);
+        CanAttack = true;
     }
 
     //공격 대상 탐색
@@ -125,7 +135,7 @@ public abstract class Tower : MonoBehaviour
 
         StartCoroutine("SetAttackCycle");
     }
-    //디자인 패턴: 템플릿 메소드 패턴 사용
+
     //각 타워에 맞는 투사체(Projectile) 이름을 다형적으로 반환
     protected abstract string ProjectileName();
 

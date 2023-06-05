@@ -29,21 +29,22 @@ public class Enemy : MonoBehaviour {
                 return;
             }
 
+            if (isBurned)
+                hp = hp - (hp - value) * 2;
+            else
+                hp = value;
+
             if (hp <= 0)
             {
                 hp = 0;
                 isDead = true;
                 moveSpeed = 0;
                 gameObject.GetComponent<Animator>().SetBool("isDying", true);
-                Destroy(gameObject, 1f);
+                gameObject.layer = 5;
+                Destroy(gameObject, 0.7f);
                 UpdateHPBar();
                 return;
             }
-
-            if (isBurned)
-                hp = hp - (hp - value) * 2;
-            else
-                hp = value;
             UpdateHPBar();
         }
     }
@@ -108,6 +109,7 @@ public class Enemy : MonoBehaviour {
             }
         }
 
+        if(hp <= 0) gameObject.GetComponent<Animator>().SetBool("isDead", true);
     }
 
     public void GetBurned(float duration)
