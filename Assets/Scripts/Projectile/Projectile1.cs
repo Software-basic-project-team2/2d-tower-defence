@@ -12,7 +12,11 @@ public class Projectile1 : Projectile
 
     protected override void Update()
     {
-        if (Target == null) Destroy(gameObject);
+        if (Target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         Vector2 direction = Target.transform.position - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -22,7 +26,7 @@ public class Projectile1 : Projectile
         if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1f && HasCollided == false)
         {
             Collide();
-            Destroy(gameObject, 0.15f);
+            Destroy(gameObject, 0.1f);
         }
     }
 
