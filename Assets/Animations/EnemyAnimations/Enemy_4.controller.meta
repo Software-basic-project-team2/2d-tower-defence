@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/EnemyAnimations/Enemy_14.controller.meta
+guid: f3c9b720da42a2a44b74767d77cf79be
+=======
 guid: 64462cc3f96418941bebd5044af55df9
+>>>>>>> parent of aebb3ec (Revert "애니메이션"):Assets/Animations/EnemyAnimations/Enemy_4.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000

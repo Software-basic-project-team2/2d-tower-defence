@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/EnemyAnimations/Enemy13_Die.anim.meta
+guid: 492d874d7d7788d459534d79f315b5cc
+=======
 guid: 27c8d9c5de4d88d4eae5587ef26d8979
+>>>>>>> parent of aebb3ec (Revert "애니메이션"):Assets/Animations/EnemyAnimations/Enemy3_Die.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

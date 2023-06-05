@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/EnemyAnimations/Enemy13_Stunned.anim.meta
+guid: 1b7b205738012cb49bc68c404e0383da
+=======
 guid: 0aaa886313d4c18488ed75403baa5ac5
+>>>>>>> parent of aebb3ec (Revert "애니메이션"):Assets/Animations/EnemyAnimations/Enemy3_Stunned.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

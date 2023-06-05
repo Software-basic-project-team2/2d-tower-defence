@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/EnemyAnimations/Enemy13_Walk.anim.meta
+guid: c60673944ebffd04eaeb62dc9ca7198f
+=======
 guid: 8a5d611d28c48984abd98473d3cbd985
+>>>>>>> parent of aebb3ec (Revert "애니메이션"):Assets/Animations/EnemyAnimations/Enemy3_Walk.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Resources/Prefabs/Enemy/Enemy_13.prefab.meta
+guid: 6413452d8984f284893d3d3f116824fe
+=======
 guid: c9caa259b6cf3c749a8285b1cc027f7c
+>>>>>>> parent of aebb3ec (Revert "애니메이션"):Assets/Resources/Deprecated_Enemy/Enemy_12.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
