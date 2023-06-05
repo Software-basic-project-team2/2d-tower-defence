@@ -71,6 +71,7 @@ public class Enemy : MonoBehaviour {
     private void Update()
     {
         if (currentWaypointIndex >= waypoints.Length) return;
+       
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
