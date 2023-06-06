@@ -74,6 +74,8 @@ public class Enemy : MonoBehaviour {
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
+        if ((waypoints[currentWaypointIndex].position - transform.position).x < 0) gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        else gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
         // 현재 Waypoint에 도착한 경우 다음 Waypoint로 이동
         if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
@@ -109,7 +111,7 @@ public class Enemy : MonoBehaviour {
             }
         }
 
-        if(hp <= 0) gameObject.GetComponent<Animator>().SetBool("isDead", true);
+        if(isDead) gameObject.GetComponent<Animator>().SetBool("isDead", true);
     }
 
     public void GetBurned(float duration)
