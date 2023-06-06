@@ -145,6 +145,7 @@ MonoBehaviour:
   stunTimeRemaing: 0
   waypoints: []
   moveSpeed: 8
+  damageAmount: 10
   InitialHp: 200
 --- !u!210 &4551324649494596294
 SortingGroup:
@@ -167,7 +168,7 @@ Animator:
   m_GameObject: {fileID: 9215956230880608268}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: af61877678b1c4b49b9234e78b938df1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4079129861d3b8147995ae52578e7659, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
