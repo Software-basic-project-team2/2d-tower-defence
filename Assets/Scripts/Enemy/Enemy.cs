@@ -10,9 +10,13 @@ public class Enemy : MonoBehaviour {
     public float stunTimeRemaing = 0;
 
     public Transform[] waypoints;
+    public int wayPointCount;
+    private Movement2D movement2D;
+   
+
     private int currentWaypointIndex = 0;
     private float initialMoveSpeed = 6f;
-    public float moveSpeed = 6f;
+    public float moveSpeed = 6f; //Movement2D 스크립트의  movespeed와 동일 합쳐도 되는지는 검토 후 조정
 
     public int damageAmount = 10;
     private PlayerController player;
@@ -74,6 +78,7 @@ public class Enemy : MonoBehaviour {
 
     private void Update()
     {
+        /*
         if (currentWaypointIndex >= waypoints.Length) return;
        
 
@@ -87,8 +92,9 @@ public class Enemy : MonoBehaviour {
         {
             currentWaypointIndex++;
         }
-
-        if (isBurned)
+        */
+        
+        if (isBurned) // 화염 타워에 맞았을 때 색 변화
         {
             if (burnTimeRemaing > 0)
             {
@@ -101,7 +107,7 @@ public class Enemy : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
             }
         }
-        if (isStunned)
+        if (isStunned) //기절 타워에 맞았을 때
         {
             if (stunTimeRemaing > 0)
             {
@@ -114,6 +120,7 @@ public class Enemy : MonoBehaviour {
                 moveSpeed = initialMoveSpeed;
                 gameObject.GetComponent<Animator>().SetBool("isStunned", false);
             }
+        
         }
 
         if(isDead) gameObject.GetComponent<Animator>().SetBool("isDead", true);
@@ -142,4 +149,52 @@ public class Enemy : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    // 아래는 새로 만드는 이동에 관한 코드입니다. 원래 update에 있던 것을 메소드화 한 겁니다.
+    public void Setup(Transform[] wayPoints)
+    {
+        movement2D = GetComponent<Movement2D>();
+
+        wayPointCount = wayPoints.Length;
+        this.waypoints = new Transform[wayPointCount];
+        this.waypoints = wayPoints;
+
+        transform.position = waypoints[currentWaypointIndex].position;
+
+        StartCoroutine("OnMove");
+    }
+
+    private IEnumerator OnMove()
+    {
+        NextMoveTo();
+
+        while (true)
+        {
+            if( Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.02f * movement2D.MoveSpeed)
+            {
+                NextMoveTo();
+            }
+
+            yield return null;
+        }
+    }
+
+    private void NextMoveTo()
+    {
+        if(currentWaypointIndex < wayPointCount - 1) //마지막 웨이포인트 도달하기 전
+        {
+            transform.position = waypoints[currentWaypointIndex].position;
+            currentWaypointIndex++; //다음 이동방향으로 지정
+            Vector3 direction = (waypoints[currentWaypointIndex].position - transform.position).normalized;
+            movement2D.MoveTo(direction);
+        }
+        else //마지막 웨이포인트에 도달할 때
+        {
+            Destroy(gameObject);
+        }
+    }
+
+   
+    
+
 }
