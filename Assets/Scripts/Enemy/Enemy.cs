@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour {
     private float initialMoveSpeed = 6f;
     public float moveSpeed = 6f;
 
+    public int damageAmount = 10;
+    private PlayerController player;
+
     #region HP Logic
     private SpriteRenderer hpBarSprite; // HP 바의 Sprite Renderer 컴포넌트
     public int InitialHp;
@@ -66,6 +69,7 @@ public class Enemy : MonoBehaviour {
         hpBarSprite = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         hp = InitialHp;
         gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -126,5 +130,14 @@ public class Enemy : MonoBehaviour {
         stunTimeRemaing = duration;
         moveSpeed = 0;
         gameObject.GetComponent<Animator>().SetBool("isStunned", true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player.DecreaseHP(damageAmount);
+            Destroy(gameObject);
+        }
     }
 }
