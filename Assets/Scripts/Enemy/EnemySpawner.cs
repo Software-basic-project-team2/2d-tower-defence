@@ -28,16 +28,21 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitWhile(() => !letNextRound);
             letNextRound = false;
+            GameManager.instance.isRoundNow = true;
             while (spawnRule.isEnemyLeft(round))
             {
+
                 GameObject enemy = Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex(round)], transform);
+                
                 yield return new WaitForSeconds(spawnTime);
-            }     
+            }
+            GameManager.instance.isRoundNow = false;
         }
     }
 
     public void NextRound()
     {
+        if (GameManager.instance.isRoundNow) return;
         letNextRound = true;
     }
 
