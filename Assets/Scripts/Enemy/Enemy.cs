@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour {
         //마지막 웨이포인트 도착한 경우
         if (currentWaypointIndex >= waypoints.Length)
         {
-            //player.DecreaseHP(damageAmount);
+            player.DecreaseHP(damageAmount);
             Destroy(gameObject);
             return;
         }

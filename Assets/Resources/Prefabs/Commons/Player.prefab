@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 0}
-  maxHP: 0
-  currentHP: 0
+  maxHP: 100
+  currentHP: 100
   screenFlashImage: {fileID: 4097920924253945115}
 --- !u!1 &4097920922701914670
 GameObject:

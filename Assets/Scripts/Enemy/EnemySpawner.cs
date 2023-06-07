@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("EnemySpawnerStart");
         spawnRule = EnemySpawnRule.GetEnemySpawnRule();
         letNextRound = false;
         enemyPrefabs = new GameObject[Enemy.TypeCount];
@@ -23,12 +24,13 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator SpawnEnemy()
-    {
+    {        
         for (int round = 1; round <= EnemySpawnRule.RoundMax; round++)
         {
             yield return new WaitWhile(() => !letNextRound);
             letNextRound = false;
             GameManager.instance.isRoundNow = true;
+            Debug.Log("Current Round: " + round);
             while (spawnRule.isEnemyLeft(round))
             {
 
@@ -37,6 +39,8 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(spawnTime);
             }
             GameManager.instance.isRoundNow = false;
+
+            Debug.Log($" Round {round} end!");
         }
     }
 
