@@ -6,6 +6,10 @@ using UnityEngine;
 //디자인패턴: 빌더 패턴을 따름    
 public class TowerBuilder
 {
+    [SerializeField]
+    private GameObject towerPrefab;
+    [SerializeField]
+    private EnemySpawner enemySpawner;
     #region Sington / Initiallization
     private static TowerBuilder singleton = new TowerBuilder();
     private TowerBuilder() {
@@ -95,4 +99,6 @@ public class TowerBuilder
 
         return obj;
     }
+
+
 }
