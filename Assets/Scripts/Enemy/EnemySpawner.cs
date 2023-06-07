@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemyPrefab; // 적 프리팹
+    private GameObject[] enemyPrefabs; // 적 프리팹
     [SerializeField]
     private float spawnTime; // 적 생성주기
-    [SerializeField]
-    private Transform[] wayPoints;
 
-    private void Awake()
+    private void Start()
     {
+        enemyPrefabs = new GameObject[12];
+        for (int i = 0; i < 12; i++)
+        {
+            enemyPrefabs[i] = Resources.Load<GameObject>("Prefabs\\Enemy\\Enemy_" + (i + 1));
+            Debug.Log(enemyPrefabs[i].name);
+        }
         StartCoroutine("SpawnEnemy");
     }
 
@@ -20,12 +23,13 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            GameObject clone = Instantiate(enemyPrefab);
-            Enemy enemy = clone.GetComponent<Enemy>();
-
-            enemy.Setup(wayPoints);
-
+            GameObject enemy = Instantiate(enemyPrefabs[0], GameObject.Find("Enemies").transform);
             yield return new WaitForSeconds(spawnTime);
         }
+    }
+
+    public void SetSpawnTime(float spawnTime)
+    {
+        this.spawnTime = spawnTime;
     }
 }

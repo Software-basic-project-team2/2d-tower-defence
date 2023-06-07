@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour {
 
     public Transform[] waypoints;
     public int wayPointCount;
-    private Movement2D movement2D;
    
 
     private int currentWaypointIndex = 0;
@@ -70,17 +69,27 @@ public class Enemy : MonoBehaviour {
     private void Start()
     {
         waypoints = GameManager.instance.GetWaypoints();
+        transform.position = waypoints[0].position;
         hpBarSprite = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         hp = InitialHp;
         gameObject.GetComponent<Animator>().SetBool("isWalking", true);
         player = FindObjectOfType<PlayerController>();
     }
-
+    #region Update Logic
     private void Update()
     {
-        /*
-        if (currentWaypointIndex >= waypoints.Length) return;
-       
+        UpdatePosition();
+        CheckState();
+    }
+    void UpdatePosition()
+    {
+        //마지막 웨이포인트 도착한 경우
+        if (currentWaypointIndex >= waypoints.Length)
+        {
+            player.DecreaseHP(damageAmount);
+            Destroy(gameObject);
+            return;
+        }
 
         // 현재 Waypoint를 향해 이동
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
@@ -92,8 +101,16 @@ public class Enemy : MonoBehaviour {
         {
             currentWaypointIndex++;
         }
-        */
-        
+    }
+
+    void CheckState()
+    {
+        CheckBurned();
+        CheckStunned();
+        if (isDead) gameObject.GetComponent<Animator>().SetBool("isDead", true);
+    }
+    void CheckBurned()
+    {
         if (isBurned) // 화염 타워에 맞았을 때 색 변화
         {
             if (burnTimeRemaing > 0)
@@ -107,6 +124,9 @@ public class Enemy : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
             }
         }
+    }
+    void CheckStunned()
+    {
         if (isStunned) //기절 타워에 맞았을 때
         {
             if (stunTimeRemaing > 0)
@@ -120,11 +140,9 @@ public class Enemy : MonoBehaviour {
                 moveSpeed = initialMoveSpeed;
                 gameObject.GetComponent<Animator>().SetBool("isStunned", false);
             }
-        
         }
-
-        if(isDead) gameObject.GetComponent<Animator>().SetBool("isDead", true);
     }
+    #endregion
 
     public void GetBurned(float duration)
     {
@@ -140,61 +158,4 @@ public class Enemy : MonoBehaviour {
         moveSpeed = 0;
         gameObject.GetComponent<Animator>().SetBool("isStunned", true);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            player.DecreaseHP(damageAmount);
-            Destroy(gameObject);
-        }
-    }
-
-    // 아래는 새로 만드는 이동에 관한 코드입니다. 원래 update에 있던 것을 메소드화 한 겁니다.
-    public void Setup(Transform[] wayPoints)
-    {
-        movement2D = GetComponent<Movement2D>();
-
-        wayPointCount = wayPoints.Length;
-        this.waypoints = new Transform[wayPointCount];
-        this.waypoints = wayPoints;
-
-        transform.position = waypoints[currentWaypointIndex].position;
-
-        StartCoroutine("OnMove");
-    }
-
-    private IEnumerator OnMove()
-    {
-        NextMoveTo();
-
-        while (true)
-        {
-            if( Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.02f * movement2D.MoveSpeed)
-            {
-                NextMoveTo();
-            }
-
-            yield return null;
-        }
-    }
-
-    private void NextMoveTo()
-    {
-        if(currentWaypointIndex < wayPointCount - 1) //마지막 웨이포인트 도달하기 전
-        {
-            transform.position = waypoints[currentWaypointIndex].position;
-            currentWaypointIndex++; //다음 이동방향으로 지정
-            Vector3 direction = (waypoints[currentWaypointIndex].position - transform.position).normalized;
-            movement2D.MoveTo(direction);
-        }
-        else //마지막 웨이포인트에 도달할 때
-        {
-            Destroy(gameObject);
-        }
-    }
-
-   
-    
-
 }
