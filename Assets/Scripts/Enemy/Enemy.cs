@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour {
     public int damageAmount = 10;
     private PlayerController player;
 
+    public int coinReward = 10; // 에너미 처치 시 제공되는 재화
+
     #region HP Logic
     private SpriteRenderer hpBarSprite; // HP 바의 Sprite Renderer 컴포넌트
     public int InitialHp;
@@ -50,6 +52,8 @@ public class Enemy : MonoBehaviour {
                 gameObject.layer = 5;
                 Destroy(gameObject, 0.7f);
                 UpdateHPBar();
+                // 재화 증가
+                CoinManager.Instance.Increasecoin(coinReward);
                 return;
             }
             UpdateHPBar();
