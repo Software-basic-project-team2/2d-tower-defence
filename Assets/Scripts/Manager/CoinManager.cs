@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,18 +9,7 @@ public class CoinManager : MonoBehaviour
     public static CoinManager Instance; // 싱글턴 인스턴스
 
     public int coin = 100; // 현재 재화
-    public Text coinText; // 재화를 표시할 Text UI 요소
-
-
-    private void Start()
-    {
-        UpdatecoinText();
-    }
-
-    private void Update()
-    {
-        UpdatecoinText();
-    }
+    public TMP_Text coinText; // 재화를 표시할 Text UI 요소
 
     private void Awake()
     {
@@ -28,6 +18,11 @@ public class CoinManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        UpdatecoinText();
     }
 
     // 재화 증가 함수
