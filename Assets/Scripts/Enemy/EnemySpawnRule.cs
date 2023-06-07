@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,44 +9,57 @@ public abstract class EnemySpawnRule
 {
     public static EnemySpawnRule GetEnemySpawnRule()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
+        switch (GameManager.instance.Map)
+        {
+            case PlayMap.Easy:
+                return new MapEasyEnemySpawnRule();
+            case PlayMap.Hard:
+                return new MapHardEnemySpawnRule();
+            case PlayMap.Desert:
+                return new MapDesertEnemySpawnRule();
+            case PlayMap.Dungeon:
+                return new MapDungeonEnemySpawnRule();
+        }
 
         return null;
     }
-
     public const int RoundMax = 10;
-    protected int[,] remainEnemies;
-    protected int[] totalRemainEnemiesByRound;
+    private int[,] leftEnemies;
+    private int[] totalLeftEnemiesByRound;
 
-    private void Start()
+    public EnemySpawnRule()
     {
-        remainEnemies = getRemainEnemiesTable();
-        totalRemainEnemiesByRound = new int[RoundMax];
+        leftEnemies = getRemainEnemiesTable();
+        totalLeftEnemiesByRound = new int[RoundMax];
         for (int i = 0; i < RoundMax; i++)
         {
             for (int j = 0; j < Enemy.TypeCount; j++)
             {
-                totalRemainEnemiesByRound[i] += remainEnemies[i, j];
+                totalLeftEnemiesByRound[i] += leftEnemies[i, j];
             }
         }
     }
-    public bool hasRemainEnemies(int round)
+
+    public bool isEnemyLeft(int round)
     {
-        return totalRemainEnemiesByRound[round - 1] > 0;
+        if (!(1 <= round && round <= 10)) return false;
+
+        return totalLeftEnemiesByRound[round - 1] > 0;
     }
 
     //이 메서드 사용 전 hasRemainEnemies로 사전 조건 검사해줘야 합니다.
     //리턴할 Enemy가 없는 경우 -1 반환!!
     public int getNextEnemyIndex(int round)
     {
-        if (!hasRemainEnemies(round)) return -1;
+        if (!isEnemyLeft(round)) return -1;
         int randomIndex = -1;
         do
         {
-            randomIndex = Random.Range(0, Enemy.TypeCount - 1);
+            randomIndex = Random.Range(0, Enemy.TypeCount);
         }
-        while (remainEnemies[round - 1, randomIndex] <= 0);
-        remainEnemies[round - 1, randomIndex]--;
+        while (leftEnemies[round - 1, randomIndex] <= 0);
+        leftEnemies[round - 1, randomIndex]--;
+        totalLeftEnemiesByRound[round - 1]--;
 
         return randomIndex;
     }
@@ -84,18 +98,18 @@ public class MapHardEnemySpawnRule : EnemySpawnRule
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
-            /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 4*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 1*/ { 0, 3, 0, 2,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 2*/ { 0, 0, 0, 0,   0, 0, 2, 0,   0, 0, 0, 0 },
+            /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 3,   0, 0, 0, 0 },
+            /*Round 4*/ { 0, 0, 0, 0,   1, 0, 0, 0,   0, 0, 0, 0 },
 
-            /*Round 5*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 6*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 7*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 8*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 5*/ { 0, 0, 0, 0,   0, 6, 0, 0,   1, 0, 0, 0 },
+            /*Round 6*/ { 0, 0, 0, 0,   0, 0, 2, 3,   0, 0, 0, 0 },
+            /*Round 7*/ { 1, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 8*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 3, 0 },
 
-            /*Round 9*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 10*/{ 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 }
+            /*Round 9*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 2, 0, 1 },
+            /*Round 10*/{ 0, 0, 0, 2,   3, 0, 0, 0,   0, 0, 0, 0 }
         };
     }
 }

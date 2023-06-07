@@ -55,6 +55,11 @@ public class TowerDragUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         SpawnedTower = Instantiate(Tower4Image, mousePosition(), Quaternion.identity);
     }
 
+    public void onNextRoundClicked()
+    {
+        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().NextRound();
+    }
+
     bool UIHovering = false;
     
     public void OnPointerEnter(PointerEventData eventData)

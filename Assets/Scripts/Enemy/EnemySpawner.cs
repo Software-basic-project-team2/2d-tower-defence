@@ -5,28 +5,40 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     private GameObject[] enemyPrefabs; // 적 프리팹
+    private EnemySpawnRule spawnRule;
     [SerializeField]
     private float spawnTime; // 적 생성주기
+    private bool letNextRound;
 
     private void Start()
     {
-        EnemySpawnRule.GetEnemySpawnRule();
+        spawnRule = EnemySpawnRule.GetEnemySpawnRule();
+        letNextRound = false;
         enemyPrefabs = new GameObject[Enemy.TypeCount];
         for (int i = 0; i < Enemy.TypeCount; i++)
         {
             enemyPrefabs[i] = Resources.Load<GameObject>("Prefabs\\Enemy\\Enemy_" + (i + 1));
-            Debug.Log(enemyPrefabs[i].name);
         }
         StartCoroutine("SpawnEnemy");
     }
 
     private IEnumerator SpawnEnemy()
     {
-        while (true)
+        for (int round = 1; round <= EnemySpawnRule.RoundMax; round++)
         {
-            GameObject enemy = Instantiate(enemyPrefabs[0], GameObject.Find("Enemies").transform);
-            yield return new WaitForSeconds(spawnTime);
+            yield return new WaitWhile(() => !letNextRound);
+            letNextRound = false;
+            while (spawnRule.isEnemyLeft(round))
+            {
+                GameObject enemy = Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex(round)], transform);
+                yield return new WaitForSeconds(spawnTime);
+            }     
         }
+    }
+
+    public void NextRound()
+    {
+        letNextRound = true;
     }
 
     public void SetSpawnTime(float spawnTime)
