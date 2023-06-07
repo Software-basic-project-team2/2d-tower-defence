@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
+    public const int TypeCount = 12;
     public bool isBurned = false;
     public bool isStunned = false;
     public float burnTimeRemaing = 0;

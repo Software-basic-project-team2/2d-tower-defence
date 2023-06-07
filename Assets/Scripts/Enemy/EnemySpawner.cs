@@ -10,8 +10,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        enemyPrefabs = new GameObject[12];
-        for (int i = 0; i < 12; i++)
+        EnemySpawnRule.GetEnemySpawnRule();
+        enemyPrefabs = new GameObject[Enemy.TypeCount];
+        for (int i = 0; i < Enemy.TypeCount; i++)
         {
             enemyPrefabs[i] = Resources.Load<GameObject>("Prefabs\\Enemy\\Enemy_" + (i + 1));
             Debug.Log(enemyPrefabs[i].name);
