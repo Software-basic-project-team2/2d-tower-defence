@@ -12,6 +12,10 @@ public class PauseUI : MonoBehaviour
     public TMP_Text restartText;
     public TMP_Text exitText;
 
+    private void Start()
+    {
+
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -48,14 +52,12 @@ public class PauseUI : MonoBehaviour
 
     public void OnHomeButtonClicked()
     {
-        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
-        GameManager.instance.LoadMainScene();
+        SceneManager.LoadScene("MainScene");
     }
         
     public void OnRestartButtonClicked()
     {
-        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
-        GameManager.instance.ReloadCurrentPlayMap();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnExitButtonClicked()
