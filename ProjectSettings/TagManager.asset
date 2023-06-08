@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Waypoint
+  - Tower
+  - Tile
   layers:
   - Default
   - TransparentFX
