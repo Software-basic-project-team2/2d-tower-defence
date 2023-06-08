@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,11 +8,10 @@ public class PauseUI : MonoBehaviour
 {
     public GameObject pauseUI;
     private bool isPaused = false;
+    public TMP_Text homeText;
+    public TMP_Text restartText;
+    public TMP_Text exitText;
 
-    private void Start()
-    {
-
-    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -48,12 +48,14 @@ public class PauseUI : MonoBehaviour
 
     public void OnHomeButtonClicked()
     {
-        SceneManager.LoadScene("MainScene");
+        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
+        GameManager.instance.LoadMainScene();
     }
         
     public void OnRestartButtonClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
+        GameManager.instance.ReloadCurrentPlayMap();
     }
 
     public void OnExitButtonClicked()
@@ -63,5 +65,27 @@ public class PauseUI : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OnHomeButtonPointerEnter()
+    {
+        homeText.text = "Home";
+    }
+
+    public void OnRestartButtonPointerEnter()
+    {
+        restartText.text = "Restart";
+    }
+
+    public void OnExitButtonPointerEnter()
+    {
+        exitText.text = "Exit";
+    }
+
+    public void OnPointerExit()
+    {
+        homeText.text = "";
+        restartText.text = "";
+        exitText.text = "";
     }
 }

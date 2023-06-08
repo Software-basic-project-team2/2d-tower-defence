@@ -35,6 +35,10 @@ public class SoundController : MonoBehaviour
     {
         // 슬라이더의 값을 이용하여 소리 크기를 조절합니다.
         audioSource.volume = value;
+        if (audioSource.mute) 
+        {
+            OnMuteButtonClick();
+        }
         UpdateMuteButton();
     }
 
@@ -53,20 +57,27 @@ public class SoundController : MonoBehaviour
     {
         // 음소거 버튼의 이미지를 변경합니다.
         Image buttonImage = muteButton.transform.GetChild(0).GetComponentInChildren<Image>();
-    
+        Image buttonBackground = muteButton.transform.GetComponent<Image>();
+
+
         if (isMuted)
         {
             buttonImage.sprite = speaker[0];
+            buttonImage.color = new Color32(255, 201, 201, 255);
+            buttonBackground.color = new Color32(58, 58, 58, 255);
             return;
         }
-<<<<<<< Updated upstream
-=======
         buttonImage.color = new Color32(58, 58, 58, 255);
-        //buttonBackground.color = new Color32(255, 201, 201, 255);
->>>>>>> Stashed changes
+        buttonBackground.color = new Color32(255, 201, 201, 255);
         float vol = audioSource.volume;
         int idx = 0;
-        if (0 < vol) idx = (int)(vol * 3 + 1);        
+        if (0 < vol) idx = (int)(vol * 3 + 1);
+        else
+        {
+            buttonImage.color = new Color32(255, 201, 201, 255);
+            buttonBackground.color = new Color32(58, 58, 58, 255);
+        }
+
         if (idx > 3) idx = 3;
         buttonImage.sprite = speaker[idx];
 
