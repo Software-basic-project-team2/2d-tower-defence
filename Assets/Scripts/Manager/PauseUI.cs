@@ -52,12 +52,12 @@ public class PauseUI : MonoBehaviour
 
     public void OnHomeButtonClicked()
     {
-        SceneManager.LoadScene("MainScene");
+        GameManager.instance.LoadMainScene();
     }
         
     public void OnRestartButtonClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.ReloadCurrentPlayMap();
     }
 
     public void OnExitButtonClicked()
