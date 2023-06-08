@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,9 @@ public class PauseUI : MonoBehaviour
 {
     public GameObject pauseUI;
     private bool isPaused = false;
+    public TMP_Text homeText;
+    public TMP_Text restartText;
+    public TMP_Text exitText;
 
     private void Start()
     {
@@ -63,5 +67,27 @@ public class PauseUI : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OnHomeButtonPointerEnter()
+    {
+        homeText.text = "Home";
+    }
+
+    public void OnRestartButtonPointerEnter()
+    {
+        restartText.text = "Restart";
+    }
+
+    public void OnExitButtonPointerEnter()
+    {
+        exitText.text = "Exit";
+    }
+
+    public void OnPointerExit()
+    {
+        homeText.text = "";
+        restartText.text = "";
+        exitText.text = "";
     }
 }
