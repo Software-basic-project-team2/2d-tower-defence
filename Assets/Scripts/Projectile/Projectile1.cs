@@ -6,7 +6,8 @@ public class Projectile1 : Projectile
 {
     public override void InitializeField()
     {
-        Speed = 10f;
+        Damage = 50;
+        Speed = 40f;
     }
 
     protected override void Update()
@@ -25,7 +26,7 @@ public class Projectile1 : Projectile
         if ((Target.GetComponent<Transform>().position - transform.position).magnitude <= 1f && HasCollided == false)
         {
             Collide();
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.3f);
         }
     }
 

@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour {
    
 
     private int currentWaypointIndex = 0;
-    private float initialMoveSpeed = 6f;
-    public float moveSpeed = 6f; //Movement2D 스크립트의  movespeed와 동일 합쳐도 되는지는 검토 후 조정
+    public float initialMoveSpeed;
+    public float moveSpeed; //Movement2D 스크립트의  movespeed와 동일 합쳐도 되는지는 검토 후 조정
 
     public int damageAmount = 10;
     private PlayerController player;
@@ -79,6 +79,7 @@ public class Enemy : MonoBehaviour {
         hp = InitialHp;
         gameObject.GetComponent<Animator>().SetBool("isWalking", true);
         player = FindObjectOfType<PlayerController>();
+        moveSpeed = initialMoveSpeed;
     }
     #region Update Logic
     private void Update()
