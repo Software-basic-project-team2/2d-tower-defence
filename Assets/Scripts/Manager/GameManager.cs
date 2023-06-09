@@ -57,7 +57,12 @@ public class GameManager : MonoBehaviour
 
     private void InitWaypoints()
     {
-        waypoints = GameObject.FindGameObjectsWithTag("Waypoint").Select(obj => obj.transform).ToArray();
+        // waypoints = GameObject.FindGameObjectsWithTag("Waypoint").Select(obj => obj.transform).ToArray();
+        Transform waypointParent = GameObject.Find("Waypoints").transform;
+        waypoints = new Transform[waypointParent.childCount];
+        for (int i = 0; i < waypoints.Length; i++)
+            waypoints[i] = waypointParent.GetChild(i);
+
     }
     #endregion
 
