@@ -59,6 +59,11 @@ public class SoundController : MonoBehaviour
             buttonImage.sprite = speaker[0];
             return;
         }
+<<<<<<< Updated upstream
+=======
+        buttonImage.color = new Color32(58, 58, 58, 255);
+        //buttonBackground.color = new Color32(255, 201, 201, 255);
+>>>>>>> Stashed changes
         float vol = audioSource.volume;
         int idx = 0;
         if (0 < vol) idx = (int)(vol * 3 + 1);        
