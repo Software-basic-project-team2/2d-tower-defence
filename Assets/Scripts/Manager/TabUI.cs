@@ -14,11 +14,11 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     Tower.Type type;
     GameObject SpawnedTower = null;
 
-    // 타워 설치 비용
-    public int tower1Cost = 10;
-    public int tower2Cost = 10;
-    public int tower3Cost = 10;
-    public int tower4Cost = 10;
+    // 타워 설치 비용 (Tower에서 관리)
+    //public int tower1Cost = 10;
+    //public int tower2Cost = 10;
+    //public int tower3Cost = 10;
+    //public int tower4Cost = 10;
 
 
     Vector3 mousePosition(float yDiff = 2)
@@ -37,59 +37,42 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void onTower1Clicked()
     {
-        if(CoinManager.Instance.coin >= tower1Cost)
+        if(CoinManager.Instance.coin >= Tower.Tower1SpawnCost)
         {
             PreCondition();
             type = Tower.Type.Tower1;
             SpawnedTower = Instantiate(Tower1Image, mousePosition(), Quaternion.identity);
-
-            // 재화 감소
-            CoinManager.Instance.Decreasecoin(tower1Cost);
-
-        }
-        
+        }        
     }
 
     public void onTower2Clicked()
     {
-        if (CoinManager.Instance.coin >= tower2Cost)
+        if (CoinManager.Instance.coin >= Tower.Tower2SpawnCost)
         {
             PreCondition();
             type = Tower.Type.Tower2;
             SpawnedTower = Instantiate(Tower2Image, mousePosition(), Quaternion.identity);
-
-            // 재화 감소
-            CoinManager.Instance.Decreasecoin(tower2Cost);
-        }
-            
+        }            
     }
 
     public void onTower3Clicked()
     {
-        if (CoinManager.Instance.coin >= tower3Cost)
+        if (CoinManager.Instance.coin >= Tower.Tower3SpawnCost)
         {
             PreCondition();
             type = Tower.Type.Tower3;
             SpawnedTower = Instantiate(Tower3Image, mousePosition(), Quaternion.identity);
-
-            // 재화 감소
-            CoinManager.Instance.Decreasecoin(tower3Cost);
-        }
-            
+        }            
     }
 
     public void onTower4Clicked()
     {
-        if (CoinManager.Instance.coin >= tower3Cost)
+        if (CoinManager.Instance.coin >= Tower.Tower4SpawnCost)
         {
             PreCondition();
             type = Tower.Type.Tower4;
             SpawnedTower = Instantiate(Tower4Image, mousePosition(), Quaternion.identity);
-
-            // 재화 감소
-            CoinManager.Instance.Decreasecoin(tower4Cost);
-        }
-            
+        }            
     }
 
     public void onNextRoundClicked()
@@ -122,11 +105,14 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if (Input.GetMouseButtonDown(0) && CanSpawnable())
             {
-                Tower.Builder()
-                    .DefaultTower(type)
+                Tower tower = Tower.Builder()
+                    .Level1Tower(type)
                     .Position(mousePosition())
-                    .Build();
+                    .Build().GetComponent<Tower>();
                 Destroy(SpawnedTower);
+
+                CoinManager.Instance.Decreasecoin(tower.Cost);
+
                 SpawnedTower = null;
             }
 

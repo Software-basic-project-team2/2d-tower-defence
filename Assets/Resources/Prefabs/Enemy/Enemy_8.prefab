@@ -144,9 +144,12 @@ MonoBehaviour:
   burnTimeRemaing: 0
   stunTimeRemaing: 0
   waypoints: []
+  wayPointCount: 0
+  initialMoveSpeed: 9
   moveSpeed: 8
   damageAmount: 10
-  InitialHp: 200
+  coinReward: 50
+  InitialHp: 300
 --- !u!210 &8937587988988133023
 SortingGroup:
   m_ObjectHideFlags: 0
