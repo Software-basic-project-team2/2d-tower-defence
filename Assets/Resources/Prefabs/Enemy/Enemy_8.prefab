@@ -148,8 +148,8 @@ MonoBehaviour:
   initialMoveSpeed: 9
   moveSpeed: 8
   damageAmount: 10
-  coinReward: 50
-  InitialHp: 300
+  coinReward: 25
+  InitialHp: 1000
 --- !u!210 &8937587988988133023
 SortingGroup:
   m_ObjectHideFlags: 0
