@@ -178,11 +178,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7647195984229369159}
-  - component: {fileID: 5953190201795358971}
-  - component: {fileID: 973573703778125118}
-  - component: {fileID: 1636111063}
-  - component: {fileID: 2914295280108778092}
   - component: {fileID: 4852740721596803879}
+  - component: {fileID: 1636111063}
+  - component: {fileID: 973573703778125118}
+  - component: {fileID: 2914295280108778092}
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Tower
@@ -203,25 +202,42 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4856661569771701312}
+  - {fileID: 970956451261254883}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5953190201795358971
-CircleCollider2D:
+--- !u!50 &4852740721596803879
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5012109670245564110}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!210 &1636111063
+SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5012109670245564110}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.54}
-  serializedVersion: 2
-  m_Radius: 3
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!114 &973573703778125118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,18 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6f3c47371e85c479319fa8102db5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Center: {fileID: 970956451261254883}
   CanAttack: 1
---- !u!210 &1636111063
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5012109670245564110}
-  m_Enabled: 1
-  m_SortingLayerID: -2021860623
-  m_SortingLayer: 1
-  m_SortingOrder: 0
 --- !u!114 &2914295280108778092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,27 +281,6 @@ MonoBehaviour:
     rate: 0
     range: 0
     cost: 0
---- !u!50 &4852740721596803879
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5012109670245564110}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &5046374962057924131
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +365,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6416950825044454863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970956451261254883}
+  m_Layer: 0
+  m_Name: Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970956451261254883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416950825044454863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7647195984229369159}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7313596281102741211
 GameObject:
   m_ObjectHideFlags: 0
