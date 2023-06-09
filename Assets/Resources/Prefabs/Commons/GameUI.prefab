@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 5040054969068011195}
   - component: {fileID: 412123075097391552}
   - component: {fileID: 2101896627017040544}
-  - component: {fileID: 1773475687}
+  - component: {fileID: 2076939151886297252}
   m_Layer: 0
   m_Name: TowerInspector
   m_TagString: Untagged
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1773475687
+--- !u!114 &2076939151886297252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -908,9 +908,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773475683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95bdd3ec4b28454dbf847842715a49f, type: 3}
+  m_Script: {fileID: 11500000, guid: 99ce07c10fb11dd40b47133f01a1fb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDamage: {fileID: 758168806}
+  textLevel: {fileID: 1739370583}
 --- !u!1 &1845810138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,10 +3719,6 @@ MonoBehaviour:
   Tower2Image: {fileID: 2202757072970909244, guid: c73db9b0f00c07f48bf2e47bb9bf5af3, type: 3}
   Tower3Image: {fileID: 5332083601294232500, guid: 0553fb6ec6179fc4c9781f191b248124, type: 3}
   Tower4Image: {fileID: 50327313717889951, guid: 4578f474db901864186cf0ef51e9749f, type: 3}
-  tower1Cost: 10
-  tower2Cost: 10
-  tower3Cost: 10
-  tower4Cost: 10
 --- !u!114 &1473108476830293695
 MonoBehaviour:
   m_ObjectHideFlags: 0
