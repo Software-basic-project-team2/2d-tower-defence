@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
     public Enemy Target;
-    public int Damage = 5;
+    public int Damage;
     public float Speed = 10f;
     public bool HasCollided = false;
 

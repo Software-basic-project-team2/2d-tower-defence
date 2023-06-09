@@ -6,7 +6,6 @@ public class Projectile1 : Projectile
 {
     public override void InitializeField()
     {
-        Damage = 50;
         Speed = 40f;
     }
 
