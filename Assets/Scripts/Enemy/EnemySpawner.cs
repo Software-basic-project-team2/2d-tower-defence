@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
     public void NextRound()
     {
         if (isRoundNow()) return;
-        if (++round >= EnemySpawnRule.RoundMax) return;
+        if (++round > EnemySpawnRule.RoundMax) return;
         coroutine = SpawnEnemy();
         StartCoroutine(coroutine);
         Debug.Log("NextRound");

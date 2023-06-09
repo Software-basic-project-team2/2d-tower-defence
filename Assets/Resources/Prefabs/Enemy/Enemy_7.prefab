@@ -146,8 +146,8 @@ MonoBehaviour:
   waypoints: []
   wayPointCount: 0
   initialMoveSpeed: 6
-  moveSpeed: 8
-  damageAmount: 20
+  moveSpeed: 6
+  damageAmount: 10
   coinReward: 100
   InitialHp: 1000
 --- !u!210 &7521137234127276382

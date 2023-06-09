@@ -147,8 +147,8 @@ MonoBehaviour:
   wayPointCount: 0
   initialMoveSpeed: 10
   moveSpeed: 8
-  damageAmount: 15
-  coinReward: 30
+  damageAmount: 7
+  coinReward: 20
   InitialHp: 200
 --- !u!210 &2083568598499015409
 SortingGroup:
