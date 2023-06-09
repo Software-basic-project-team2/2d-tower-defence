@@ -49,12 +49,12 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnEnemy()
     {
         Debug.Log("Current Round: " + round);
-        while (spawnRule.isEnemyLeft(round))
+        while (spawnRule.isEnemyLeft())
         {
-            Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex(round)], transform);
+            Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex()], transform);
             yield return new WaitForSeconds(spawnTime);
         }
-
+        spawnRule.NextRound();
         coroutine = null;
         Debug.Log($" Round {round} end!");
     }
