@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TowerDragUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //inspector에서 가져오기
     public GameObject Tower1Image;
