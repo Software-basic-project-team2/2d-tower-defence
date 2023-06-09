@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &183892431916147014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218826102458988811}
+  m_Layer: 0
+  m_Name: Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218826102458988811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183892431916147014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6746737853512023955}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228453912995389528
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,9 +327,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6746737853512023955}
   - component: {fileID: 7285852905848162862}
-  - component: {fileID: 7285852905848162863}
-  - component: {fileID: 3914950725534497875}
   - component: {fileID: 1595224387}
+  - component: {fileID: 3914950725534497875}
   m_Layer: 0
   m_Name: Tower2
   m_TagString: Tower
@@ -319,6 +349,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8423742965268250260}
+  - {fileID: 218826102458988811}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -343,22 +374,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7285852905848162863
-CircleCollider2D:
+--- !u!210 &1595224387
+SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8219035644434023450}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.54}
-  serializedVersion: 2
-  m_Radius: 3
+  m_SortingLayerID: -2021860623
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!114 &3914950725534497875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,15 +397,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb5e8d11cfe98d448c496c1eb8aade2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Center: {fileID: 218826102458988811}
   CanAttack: 1
---- !u!210 &1595224387
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8219035644434023450}
-  m_Enabled: 1
-  m_SortingLayerID: -2021860623
-  m_SortingLayer: 1
-  m_SortingOrder: 0

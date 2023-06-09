@@ -11,7 +11,6 @@ public class Projectile2 : Projectile
 
     public override void InitializeField()
     {
-        transform.localPosition = new Vector3(0, 1.2f, 0);
         Speed = 5f;
         InitialTowerPos = gameObject.transform.position;
         TargetPos = Target.GetComponent<Transform>().position;

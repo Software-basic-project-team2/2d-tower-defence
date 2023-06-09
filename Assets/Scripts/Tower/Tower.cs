@@ -10,15 +10,13 @@ public abstract class Tower : MonoBehaviour
 
     //타워 상태 저장변수
     #region Tower Variables
-    public float AttackRadius //공격 범위
+    [SerializeField] private Transform Center;
+    public Vector3 CenterPosition //타워 중심점
     {
-        get {
-            return GetComponent<CircleCollider2D>().radius;
-        }
-        set {            
-            GetComponent<CircleCollider2D>().radius = value;
-        }
-    } 
+        get { return Center.position; }
+        private set { }
+    }
+    public float AttackRadius { get; set; }//공격 범위
     public float AttackCycleSecond { get; set; } //공격 주기
     public bool CanAttack = true;
     public int Damage { get; set; } //타워 공격력
@@ -58,7 +56,7 @@ public abstract class Tower : MonoBehaviour
         attackable = true;
 
         //타워 상태 설정(기본값)
-        AttackRadius = GetComponent<CircleCollider2D>().radius;
+        AttackRadius = 3;
         AttackCycleSecond = 1f;
         Damage = 5;
         Level = 1;
@@ -106,8 +104,7 @@ public abstract class Tower : MonoBehaviour
     protected Enemy FindAttackable()
     {
         if (!attackable) return null;
-        Vector2 offsetPosition = (Vector2)transform.position + GetComponent<CircleCollider2D>().offset;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(offsetPosition, AttackRadius * scale, LayerMask.GetMask("Enemy"));
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(CenterPosition, AttackRadius * scale, LayerMask.GetMask("Enemy"));
         if (colliders.Length == 0) return null;
         int idx = 0;
         float minDistance = 0;
@@ -127,7 +124,7 @@ public abstract class Tower : MonoBehaviour
     protected virtual void Attack(Enemy enemy)
     {
         if (!attackable) return;
-        GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), transform);
+        GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), CenterPosition, Quaternion.identity, transform);
         Projectile newProjectile = obj.GetComponent<Projectile>();
         newProjectile.Target = enemy;
         newProjectile.Damage = Damage;
