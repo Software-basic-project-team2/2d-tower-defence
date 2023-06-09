@@ -30,47 +30,34 @@ public class TowerBuilder
     }
     #endregion
 
+    private GameObject obj;
+    private Tower tower;
+
     #region Variables Setting
     private Vector2 position;
-    Tower.Type type;
-    private int level;
     private float attackRadius;
     private float attackCycleSecond;
     private int damage;
+    private int cost;
 
-    public TowerBuilder DefaultTower(Tower.Type type)
+    public TowerBuilder Level1Tower(Tower.Type type)
     {
-        Position(Vector2.zero);
-        Type(type);
-        Level(1);
-        AttackRadius(5);
-        AttackCycleSecond(1);
-        Damage(1);
-        switch(type)
-        {
-            case Tower.Type.Tower1:
-                break;
-            case Tower.Type.Tower2:
-                break;
-            case Tower.Type.Tower3:
-                break;
-            case Tower.Type.Tower4:
-                break;
-        }
+        obj = GameObject.Instantiate(towers[(int)type], Vector2.zero, Quaternion.identity, GameObject.Find("Towers").transform);
+        tower = obj.GetComponent<Tower>();
+
+        position = obj.transform.position;
+        attackRadius = tower.AttackRadius;
+        attackCycleSecond = tower.AttackCycleSecond;
+        damage = tower.Damage;
+        cost = tower.Cost;
+
+        obj.SetActive(false);
+
         return this;
     }
-
     public TowerBuilder Position(Vector2 position)
     {
         this.position = position; return this;
-    }
-    public TowerBuilder Type(Tower.Type type) 
-    {
-        this.type = type; return this; 
-    }
-    public TowerBuilder Level(int level)
-    {
-        this.level = level; return this;
     }
     public TowerBuilder AttackRadius(float attackRadius)
     {
@@ -84,18 +71,20 @@ public class TowerBuilder
     {
         this.damage = damage; return this;
     }
+    public TowerBuilder Cost(int cost)
+    {
+        this.cost = cost; return this;
+    }
     #endregion
 
     public GameObject Build()
     {
-        GameObject obj = GameObject.Instantiate(towers[(int)type], position, Quaternion.identity, GameObject.Find("Towers").transform);
-        Tower tower = obj.GetComponent<Tower>();
-
-        tower.Level = level;
+        obj.SetActive(true);
+        tower.transform.position = position;
         tower.AttackRadius = attackRadius;
         tower.AttackCycleSecond = attackCycleSecond;
         tower.Damage = damage;
-        tower.SyncSprite();
+        tower.Cost = cost;
 
         return obj;
     }

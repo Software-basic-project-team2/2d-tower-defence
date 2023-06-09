@@ -4,6 +4,30 @@ using UnityEngine;
 
 public class Tower3 : Tower
 {
+    protected override void SetValues(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                AttackRadius = 3f;
+                AttackCycleSecond = 1f;
+                Damage = 30;
+                Cost = Tower3SpawnCost;
+                return;
+            case 2:
+                AttackRadius = 3f;
+                AttackCycleSecond = 1f;
+                Damage = 40;
+                Cost = 50;  //임의값
+                return;
+            case 3:
+                AttackRadius = 3f;
+                AttackCycleSecond = 1f;
+                Damage = 60;
+                Cost = 50;  //임의값
+                return;
+        }
+    }
     protected override string ProjectileName()
     {
         return "Projectile3";

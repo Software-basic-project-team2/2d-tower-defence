@@ -7,6 +7,11 @@ public abstract class Tower : MonoBehaviour
 {
     public static readonly int MaxLevel = 3;
     public static readonly int TypeCount = 4;
+    public const int Tower1SpawnCost = 30;
+    public const int Tower2SpawnCost = 100;
+    public const int Tower3SpawnCost = 60;
+    public const int Tower4SpawnCost = 180;
+
 
     //타워 상태 저장변수
     #region Tower Variables
@@ -16,19 +21,11 @@ public abstract class Tower : MonoBehaviour
         get { return Center.position; }
         private set { }
     }
+    public int Level { get; set; } //타워 레벨
     public float AttackRadius { get; set; }//공격 범위
     public float AttackCycleSecond { get; set; } //공격 주기
-    public bool CanAttack = true;
     public int Damage { get; set; } //타워 공격력
-    public int Level 
-    {
-        get { return level; }
-        set
-        {
-            if (!(1 <= value && value <= 3)) value = 1;
-            level = value;
-        } 
-    } private int level; //타워 레벨
+    public int Cost;
 
     #region Inner Variables
     //레벨마다 다른 모양이 되기위한 참조변수
@@ -37,6 +34,7 @@ public abstract class Tower : MonoBehaviour
     private SpriteRenderer plate_back;
     private float scale;
     protected bool attackable;
+    protected bool CanAttack = true;
     #endregion
 
     #endregion
@@ -56,10 +54,8 @@ public abstract class Tower : MonoBehaviour
         attackable = true;
 
         //타워 상태 설정(기본값)
-        AttackRadius = 3;
-        AttackCycleSecond = 1f;
-        Damage = 5;
         Level = 1;
+        SetValues(Level);
         LoadSprites();
         SyncSprite();
     }
@@ -121,14 +117,14 @@ public abstract class Tower : MonoBehaviour
     }
 
     //인자로 들어온 enemy 공격
-    protected virtual void Attack(Enemy enemy)
+    protected void Attack(Enemy enemy)
     {
         if (!attackable) return;
         GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), CenterPosition, Quaternion.identity, transform);
-        Projectile newProjectile = obj.GetComponent<Projectile>();
+        Projectile newProjectile = obj.GetComponent<Projectile>();        
         newProjectile.Target = enemy;
         newProjectile.Damage = Damage;
-        newProjectile.InitializeField();
+        newProjectile.InitializeField();        
 
         StartCoroutine("SetAttackCycle");
     }
@@ -145,7 +141,16 @@ public abstract class Tower : MonoBehaviour
     }
     #endregion
 
-    public virtual void SyncSprite()
+    public void LevelUp()
+    {
+        if (!(1 <= Level && Level <= 3)) return;
+        SetValues(++Level);
+        SyncSprite();
+    }
+
+    protected abstract void SetValues(int level);
+
+    private void SyncSprite()
     {
         const int Body = 0, PlateFront = 1, PlateBack = 2;
 
