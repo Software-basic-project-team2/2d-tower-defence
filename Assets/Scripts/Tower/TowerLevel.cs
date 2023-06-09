@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
+=======
+[CreateAssetMenu]
+>>>>>>> Stashed changes
 public class TowerLevel : MonoBehaviour
 {
     public GameObject towerPrefab;
