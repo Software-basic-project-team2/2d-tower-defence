@@ -98,7 +98,7 @@ public class MapHardEnemySpawnRule : EnemySpawnRule
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
-            /*Round 1*/ { 0, 4, 3, 0,   3, 0, 0, 0,   0, 0, 3, 0 },
+            /*Round 1*/ { 0, 3, 0, 2,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 2, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 3,   0, 0, 0, 0 },
             /*Round 4*/ { 0, 0, 0, 0,   1, 0, 0, 0,   0, 0, 0, 0 },
