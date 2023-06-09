@@ -7,12 +7,13 @@ public class Projectile2 : Projectile
     protected float blastRadius = 8f;
     protected float duration = 1.5f;
     public Vector3 TargetPos;
-    public Vector2 InitialTowerPos;
 
-    public override void InitializeField()
+    public override void InitializeField(Enemy enemy, int damage, float duration)
     {
+        Target = enemy;
+        Damage = damage;
+        this.duration = duration;
         Speed = 5f;
-        InitialTowerPos = gameObject.transform.position;
         TargetPos = Target.GetComponent<Transform>().position;
         Vector2 direction = TargetPos - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);

@@ -181,8 +181,12 @@ GameObject:
   - component: {fileID: 4852740721596803879}
   - component: {fileID: 1636111063}
   - component: {fileID: 973573703778125118}
+
   - component: {fileID: -6817779465139179783}
   - component: {fileID: 1748976680630774643}
+=======
+  - component: {fileID: 897597850122626096}
+
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Tower
@@ -253,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 970956451261254883}
   Cost: 0
+
 --- !u!61 &-6817779465139179783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -280,6 +285,9 @@ BoxCollider2D:
   m_Size: {x: 1.4, y: 1.8}
   m_EdgeRadius: 0
 --- !u!114 &1748976680630774643
+=======
+--- !u!114 &897597850122626096
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,7 +10,7 @@ public abstract class Projectile : MonoBehaviour
     public float Speed = 10f;
     public bool HasCollided = false;
 
-    public abstract void InitializeField();
+    public abstract void InitializeField(Enemy enemy, int damage, float duration);
 
     protected abstract void Update();
 

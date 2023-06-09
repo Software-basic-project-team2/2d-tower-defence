@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Projectile1 : Projectile
 {
-    public override void InitializeField()
+    public override void InitializeField(Enemy enemy, int damage, float duration)
     {
+        Target = enemy;
+        Damage = damage;
         Speed = 40f;
     }
 
