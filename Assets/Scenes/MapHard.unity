@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 703500749}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63478,7 +63478,7 @@ GameObject:
   - component: {fileID: 1033463466}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63861,7 +63861,7 @@ GameObject:
   - component: {fileID: 1705644885}
   m_Layer: 0
   m_Name: Tilemap_Road_Intermediate
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
