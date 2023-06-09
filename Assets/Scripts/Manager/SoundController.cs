@@ -63,19 +63,19 @@ public class SoundController : MonoBehaviour
         if (isMuted)
         {
             buttonImage.sprite = speaker[0];
-            buttonImage.color = new Color32(255, 201, 201, 255);
-            buttonBackground.color = new Color32(58, 58, 58, 255);
+            //buttonImage.color = new Color32(255, 201, 201, 255);
+            //buttonBackground.color = new Color32(58, 58, 58, 255);
             return;
         }
-        buttonImage.color = new Color32(58, 58, 58, 255);
-        buttonBackground.color = new Color32(255, 201, 201, 255);
+        //buttonImage.color = new Color32(58, 58, 58, 255);
+        //buttonBackground.color = new Color32(255, 201, 201, 255);
         float vol = audioSource.volume;
         int idx = 0;
         if (0 < vol) idx = (int)(vol * 3 + 1);
         else
         {
-            buttonImage.color = new Color32(255, 201, 201, 255);
-            buttonBackground.color = new Color32(58, 58, 58, 255);
+            //buttonImage.color = new Color32(255, 201, 201, 255);
+            //buttonBackground.color = new Color32(58, 58, 58, 255);
         }
 
         if (idx > 3) idx = 3;
