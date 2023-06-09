@@ -146,10 +146,10 @@ MonoBehaviour:
   waypoints: []
   wayPointCount: 0
   initialMoveSpeed: 12
-  moveSpeed: 8
-  damageAmount: 99
+  moveSpeed: 6
+  damageAmount: 30
   coinReward: 1
-  InitialHp: 5000
+  InitialHp: 4000
 --- !u!210 &8033229951026203086
 SortingGroup:
   m_ObjectHideFlags: 0
