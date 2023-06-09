@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class Tower : MonoBehaviour
 {
-    public static readonly int MaxLevel = 3;
-    public static readonly int TypeCount = 4;
+    public const int MaxLevel = 3;
+    public const int TypeCount = 4;
     public const int Tower1SpawnCost = 30;
     public const int Tower2SpawnCost = 100;
     public const int Tower3SpawnCost = 60;

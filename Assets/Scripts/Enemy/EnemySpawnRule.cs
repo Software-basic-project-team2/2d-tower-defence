@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //각 씬에서 몬스터 스폰 규칙을 정의합니다.
 public abstract class EnemySpawnRule

@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
 {
     public PlayMap InitialGameMode; //기본 게임모드 (inspector에서 설정)
     public PlayMap Map { get; private set; }
+    public bool isPaused;
 
     private void Awake()
     {
         Singleton();
         Map = InitialGameMode;
+        isPaused = false;
     }
 
     #region GameScene 로딩 코드

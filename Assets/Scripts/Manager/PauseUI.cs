@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PauseUI : MonoBehaviour
 {
     public GameObject pauseUI;
-    private bool isPaused = false;
     public TMP_Text homeText;
     public TMP_Text restartText;
     public TMP_Text exitText;
@@ -16,7 +15,7 @@ public class PauseUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (GameManager.instance.isPaused)
             {
                 ResumeGame();
             }
@@ -31,14 +30,14 @@ public class PauseUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseUI.SetActive(false);
-        isPaused = false;
+        GameManager.instance.isPaused = false;
     }
 
     private void PauseGame()
     {
         Time.timeScale = 0;
         pauseUI.SetActive(true);
-        isPaused = true;
+        GameManager.instance.isPaused = true;
     }
 
     public void OnXButtonClicked()
