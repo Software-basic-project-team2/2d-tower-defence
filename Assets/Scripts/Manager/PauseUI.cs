@@ -48,13 +48,15 @@ public class PauseUI : MonoBehaviour
 
     public void OnHomeButtonClicked()
     {
-        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
+        OnXButtonClicked();
+        //GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
         GameManager.instance.LoadMainScene();
     }
         
     public void OnRestartButtonClicked()
     {
-        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
+        OnXButtonClicked();
+        //GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
         GameManager.instance.ReloadCurrentPlayMap();
     }
 
