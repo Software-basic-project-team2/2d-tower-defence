@@ -22,26 +22,26 @@ public class CoinManager : MonoBehaviour
 
     private void Start()
     {
-        UpdatecoinText();
+        UpdateCoinText();
     }
 
     // 재화 증가 함수
-    public void Increasecoin(int amount)
+    public void IncreaseCoin(int amount)
     {
         coin += amount;
-        UpdatecoinText();
+        UpdateCoinText();
     }
 
     // 재화 감소 함수
-    public void Decreasecoin(int amount)
+    public void DecreaseCoin(int amount)
     {
         coin -= amount;
-        UpdatecoinText();
+        UpdateCoinText();
     }
 
     // 재화 텍스트 업데이트
-    private void UpdatecoinText()
+    private void UpdateCoinText()
     {
-        coinText.text = "Coin: " + coin.ToString();
+        coinText.text = coin.ToString();
     }
 }

@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour {
                 Destroy(gameObject, 0.7f);
                 UpdateHPBar();
                 // 재화 증가
-                CoinManager.Instance.Increasecoin(coinReward);
+                CoinManager.Instance.IncreaseCoin(coinReward);
                 return;
             }
             UpdateHPBar();
