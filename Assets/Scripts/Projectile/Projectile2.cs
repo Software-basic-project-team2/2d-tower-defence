@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Projectile2 : Projectile
 {
-    protected float blastRadius = 8f;
+
+    //public Enemy Target;
+    //public int Damage;
+    //public float Speed = 10f;
+    //public bool HasCollided = false;
+    protected float blastRadius = 14f;
     protected float duration = 1.5f;
     public Vector3 TargetPos;
     public Vector2 InitialTowerPos;

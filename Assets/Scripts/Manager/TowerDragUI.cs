@@ -121,7 +121,7 @@ public class TowerDragUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             SpawnedTower.transform.position = mousePosition();
 
             if (Input.GetMouseButtonDown(0) && CanSpawnable())
-            {
+            {                
                 Tower.Builder()
                     .DefaultTower(type)
                     .Position(mousePosition())
@@ -139,4 +139,5 @@ public class TowerDragUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     }
 
+   
 }

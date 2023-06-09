@@ -11,34 +11,25 @@ public class GameManager : MonoBehaviour
 {
     public PlayMap InitialGameMode; //기본 게임모드 (inspector에서 설정)
     public PlayMap Map { get; private set; }
+    public bool isRoundNow;
 
     private void Awake()
     {
         Singleton();
         Map = InitialGameMode;
+        isRoundNow = false;
     }
 
     #region GameScene 로딩 코드
-    public void LoadMainScene()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
-
     public void LoadPlayMap(PlayMap map)
     {
         Map = map;
-        SceneManager.LoadScene("Map" + Map.ToString());
-        StartCoroutine("LoadPlayMapAsync");
-    }
-
-    public void ReloadCurrentPlayMap()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StartCoroutine("LoadPlayMapAsync");
     }
 
     IEnumerator LoadPlayMapAsync()
     {
+        SceneManager.LoadScene("Map" + Map.ToString());
         yield return new WaitWhile(() => GameObject.Find("Background") == null);
         InitWaypoints();
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile4 : Projectile
 {
-    protected float blastRadius = 10f;
+    protected float blastRadius = 14f;
     protected float duration = 2f;
     public Vector3 TargetPos;
     public Vector2 InitialTowerPos;

@@ -4,66 +4,54 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float spawnTime; // 적 생성주기
-
     private GameObject[] enemyPrefabs; // 적 프리팹
     private EnemySpawnRule spawnRule;
-    private int round;
-    private IEnumerator coroutine;
+    [SerializeField]
+    private float spawnTime; // 적 생성주기
+    private bool letNextRound;
 
     private void Start()
     {
         Debug.Log("EnemySpawnerStart");
-        round = 0;
-        coroutine = null;
-        ResetSpawner();
-    }
-
-    public void ResetSpawner()
-    {
         spawnRule = EnemySpawnRule.GetEnemySpawnRule();
-        round = 0;
-        StopRound();
+        letNextRound = false;
         enemyPrefabs = new GameObject[Enemy.TypeCount];
         for (int i = 0; i < Enemy.TypeCount; i++)
+        {
             enemyPrefabs[i] = Resources.Load<GameObject>("Prefabs\\Enemy\\Enemy_" + (i + 1));
-    }
-    public void SetSpawnTime(float spawnTime)
-    {
-        this.spawnTime = spawnTime;
-    }
-
-    public int CurrentRound() { return round; }
-
-    public bool isRoundNow() { return coroutine != null; }
-
-    public void NextRound()
-    {
-        if (isRoundNow()) return;
-        if (++round >= EnemySpawnRule.RoundMax) return;
-        coroutine = SpawnEnemy();
-        StartCoroutine(coroutine);
-        Debug.Log("NextRound");
+        }
+        StartCoroutine("SpawnEnemy");
     }
 
     private IEnumerator SpawnEnemy()
-    {
-        Debug.Log("Current Round: " + round);
-        while (spawnRule.isEnemyLeft(round))
+    {        
+        for (int round = 1; round <= EnemySpawnRule.RoundMax; round++)
         {
-            Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex(round)], transform);
-            yield return new WaitForSeconds(spawnTime);
-        }
+            yield return new WaitWhile(() => !letNextRound);
+            letNextRound = false;
+            GameManager.instance.isRoundNow = true;
+            Debug.Log("Current Round: " + round);
+            while (spawnRule.isEnemyLeft(round))
+            {
 
-        coroutine = null;
-        Debug.Log($" Round {round} end!");
+                GameObject enemy = Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex(round)], transform);
+                
+                yield return new WaitForSeconds(spawnTime);
+            }
+            GameManager.instance.isRoundNow = false;
+
+            Debug.Log($" Round {round} end!");
+        }
     }
 
-    private void StopRound()
+    public void NextRound()
     {
-        if (!isRoundNow()) return;
-        StopCoroutine(coroutine);
-        coroutine = null;
-        Debug.Log("StopRound");
+        if (GameManager.instance.isRoundNow) return;
+        letNextRound = true;
+    }
+
+    public void SetSpawnTime(float spawnTime)
+    {
+        this.spawnTime = spawnTime;
     }
 }
