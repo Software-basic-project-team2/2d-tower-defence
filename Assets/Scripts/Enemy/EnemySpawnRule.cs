@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,58 +25,108 @@ public abstract class EnemySpawnRule
         return null;
     }
     public const int RoundMax = 10;
-    private int[,] leftEnemies;
-    private int[] totalLeftEnemiesByRound;
+    private int[,] spawnEnemies;
+    private List<int>[] leftEnemies;
+    private List<int>[] leftEnemiesSpecial;
+    private int round;
+    private int index;
+    private int specialIndex;
 
     public EnemySpawnRule()
     {
-        leftEnemies = getRemainEnemiesTable();
-        totalLeftEnemiesByRound = new int[RoundMax];
+        round = 1;
+        index = specialIndex = 0;
+        spawnEnemies = getEnemiesSpawnTable();
+        leftEnemies = new List<int>[RoundMax];
+        leftEnemiesSpecial = new List<int>[RoundMax];
+        for (int i = 0; i < RoundMax; ++i)
+        {
+            leftEnemies[i] = new List<int>();
+            leftEnemiesSpecial[i] = new List<int>();
+        }
+
+        //라운드별 인덱스 초기화
         for (int i = 0; i < RoundMax; i++)
         {
             for (int j = 0; j < Enemy.TypeCount; j++)
             {
-                totalLeftEnemiesByRound[i] += leftEnemies[i, j];
+                for (int k = 0; k < spawnEnemies[i, j]; k++) {
+                    if (j + 1 == 7 || j + 1 == 12) //특수 enemy 따로 카운트
+                        leftEnemiesSpecial[i].Add(j);
+                    else
+                        leftEnemies[i].Add(j);
+                }
+            }
+        }
+
+        //랜덤 셔플
+        for (int i = 0; i < RoundMax; i++)
+        {
+            for (int j = 0; j < leftEnemies[i].Count; j++) //일반 Enemy 셔플
+            {
+                int randIdx = Random.Range(0, leftEnemies[i].Count);
+                int tmp = leftEnemies[i][j];                
+                leftEnemies[i][j] = leftEnemies[i][randIdx];
+                leftEnemies[i][randIdx] = tmp;
+            }
+            for (int j = 0; j < leftEnemiesSpecial[i].Count; j++) //특수 Enemy 셔플
+            {
+                int randIdx = Random.Range(0, leftEnemiesSpecial[i].Count);
+                int tmp = leftEnemiesSpecial[i][j];
+                leftEnemiesSpecial[i][j] = leftEnemiesSpecial[i][randIdx];
+                leftEnemiesSpecial[i][randIdx] = tmp;
             }
         }
     }
 
-    public bool isEnemyLeft(int round)
+    public void NextRound()
+    {
+        if (isEnemyLeft()) return;
+        round++;
+        index = specialIndex = 0;
+    }
+
+    public int CurrentRound()
+    {
+        return round;
+    }
+
+    public bool isEnemyLeft()
     {
         if (!(1 <= round && round <= 10)) return false;
 
-        return totalLeftEnemiesByRound[round - 1] > 0;
+        if (index >= leftEnemies[round - 1].Count) //일반 에너미를 전부 소모함
+            return specialIndex < leftEnemiesSpecial[round - 1].Count;
+
+        return true;
     }
 
     //이 메서드 사용 전 hasRemainEnemies로 사전 조건 검사해줘야 합니다.
     //리턴할 Enemy가 없는 경우 -1 반환!!
-    public int getNextEnemyIndex(int round)
+    public int getNextEnemyIndex()
     {
-        if (!isEnemyLeft(round)) return -1;
-        int randomIndex = -1;
-        do
-        {
-            randomIndex = Random.Range(0, Enemy.TypeCount);
-        }
-        while (leftEnemies[round - 1, randomIndex] <= 0);
-        leftEnemies[round - 1, randomIndex]--;
-        totalLeftEnemiesByRound[round - 1]--;
+        if (!isEnemyLeft()) return -1;
 
-        return randomIndex;
+        if (index >= leftEnemies[round - 1].Count)
+            return leftEnemiesSpecial[round - 1][specialIndex++];
+
+        return leftEnemies[round - 1][index++];
     }
-    protected abstract int[,] getRemainEnemiesTable();
+    protected abstract int[,] getEnemiesSpawnTable();
 }
 
 //MapEasy에서 스폰 규칙 정의
 public class MapEasyEnemySpawnRule : EnemySpawnRule
 {
-    protected override int[,] getRemainEnemiesTable()
+    protected override int[,] getEnemiesSpawnTable()
     {
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
-            /*Round 1*/ { 4, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
-            /*Round 2*/ { 2, 2, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            //Last Spawned Enemy:             |                |
+            //                                V                V
+            /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 4*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
 
@@ -93,11 +144,15 @@ public class MapEasyEnemySpawnRule : EnemySpawnRule
 //MapHard에서 스폰 규칙 정의
 public class MapHardEnemySpawnRule : EnemySpawnRule
 {
-    protected override int[,] getRemainEnemiesTable()
+
+
+    protected override int[,] getEnemiesSpawnTable()
     {
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
+            //Last Spawned Enemy:             |                |
+            //                                V                V
             /*Round 1*/ { 8, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 5, 5, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 15, 0,  0, 0, 0, 0,   0, 0, 0, 0 },
@@ -117,11 +172,13 @@ public class MapHardEnemySpawnRule : EnemySpawnRule
 //MapDesert에서 스폰 규칙 정의
 public class MapDesertEnemySpawnRule : EnemySpawnRule
 {
-    protected override int[,] getRemainEnemiesTable()
+    protected override int[,] getEnemiesSpawnTable()
     {
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
+            //Last Spawned Enemy:             |                |
+            //                                V                V
             /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
@@ -141,11 +198,13 @@ public class MapDesertEnemySpawnRule : EnemySpawnRule
 //MapDungeon에서 스폰 규칙 정의
 public class MapDungeonEnemySpawnRule : EnemySpawnRule
 {
-    protected override int[,] getRemainEnemiesTable()
+    protected override int[,] getEnemiesSpawnTable()
     {
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
+            //Last Spawned Enemy:             |                |
+            //                                V                V
             /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
