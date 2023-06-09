@@ -123,6 +123,8 @@ public class MapEasyEnemySpawnRule : EnemySpawnRule
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
+            //Last Spawned Enemy:             |                |
+            //                                V                V
             /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
@@ -149,6 +151,8 @@ public class MapHardEnemySpawnRule : EnemySpawnRule
         return new int[RoundMax, Enemy.TypeCount]
         {
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
+            //Last Spawned Enemy:             |                |
+            //                                V                V
             /*Round 1*/ { 8, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 5, 5, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 15, 0,  0, 0, 0, 0,   0, 0, 0, 0 },
