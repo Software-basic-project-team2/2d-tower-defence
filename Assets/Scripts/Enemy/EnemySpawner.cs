@@ -9,25 +9,19 @@ public class EnemySpawner : MonoBehaviour
     private GameObject[] enemyPrefabs; // 적 프리팹
     private EnemySpawnRule spawnRule;
     private int round;
-    private IEnumerator coroutine;
+    private bool isRound;
 
     private void Start()
     {
         Debug.Log("EnemySpawnerStart");
         round = 0;
-        coroutine = null;
-        ResetSpawner();
-    }
-
-    public void ResetSpawner()
-    {
+        isRound = false;
         spawnRule = EnemySpawnRule.GetEnemySpawnRule();
-        round = 0;
-        StopRound();
         enemyPrefabs = new GameObject[Enemy.TypeCount];
         for (int i = 0; i < Enemy.TypeCount; i++)
             enemyPrefabs[i] = Resources.Load<GameObject>("Prefabs\\Enemy\\Enemy_" + (i + 1));
     }
+
     public void SetSpawnTime(float spawnTime)
     {
         this.spawnTime = spawnTime;
@@ -35,35 +29,34 @@ public class EnemySpawner : MonoBehaviour
 
     public int CurrentRound() { return round; }
 
-    public bool isRoundNow() { return coroutine != null; }
+    public bool isRoundNow() { return isRound; }
 
     public void NextRound()
     {
         if (isRoundNow()) return;
         if (++round > EnemySpawnRule.RoundMax) return;
-        coroutine = SpawnEnemy();
-        StartCoroutine(coroutine);
+        StartCoroutine("SpawnEnemy");
         Debug.Log("NextRound");
+    }
+
+    private void StopRound()
+    {
+        if (!isRoundNow()) return;
+        StopCoroutine("SpawnEnemy");
+        Debug.Log("StopRound");
     }
 
     private IEnumerator SpawnEnemy()
     {
         Debug.Log("Current Round: " + round);
+        isRound = true;
         while (spawnRule.isEnemyLeft())
         {
             Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex()], transform);
             yield return new WaitForSeconds(spawnTime);
         }
         spawnRule.NextRound();
-        coroutine = null;
-        Debug.Log($" Round {round} end!");
-    }
-
-    private void StopRound()
-    {
-        if (!isRoundNow()) return;
-        StopCoroutine(coroutine);
-        coroutine = null;
-        Debug.Log("StopRound");
+        isRound = false;
+        Debug.Log($" Round {round} end.");
     }
 }
