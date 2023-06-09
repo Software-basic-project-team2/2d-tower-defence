@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< Updated upstream
-=======
+
 [CreateAssetMenu]
->>>>>>> Stashed changes
-public class TowerLevel : MonoBehaviour
+public class TowerLevel : ScriptableObject
 {
     public GameObject towerPrefab;
     public Weapon[] weapon;
