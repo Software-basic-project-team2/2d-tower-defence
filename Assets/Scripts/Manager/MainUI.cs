@@ -11,35 +11,13 @@ public class MainUI : MonoBehaviour
     public TMP_Text IntermediateText;
     public TMP_Text AdvancedText;
     public TMP_Text ExperText;
-    private string PointerEnterText = "Play";
-    public Color c = new Color32(255, 0, 0, 255);
 
-    private void Start()
-    {
-        //BeginnerText.color = new Color32(255, 0, 0, 255);
-    }
-
-    private void ClearText()
-    {
-        BeginnerText.text = "";
-        IntermediateText.text = "";
-        AdvancedText.text = "";
-        ExperText.text = "";
-    }
-    private void ResetText()
-    {
-        BeginnerText.text = "Beginner";
-        BeginnerText.color = Color.white;
-        IntermediateText.text = "Intermediate";
-        IntermediateText.color = Color.white;
-        AdvancedText.text = "Advanced";
-        AdvancedText.color = Color.white;
-        ExperText.text = "Expert";
-        ExperText.color = Color.white;
-    }
     public void OnButtonPointerExit()
     {
-        ResetText();
+        BeginnerText.color = Color.white;
+        IntermediateText.color = Color.white;
+        AdvancedText.color = Color.white;
+        ExperText.color = Color.white;
     }
 
     public void OnBeginnerButtonClicked()
@@ -49,8 +27,6 @@ public class MainUI : MonoBehaviour
     }
     public void OnBeginnerButtonPointerEnter()
     {
-        ClearText();
-        BeginnerText.text = PointerEnterText;
         BeginnerText.color = new Color32(130, 163, 140, 255);
     }
 
@@ -62,8 +38,6 @@ public class MainUI : MonoBehaviour
     }
     public void OnIntermediateButtonPointerEnter()
     {
-        ClearText();
-        IntermediateText.text = PointerEnterText;
         IntermediateText.color = new Color32(255, 226, 165, 255);
     }
 
@@ -74,8 +48,6 @@ public class MainUI : MonoBehaviour
     }
     public void OnAdvancedButtonPointerEnter()
     {
-        ClearText();
-        AdvancedText.text = PointerEnterText;
         AdvancedText.color = new Color32(239, 180, 255, 255);
     }
 
@@ -86,8 +58,6 @@ public class MainUI : MonoBehaviour
     }
     public void OnExpertButtonPointerEnter()
     {
-        ClearText();
-        ExperText.text = PointerEnterText;
         ExperText.color = new Color32(136, 255, 205, 255);
     }
 }
