@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerLevel : MonoBehaviour
+[CreateAssetMenu]
+public class TowerLevel : ScriptableObject
 {
     public GameObject towerPrefab;
     public Weapon[] weapon;
