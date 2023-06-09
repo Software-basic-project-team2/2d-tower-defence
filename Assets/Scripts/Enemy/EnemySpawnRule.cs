@@ -125,7 +125,7 @@ public class MapEasyEnemySpawnRule : EnemySpawnRule
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
             //Last Spawned Enemy:             |                |
             //                                V                V
-            /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 1*/ { 3, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 4*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
@@ -179,7 +179,7 @@ public class MapDesertEnemySpawnRule : EnemySpawnRule
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
             //Last Spawned Enemy:             |                |
             //                                V                V
-            /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 1*/ { 3, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 4*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
@@ -205,7 +205,7 @@ public class MapDungeonEnemySpawnRule : EnemySpawnRule
             /*각 열: 해당 타입 Enemy가 해당 라운드에 몇 마리 스폰되는가? */
             //Last Spawned Enemy:             |                |
             //                                V                V
-            /*Round 1*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
+            /*Round 1*/ { 3, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 2*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 3*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
             /*Round 4*/ { 0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0 },
