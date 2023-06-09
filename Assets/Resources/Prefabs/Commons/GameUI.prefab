@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 1773475684}
   - component: {fileID: 1773475686}
   - component: {fileID: 1773475685}
-  - component: {fileID: 1773475687}
+  - component: {fileID: 2673875425989784862}
   m_Layer: 0
   m_Name: TowerInspector
   m_TagString: Untagged
@@ -898,12 +898,12 @@ RectTransform:
   - {fileID: 758168805}
   - {fileID: 1739370582}
   - {fileID: 1108135627}
-  m_Father: {fileID: 2344647632557076211}
+  m_Father: {fileID: 1827022985}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: 587}
+  m_AnchoredPosition: {x: 250, y: -50}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1773475686
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1773475687
+--- !u!114 &2673875425989784862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -992,6 +992,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2344647632557076211}
+  - {fileID: 1773475684}
   m_Father: {fileID: 7880120407363177478}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2420,7 +2421,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1457518248}
-  - {fileID: 1773475684}
   m_Father: {fileID: 1827022985}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
