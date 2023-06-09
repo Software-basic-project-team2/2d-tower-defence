@@ -28,6 +28,10 @@ public abstract class Tower : MonoBehaviour
     public int Cost;
     public float duration;
 
+    
+
+     
+
     #region Inner Variables
     //레벨마다 다른 모양이 되기위한 참조변수
     private SpriteRenderer body;
