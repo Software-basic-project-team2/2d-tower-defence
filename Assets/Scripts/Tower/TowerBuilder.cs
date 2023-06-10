@@ -39,6 +39,7 @@ public class TowerBuilder
     private float attackCycleSecond;
     private int damage;
     private int cost;
+    private float duration;
 
     public TowerBuilder Level1Tower(Tower.Type type)
     {
@@ -50,6 +51,7 @@ public class TowerBuilder
         attackCycleSecond = tower.AttackCycleSecond;
         damage = tower.Damage;
         cost = tower.Cost;
+        duration = tower.Duration;
 
         obj.SetActive(false);
 
@@ -75,6 +77,10 @@ public class TowerBuilder
     {
         this.cost = cost; return this;
     }
+    public TowerBuilder Duration(int duration)
+    {
+        this.duration = duration; return this;
+    }
     #endregion
 
     public GameObject Build()
@@ -85,6 +91,7 @@ public class TowerBuilder
         tower.AttackCycleSecond = attackCycleSecond;
         tower.Damage = damage;
         tower.Cost = cost;
+        tower.Duration = duration;
 
         return obj;
     }

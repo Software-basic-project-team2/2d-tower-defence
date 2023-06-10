@@ -26,7 +26,7 @@ public abstract class Tower : MonoBehaviour
     public float AttackCycleSecond { get; set; } //공격 주기
     public int Damage { get; set; } //타워 공격력
     public int Cost;
-    public float duration;
+    public float Duration;
 
     
 
@@ -129,7 +129,7 @@ public abstract class Tower : MonoBehaviour
         Projectile newProjectile = obj.GetComponent<Projectile>();        
         newProjectile.Target = enemy;
         newProjectile.Damage = Damage;
-        newProjectile.InitializeField(enemy, Damage, duration);        
+        newProjectile.InitializeField(enemy, Damage, Duration);        
 
         StartCoroutine("SetAttackCycle");
     }
