@@ -142,17 +142,14 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (UIHovering) 
             return false;
 
-        //타워 설치된 곳이면 설치 불가
-        if (SpawnedTower != null && SpawnedTower.transform.GetChild(1).GetComponent<InstallPlace>().isInPlace())
+        //타워 설치된 곳 || 길이면 설치 불가
+        if (SpawnedTower != null && !SpawnedTower.transform.GetChild(1).GetComponent<InstallPlace>().canPlace())
             return false;
-
-        //길이면 설치 불가
-        //return false;
 
         return true;
     }
 
-    void UpdateButtonState()
+    public void UpdateButtonState()
     {
         for (int i = 0; i < Tower.TypeCount; i++)
         {
@@ -198,7 +195,6 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Destroy(SpawnedTower);
 
                 CoinManager.Instance.DecreaseCoin(tower.Cost);
-                UpdateButtonState();
 
                 SpawnedTower = null;
             }
