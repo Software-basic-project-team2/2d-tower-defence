@@ -74,11 +74,13 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     IEnumerator TabAnimation(int delta)
     {
+        int AnimationSpeed = 8;
+
         //탭UI 애니메이션
-        for (int i = 0; i < Background.rect.height; i++)
+        for (int i = 0; i < Background.rect.height; i += Math.Abs(delta) * AnimationSpeed)
         {
             Vector3 pos = Background.position;
-            pos.y += delta;
+            pos.y += delta * AnimationSpeed;
             Background.position = pos;
             yield return null;
         }
