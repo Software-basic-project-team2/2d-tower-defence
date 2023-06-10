@@ -8187,6 +8187,17 @@ Transform:
   m_Father: {fileID: 580015198}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492608364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2805282864674119360, guid: cbce2834a85f2c14a99c0346450cf2b3, type: 3}
+  m_PrefabInstance: {fileID: 727127239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e82302a3b55f342ae5c9723e77fbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &541235179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9687,6 +9698,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbce2834a85f2c14a99c0346450cf2b3, type: 3}
+--- !u!114 &747776493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1304835796, guid: cbce2834a85f2c14a99c0346450cf2b3, type: 3}
+  m_PrefabInstance: {fileID: 727127239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5278e875515f52438ea51648f60b4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &764213332
 GameObject:
   m_ObjectHideFlags: 0
@@ -10054,9 +10076,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4935293727884357574, guid: e3765cc09d324074f9053deb514f92dd, type: 3}
-      propertyPath: InitialGameMode
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 492608364}
+    - target: {fileID: 4935293727884357574, guid: e3765cc09d324074f9053deb514f92dd, type: 3}
+      propertyPath: towerInspectorUI
+      value: 
+      objectReference: {fileID: 747776493}
     - target: {fileID: 4935293727884357575, guid: e3765cc09d324074f9053deb514f92dd, type: 3}
       propertyPath: m_Name
       value: GameManager

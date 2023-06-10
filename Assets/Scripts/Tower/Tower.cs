@@ -154,7 +154,7 @@ public abstract class Tower : MonoBehaviour
 
     public void LevelUp()
     {
-        if (!(1 <= Level && Level <= 3)) return;
+        if (!(Level == 1 || Level == 2)) return;
         SetValues(++Level);
         CoinManager.Instance.DecreaseCoin(Cost);
         SyncSprite();

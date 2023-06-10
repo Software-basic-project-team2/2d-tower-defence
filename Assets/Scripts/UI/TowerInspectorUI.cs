@@ -29,12 +29,7 @@ public class TowerInspectorUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.isPaused) return; //일시정지 상태인 경우 리턴
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OffPanel();
-        }
+        if (GameManager.instance.isPaused()) return; //일시정지 상태인 경우 리턴
 
         if (Input.GetMouseButtonDown(0)) // 마우스 좌클릭시
         {
@@ -69,7 +64,8 @@ public class TowerInspectorUI : MonoBehaviour
 
     public void OffPanel()
     {
-        radiusViewer.OffTowerAttackRadius();
+        if (radiusViewer != null) 
+            radiusViewer.OffTowerAttackRadius();
         TowerInspector.SetActive(false);
     }
 

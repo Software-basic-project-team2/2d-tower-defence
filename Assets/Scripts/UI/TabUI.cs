@@ -175,7 +175,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Update()
     {
-        if (GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused()) return;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
