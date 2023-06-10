@@ -12,7 +12,7 @@ public class Projectile4 : Projectile
     {
         Target = enemy;
         Damage = damage;
-        this.duration = duration;
+        // this.duration = duration;
         Speed = 10f;
         TargetPos = Target.GetComponent<Transform>().position;
         Vector2 direction = TargetPos - transform.position;
@@ -21,6 +21,7 @@ public class Projectile4 : Projectile
 
     protected override void Update()
     {
+        if (Target == null) return;
         transform.position = Vector3.Lerp(transform.position, TargetPos, Speed * Time.deltaTime);
 
         // 타겟과 충분히 가까울때 충돌

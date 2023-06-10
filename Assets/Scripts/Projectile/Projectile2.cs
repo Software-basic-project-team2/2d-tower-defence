@@ -10,9 +10,9 @@ public class Projectile2 : Projectile
 
     public override void InitializeField(Enemy enemy, int damage, float duration)
     {
-        Target = enemy;
-        Damage = damage;
-        this.duration = duration;
+        //Target = enemy;
+        //Damage = damage;
+        // this.duration = duration;
         Speed = 5f;
         TargetPos = Target.GetComponent<Transform>().position;
         Vector2 direction = TargetPos - transform.position;
@@ -22,6 +22,7 @@ public class Projectile2 : Projectile
 
     protected override void Update()
     {
+        if (Target == null) return;
         transform.position = Vector3.Lerp(transform.position, TargetPos, Speed * Time.deltaTime);
 
         // 타겟과 충분히 가까울때 충돌
