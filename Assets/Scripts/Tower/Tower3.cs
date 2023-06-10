@@ -15,16 +15,16 @@ public class Tower3 : Tower
                 Cost = Tower3SpawnCost;
                 return;
             case 2:
-                AttackRadius = 3f;
+                AttackRadius = 6f;
                 AttackCycleSecond = 1f;
-                Damage = 40;
-                Cost = 50;  //임의값
+                Damage = 50;
+                Cost = 50;
                 return;
             case 3:
-                AttackRadius = 3f;
-                AttackCycleSecond = 1f;
-                Damage = 60;
-                Cost = 50;  //임의값
+                AttackRadius = 6f;
+                AttackCycleSecond = 0.8f;
+                Damage = 100;
+                Cost = 80;
                 return;
         }
     }

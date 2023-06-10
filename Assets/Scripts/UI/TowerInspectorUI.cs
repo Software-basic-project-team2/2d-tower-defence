@@ -11,6 +11,10 @@ public class TowerInspectorUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textLevel;
     [SerializeField]
+    private TextMeshProUGUI textRadius;
+    [SerializeField]
+    private TextMeshProUGUI textRate;
+    [SerializeField]
     private GameObject TowerInspector;
 
     private Tower currentTower;
@@ -68,6 +72,8 @@ public class TowerInspectorUI : MonoBehaviour
     {
         textDamage.text = "Damage : " + currentTower.Damage;
         textLevel.text = "Level : " + currentTower.Level;
+        textRadius.text = "Radius : " + currentTower.AttackRadius;
+        textRate.text = "Rate : " + currentTower.AttackCycleSecond;
     }
 
     public void OnUpgradeButtonClicked()

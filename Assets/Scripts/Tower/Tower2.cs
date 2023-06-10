@@ -10,21 +10,24 @@ public class Tower2 : Tower
         {
             case 1:
                 AttackRadius = Tower2Level1AttackRadius;
-                AttackCycleSecond = 2f;
+                AttackCycleSecond = 1f;
                 Damage = 5;
+                Duration = 0.7f;
                 Cost = Tower2SpawnCost;
                 return;
             case 2:
-                AttackRadius = 3f;
-                AttackCycleSecond = 2f;
-                Damage = 6;
-                Cost = 100;
+                AttackRadius = 4f;
+                AttackCycleSecond = 1f;
+                Damage = 7;
+                Duration = 1f;
+                Cost = 50;
                 return;
             case 3:
-                AttackRadius = 3f;
-                AttackCycleSecond = 2f;
-                Damage = 7;
-                Cost = 150;
+                AttackRadius = 4f;
+                AttackCycleSecond = 0.7f;
+                Damage = 10;
+                Duration = 1.5f;
+                Cost = 100;
                 return;
         }
     }
