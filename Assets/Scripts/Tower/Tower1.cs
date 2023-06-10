@@ -10,21 +10,21 @@ public class Tower1 : Tower
         switch(level)
         {
             case 1:
-                AttackRadius = 3f;
+                AttackRadius = 6f;
                 AttackCycleSecond = 0.7f;
                 Damage = 10;
                 Cost = Tower1SpawnCost;
                 return;
             case 2:
-                AttackRadius = 3f;
-                AttackCycleSecond = 0.7f;
-                Damage = 15;
+                AttackRadius = 6f;
+                AttackCycleSecond = 0.5f;
+                Damage = 10;
                 Cost = 20;
                 return;
             case 3:
-                AttackRadius = 3f;
-                AttackCycleSecond = 0.3f;
-                Damage = 20;
+                AttackRadius = 8f;
+                AttackCycleSecond = 0.2f;
+                Damage = 15;
                 Cost = 80;
                 return;
         }

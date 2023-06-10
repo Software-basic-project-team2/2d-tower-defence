@@ -5,14 +5,14 @@ using UnityEngine;
 public class Projectile4 : Projectile
 {
     protected float blastRadius = 10f;
-    protected float duration = 2f;
+    protected float duration;
     public Vector3 TargetPos;
 
     public override void InitializeField(Enemy enemy, int damage, float duration)
     {
         Target = enemy;
         Damage = damage;
-        // this.duration = duration;
+        this.duration = duration;
         Speed = 10f;
         TargetPos = Target.GetComponent<Transform>().position;
         Vector2 direction = TargetPos - transform.position;
