@@ -10,6 +10,7 @@ public class CoinManager : MonoBehaviour
 
     public int coin = 100; // 현재 재화
     public TMP_Text coinText; // 재화를 표시할 Text UI 요소
+    public TabUI tabUI;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class CoinManager : MonoBehaviour
     {
         coin += amount;
         UpdateCoinText();
+        tabUI.UpdateButtonState();
     }
 
     // 재화 감소 함수
@@ -37,6 +39,7 @@ public class CoinManager : MonoBehaviour
     {
         coin -= amount;
         UpdateCoinText();
+        tabUI.UpdateButtonState();
     }
 
     // 재화 텍스트 업데이트
