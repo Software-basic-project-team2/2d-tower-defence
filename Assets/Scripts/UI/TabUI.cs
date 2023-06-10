@@ -149,7 +149,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         return true;
     }
 
-    void UpdateButtonState()
+    public void UpdateButtonState()
     {
         for (int i = 0; i < Tower.TypeCount; i++)
         {
@@ -195,7 +195,6 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Destroy(SpawnedTower);
 
                 CoinManager.Instance.DecreaseCoin(tower.Cost);
-                UpdateButtonState();
 
                 SpawnedTower = null;
             }
