@@ -138,7 +138,18 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     bool CanSpawnable()
     {
-        return !UIHovering;
+        //UI 호버링 중이면 설치불가
+        if (UIHovering) 
+            return false;
+
+        //타워 설치된 곳이면 설치 불가
+        if (SpawnedTower != null && SpawnedTower.transform.GetChild(1).GetComponent<InstallPlace>().isInPlace())
+            return false;
+
+        //길이면 설치 불가
+        //return false;
+
+        return true;
     }
 
     void UpdateButtonState()
