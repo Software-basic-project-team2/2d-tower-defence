@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &758168804
 GameObject:
@@ -257,7 +257,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-
       - m_Target: {fileID: 11500000, guid: 99ce07c10fb11dd40b47133f01a1fb83, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
@@ -265,7 +264,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
-
       - m_Target: {fileID: 1304835796}
         m_TargetAssemblyTypeName: TowerInspectorUI, Assembly-CSharp
         m_MethodName: OnUpgradeButtonClicked
@@ -518,7 +516,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-
 --- !u!114 &388381276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,8 +531,6 @@ MonoBehaviour:
   textDamage: {fileID: 758168806}
   textLevel: {fileID: 1739370583}
   currentTower: {fileID: 0}
-=======
-
 --- !u!1 &338789104161705323
 GameObject:
   m_ObjectHideFlags: 0
