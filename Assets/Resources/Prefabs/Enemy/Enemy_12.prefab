@@ -145,8 +145,8 @@ MonoBehaviour:
   stunTimeRemaing: 0
   waypoints: []
   wayPointCount: 0
-  initialMoveSpeed: 12
-  moveSpeed: 6
+  initialMoveSpeed: 10
+  moveSpeed: 10
   damageAmount: 30
   coinReward: 1
   InitialHp: 10000
