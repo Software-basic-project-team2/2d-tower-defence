@@ -10,10 +10,10 @@ public class Projectile2 : Projectile
 
     public override void InitializeField(Enemy enemy, int damage, float duration)
     {
-        //Target = enemy;
-        //Damage = damage;
+        Target = enemy;
+        Damage = damage;
         this.duration = duration;
-        Speed = 5f;
+        Speed = 10f;
         TargetPos = Target.GetComponent<Transform>().position;
         Vector2 direction = TargetPos - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
