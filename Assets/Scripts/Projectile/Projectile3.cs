@@ -8,7 +8,7 @@ public class Projectile3 : Projectile
     {
         Target = enemy;
         Damage = damage;
-        Speed = 40f;
+        Speed = 35f;
     }
 
     protected override void Update()
