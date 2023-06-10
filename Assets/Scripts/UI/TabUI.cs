@@ -53,12 +53,6 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         return pos;
     }
 
-    private void PreCondition()
-    {
-        if (SpawnedTower != null)
-            Destroy(SpawnedTower);
-    }
-
     public void onTabButtonClicked()
     {
         if (!hide)
@@ -93,23 +87,29 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void onNextRoundClicked()
     {
+        if (GameManager.instance.towerInspectorUI.isActive())
+            GameManager.instance.towerInspectorUI.OffPanel();
         GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().NextRound();
     }
 
     #region Tower Button Event
-    private void SetSprite()
+    void OnTowerButtonClicked(GameObject Image, Tower.Type t)
     {
+        //PreCondition
+        if (SpawnedTower != null)
+            Destroy(SpawnedTower);
+        if (GameManager.instance.towerInspectorUI.isActive())
+            GameManager.instance.towerInspectorUI.OffPanel();
+
+        //Logic
+        type = t;
+        SpawnedTower = Instantiate(Image, mousePosition(), Quaternion.identity);
+
+        //Set Sprite
         body = SpawnedTower.transform.GetChild(0).GetComponent<SpriteRenderer>();
         Transform plate = SpawnedTower.transform.GetChild(0).GetChild(0);
         front = plate.GetChild(0).GetComponent<SpriteRenderer>();
         back = plate.GetChild(1).GetComponent<SpriteRenderer>();
-    }
-    void OnTowerButtonClicked(GameObject Image, Tower.Type t)
-    {
-        PreCondition();
-        type = t;
-        SpawnedTower = Instantiate(Image, mousePosition(), Quaternion.identity);
-        SetSprite();
     }
 
     public void onTower1Clicked()
@@ -187,24 +187,25 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //버튼을 클릭해 타워가 따라다니는 경우 로직
         if (SpawnedTower != null)
         {
-            SpawnedTower.transform.position = mousePosition();
+            SpawnedTower.transform.position = mousePosition();            
 
-            body.color = back.color = front.color = Color.white;
-
-            if (!CanSpawnable())
-            {
+            if (CanSpawnable())
+                body.color = back.color = front.color = Color.white;
+            else
                 body.color = back.color = front.color = forbiddenColor;
-            }
-            else if (Input.GetMouseButtonDown(0))
+
+            if (Input.GetMouseButtonDown(0))
             {
-                Tower tower = Tower.Builder()
-                    .Level1Tower(type)
-                    .Position(mousePosition())
-                    .Build().GetComponent<Tower>();
+                if (CanSpawnable())
+                {
+                    Tower tower = Tower.Builder()
+                        .Level1Tower(type)
+                        .Position(mousePosition())
+                        .Build().GetComponent<Tower>();
+                    CoinManager.Instance.DecreaseCoin(tower.Cost);
+                }
+
                 Destroy(SpawnedTower);
-
-                CoinManager.Instance.DecreaseCoin(tower.Cost);
-
                 SpawnedTower = null;
             }
 
