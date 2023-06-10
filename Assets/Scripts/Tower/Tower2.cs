@@ -9,7 +9,7 @@ public class Tower2 : Tower
         switch (level)
         {
             case 1:
-                AttackRadius = 4f;
+                AttackRadius = Tower2Level1AttackRadius;
                 AttackCycleSecond = 1f;
                 Damage = 5;
                 Duration = 0.7f;

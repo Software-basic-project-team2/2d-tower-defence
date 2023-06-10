@@ -11,6 +11,10 @@ public abstract class Tower : MonoBehaviour
     public const int Tower2SpawnCost = 80;
     public const int Tower3SpawnCost = 50;
     public const int Tower4SpawnCost = 100;
+    public const float Tower1Level1AttackRadius = 6f;
+    public const float Tower2Level1AttackRadius = 4f;
+    public const float Tower3Level1AttackRadius = 6f;
+    public const float Tower4Level1AttackRadius = 5f;
 
 
     //타워 상태 저장변수
