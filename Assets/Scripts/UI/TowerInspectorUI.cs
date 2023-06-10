@@ -79,6 +79,7 @@ public class TowerInspectorUI : MonoBehaviour
 
     public void OnUpgradeButtonClicked()
     {
+        if (CoinManager.Instance.coin < Tower.TowerDataList[(int)currentTower.TowerType, currentTower.Level].cost) return;
         currentTower.LevelUp();
         radiusViewer.OnTowerAttackRadius();
         UpdateTowerData();
