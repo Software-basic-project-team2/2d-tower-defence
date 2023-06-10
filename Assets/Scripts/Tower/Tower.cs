@@ -8,9 +8,9 @@ public abstract class Tower : MonoBehaviour
     public const int MaxLevel = 3;
     public const int TypeCount = 4;
     public const int Tower1SpawnCost = 30;
-    public const int Tower2SpawnCost = 100;
-    public const int Tower3SpawnCost = 60;
-    public const int Tower4SpawnCost = 180;
+    public const int Tower2SpawnCost = 80;
+    public const int Tower3SpawnCost = 50;
+    public const int Tower4SpawnCost = 100;
 
 
     //타워 상태 저장변수
