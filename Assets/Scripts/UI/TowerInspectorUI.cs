@@ -41,11 +41,12 @@ public class TowerInspectorUI : MonoBehaviour
             {
                 OnPanel(hit.transform);                    
             }
-            else if (hit.transform.CompareTag("s")) 
-            {
-                OffPanel(); //바닥을 누르면 정보창 비활성화
-            }
-        }        
+        } 
+        
+        if (Input.GetMouseButtonDown(1) && isActive()) //마우스 우클릭시
+        {
+            OffPanel();
+        }
     }
 
     public bool isActive()
@@ -55,6 +56,8 @@ public class TowerInspectorUI : MonoBehaviour
 
     public void OnPanel(Transform tower)
     {
+        if (currentTower != null)
+            radiusViewer.OffTowerAttackRadius();
         currentTower = tower.GetComponent<Tower>();
         radiusViewer = tower.GetComponent<TowerRadiusViewer>();
         radiusViewer.OnTowerAttackRadius();
@@ -66,6 +69,7 @@ public class TowerInspectorUI : MonoBehaviour
     {
         if (radiusViewer != null) 
             radiusViewer.OffTowerAttackRadius();
+        currentTower = null;
         TowerInspector.SetActive(false);
     }
 

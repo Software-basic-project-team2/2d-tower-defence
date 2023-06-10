@@ -428,7 +428,6 @@ GameObject:
   - component: {fileID: 5040054969068011195}
   - component: {fileID: 412123075097391552}
   - component: {fileID: 2101896627017040544}
-  - component: {fileID: 388381276}
   m_Layer: 0
   m_Name: TowerInspector
   m_TagString: Untagged
@@ -523,18 +522,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &388381276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773475683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ce07c10fb11dd40b47133f01a1fb83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &338789104161705323
 GameObject:
   m_ObjectHideFlags: 0
