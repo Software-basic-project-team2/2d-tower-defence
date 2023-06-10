@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 //Tower1만이 가지고 있는 정보
 public class Tower1 : Tower
 {
+    
     protected override void SetValues(int level)
     {
         switch(level)

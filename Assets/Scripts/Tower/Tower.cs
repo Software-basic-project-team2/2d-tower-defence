@@ -156,6 +156,7 @@ public abstract class Tower : MonoBehaviour
     {
         if (!(1 <= Level && Level <= 3)) return;
         SetValues(++Level);
+        CoinManager.Instance.DecreaseCoin(Cost);
         SyncSprite();
     }
 
