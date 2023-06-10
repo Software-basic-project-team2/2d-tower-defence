@@ -18,6 +18,10 @@ public class TowerDataViewer : MonoBehaviour
         OffPanel();
     }
 
+    public bool isActive()
+    {
+        return gameObject.activeSelf;
+    }
     
     void Update()
     {
