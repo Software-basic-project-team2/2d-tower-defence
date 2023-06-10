@@ -257,6 +257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+
       - m_Target: {fileID: 11500000, guid: 99ce07c10fb11dd40b47133f01a1fb83, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
@@ -264,6 +265,15 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+
+      - m_Target: {fileID: 1304835796}
+        m_TargetAssemblyTypeName: TowerInspectorUI, Assembly-CSharp
+        m_MethodName: OnUpgradeButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -416,7 +426,6 @@ GameObject:
   - component: {fileID: 5040054969068011195}
   - component: {fileID: 412123075097391552}
   - component: {fileID: 2101896627017040544}
-  - component: {fileID: 388381276}
   m_Layer: 0
   m_Name: TowerInspector
   m_TagString: Untagged
@@ -509,6 +518,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+
 --- !u!114 &388381276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +534,8 @@ MonoBehaviour:
   textDamage: {fileID: 758168806}
   textLevel: {fileID: 1739370583}
   currentTower: {fileID: 0}
+=======
+
 --- !u!1 &338789104161705323
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,7 +5967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5278e875515f52438ea51648f60b4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDataViewer: {fileID: 388381276}
+  textDamage: {fileID: 758168806}
+  textLevel: {fileID: 1739370583}
+  TowerInspector: {fileID: 1773475683}
 --- !u!1 &6742974553787189132
 GameObject:
   m_ObjectHideFlags: 0

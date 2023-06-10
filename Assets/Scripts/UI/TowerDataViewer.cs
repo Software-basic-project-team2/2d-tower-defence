@@ -6,58 +6,58 @@ using TMPro;
 
 public class TowerDataViewer : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI textDamage;
-    [SerializeField]
-    private TextMeshProUGUI textLevel;
+    //[SerializeField]
+    //private TextMeshProUGUI textDamage;
+    //[SerializeField]
+    //private TextMeshProUGUI textLevel;
 
-    public Tower currentTower;
+    //public Tower currentTower;
 
-    private void Awake()
-    {
-        OffPanel();
-    }
+    //private void Awake()
+    //{
+    //    OffPanel();
+    //}
 
-    public bool isActive()
-    {
-        return gameObject.activeSelf;
-    }
+    //public bool isActive()
+    //{
+    //    return gameObject.activeSelf;
+    //}
     
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OffPanel();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        OffPanel();
+    //    }
+    //}
 
-    public void OnPanel(Transform tower)
-    {
-        currentTower = tower.GetComponent<Tower>();
-        gameObject.SetActive(true);
-        UpdateTowerData();
-    }
+    //public void OnPanel(Transform tower)
+    //{
+    //    currentTower = tower.GetComponent<Tower>();
+    //    gameObject.SetActive(true);
+    //    UpdateTowerData();
+    //}
 
-    public void OffPanel()
-    {
+    //public void OffPanel()
+    //{
         
-        gameObject.SetActive(false);
+    //    gameObject.SetActive(false);
         
-    }
+    //}
 
-    private void UpdateTowerData()
-    {
-        textDamage.text = "Damage : " + currentTower.Damage;
-        textLevel.text = "Level : " + currentTower.Level;
-    }
+    //private void UpdateTowerData()
+    //{
+    //    textDamage.text = "Damage : " + currentTower.Damage;
+    //    textLevel.text = "Level : " + currentTower.Level;
+    //}
 
-    public void UpgradeButtonClicked()
-    {
+    //public void UpgradeButtonClicked()
+    //{
 
-        //Collider.gameObject.GetComponent<Tower>().LevelUp();
+    //    //Collider.gameObject.GetComponent<Tower>().LevelUp();
 
-        currentTower.LevelUp();
+    //    currentTower.LevelUp();
 
 
-    }
+    //}
 }
