@@ -12,12 +12,6 @@ public class TowerRadiusViewer : MonoBehaviour
     {
         radius = GetRadius();  
         UpdateRadius();
-        SetVisible();
-    }
-
-    protected virtual void SetVisible()
-    {
-        OffTowerAttackRadius();
     }
 
     protected virtual float GetRadius()

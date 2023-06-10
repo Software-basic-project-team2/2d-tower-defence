@@ -198,11 +198,12 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 if (CanSpawnable())
                 {
-                    Tower tower = Tower.Builder()
+                    GameObject tower = Tower.Builder()
                         .Level1Tower(type)
                         .Position(mousePosition())
-                        .Build().GetComponent<Tower>();
-                    CoinManager.Instance.DecreaseCoin(tower.Cost);
+                        .Build();
+                    CoinManager.Instance.DecreaseCoin(tower.GetComponent<Tower>().Cost);
+                    GameManager.instance.towerInspectorUI.OnPanel(tower.transform);
                 }
 
                 Destroy(SpawnedTower);
