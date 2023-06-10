@@ -11,7 +11,7 @@ public class TowerDataViewer : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textLevel;
 
-    private Tower currentTower;
+    public Tower currentTower;
 
     private void Awake()
     {
@@ -51,4 +51,13 @@ public class TowerDataViewer : MonoBehaviour
         textLevel.text = "Level : " + currentTower.Level;
     }
 
+    public void UpgradeButtonClicked()
+    {
+
+        //Collider.gameObject.GetComponent<Tower>().LevelUp();
+
+        currentTower.LevelUp();
+
+
+    }
 }
