@@ -73,6 +73,7 @@ public class TowerInspectorUI : MonoBehaviour
     public void OnUpgradeButtonClicked()
     {
         currentTower.LevelUp();
+        UpdateTowerData();
     }
 
 }
