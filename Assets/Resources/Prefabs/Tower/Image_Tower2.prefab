@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 7048035150005119743}
-  type: 1
+  type: 2
 --- !u!1 &4494673525807732265
 GameObject:
   m_ObjectHideFlags: 0

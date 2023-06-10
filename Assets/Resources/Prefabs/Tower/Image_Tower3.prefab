@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {fileID: 6905968996933322434}
-  type: 2
+  type: 3
 --- !u!1 &5366489424957684569
 GameObject:
   m_ObjectHideFlags: 0
