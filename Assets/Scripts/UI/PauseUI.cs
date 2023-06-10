@@ -11,33 +11,21 @@ public class PauseUI : MonoBehaviour
     public TMP_Text restartText;
     public TMP_Text exitText;
 
-    private void Update()
+    public bool isPaused()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameManager.instance.isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
+        return pauseUI.activeSelf;
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = GameManager.instance.GameSpeed;
         pauseUI.SetActive(false);
-        GameManager.instance.isPaused = false;
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         pauseUI.SetActive(true);
-        GameManager.instance.isPaused = true;
     }
 
     public void OnXButtonClicked()

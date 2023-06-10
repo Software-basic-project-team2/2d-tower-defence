@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4935293727884357575}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2258ae94e40b644e96fff0fd639d498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialGameMode: 0
+  InitialGameMode: 2
+  pauseUI: {fileID: 0}
+  towerInspectorUI: {fileID: 0}
