@@ -18,6 +18,8 @@ public class TowerInspectorUI : MonoBehaviour
     private GameObject TowerInspector;
 
     private Tower currentTower;
+    TowerRadiusViewer radiusViewer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,12 +61,15 @@ public class TowerInspectorUI : MonoBehaviour
     public void OnPanel(Transform tower)
     {
         currentTower = tower.GetComponent<Tower>();
+        radiusViewer = tower.GetComponent<TowerRadiusViewer>();
+        radiusViewer.OnTowerAttackRadius();
         TowerInspector.SetActive(true);
         UpdateTowerData();
     }
 
     public void OffPanel()
     {
+        radiusViewer.OffTowerAttackRadius();
         TowerInspector.SetActive(false);
     }
 
@@ -79,6 +84,7 @@ public class TowerInspectorUI : MonoBehaviour
     public void OnUpgradeButtonClicked()
     {
         currentTower.LevelUp();
+        radiusViewer.OnTowerAttackRadius();
         UpdateTowerData();
     }
 
