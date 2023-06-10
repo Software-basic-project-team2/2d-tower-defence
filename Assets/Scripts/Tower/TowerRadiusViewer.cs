@@ -6,6 +6,7 @@ public class TowerRadiusViewer : MonoBehaviour
 {
     public Transform Center;
     float radius;
+    //public float ratio;
 
     private void Start()
     {
@@ -20,18 +21,19 @@ public class TowerRadiusViewer : MonoBehaviour
 
     void UpdateRadius()
     {
-        Debug.Log("Radius: " + radius);
+        //Debug.Log("Radius: " + radius);
         radius = GetRadius();
-        Center.localScale = new Vector3(1, 1, 1) * radius;
+        Center.localScale = 0.39f * radius * new Vector3(1, 1, 1);
     }
 
     public void OnTowerAttackRadius()
     {
-
+        UpdateRadius();
+        Center.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
     }
 
     public void OffTowerAttackRadius()
     {
-
+        Center.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
     }
 }
