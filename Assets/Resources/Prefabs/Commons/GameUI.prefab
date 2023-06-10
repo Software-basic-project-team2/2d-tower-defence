@@ -404,7 +404,10 @@ GameObject:
   - component: {fileID: 5040054969068011195}
   - component: {fileID: 412123075097391552}
   - component: {fileID: 2101896627017040544}
+
+=======
   - component: {fileID: 388381276}
+
   m_Layer: 0
   m_Name: TowerInspector
   m_TagString: Untagged
@@ -497,6 +500,8 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+
+=======
 --- !u!114 &388381276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDamage: {fileID: 758168806}
   textLevel: {fileID: 1739370583}
+
 --- !u!1 &338789104161705323
 GameObject:
   m_ObjectHideFlags: 0
