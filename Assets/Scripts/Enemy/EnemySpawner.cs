@@ -35,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (isRoundNow()) return;
         if (++round > EnemySpawnRule.RoundMax) return;
+        SetSpawnTime(spawnRule.SpawnTimes[round]);
         StartCoroutine("SpawnEnemy");
         Debug.Log("NextRound");
     }

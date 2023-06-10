@@ -131,8 +131,6 @@ public abstract class Tower : MonoBehaviour
         if (!attackable) return;
         GameObject obj = Instantiate(Resources.Load<GameObject>("Prefabs\\Projectile\\" + ProjectileName()), CenterPosition, Quaternion.identity, transform);
         Projectile newProjectile = obj.GetComponent<Projectile>();        
-        newProjectile.Target = enemy;
-        newProjectile.Damage = Damage;
         newProjectile.InitializeField(enemy, Damage, Duration);        
 
         StartCoroutine("SetAttackCycle");

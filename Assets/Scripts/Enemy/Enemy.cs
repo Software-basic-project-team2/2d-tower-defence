@@ -161,7 +161,7 @@ public class Enemy : MonoBehaviour {
     {
         isStunned = true;
         stunTimeRemaing = duration;
-        moveSpeed = initialMoveSpeed * 0.2f;
+        moveSpeed = initialMoveSpeed * 0.5f;
         gameObject.GetComponent<Animator>().SetBool("isStunned", true);
     }
 }

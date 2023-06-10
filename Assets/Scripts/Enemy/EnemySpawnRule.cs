@@ -28,6 +28,7 @@ public abstract class EnemySpawnRule
     private int round;
     private int index;
     private int specialIndex;
+    public float[] SpawnTimes = { 0f, 1f, 1f, 1f, 0.9f, 0.9f, 0.9f, 0.8f, 0.8f, 0.8f, 0.7f };
 
     public EnemySpawnRule()
     {
