@@ -16,4 +16,9 @@ public class ImageTowerRadiusViewer : TowerRadiusViewer
             default: return 0;
         }
     }
+
+    protected override void SetVisible()
+    {
+        OnTowerAttackRadius();
+    }
 }
