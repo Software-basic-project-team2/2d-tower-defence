@@ -150,7 +150,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             return false;
 
         //타워 설치된 곳 || 길이면 설치 불가
-        if (SpawnedTower != null && !SpawnedTower.transform.GetChild(1).GetComponent<InstallPlace>().canPlace())
+        if (SpawnedTower != null && !SpawnedTower.transform.GetChild(2).GetComponent<InstallPlace>().canPlace())
             return false;
 
         return true;
