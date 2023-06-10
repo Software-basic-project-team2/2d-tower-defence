@@ -21,6 +21,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text Tower2Cost;
     public TMP_Text Tower3Cost;
     public TMP_Text Tower4Cost;
+    public TMP_Text TapButtonText;
     public RectTransform Background;
 
     int[] cost;
@@ -73,6 +74,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     IEnumerator TabAnimation(int delta)
     {
+        //탭UI 애니메이션
         for (int i = 0; i < Background.rect.height; i++)
         {
             Vector3 pos = Background.position;
@@ -80,6 +82,11 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             Background.position = pos;
             yield return null;
         }
+        //애니메이션 완료후 탭버튼 글씨 수정
+        if (delta < 0)
+            TapButtonText.rectTransform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+        else
+            TapButtonText.rectTransform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
     }
 
     public void onNextRoundClicked()
