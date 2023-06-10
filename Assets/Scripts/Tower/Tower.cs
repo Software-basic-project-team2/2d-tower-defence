@@ -3,19 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct TowerData
+{
+    public int damage;
+    public float speed;
+    public int range;
+    public float duration;
+    public int cost;
+
+    public TowerData(int _damage, float _speed, int _range, float _duration, int _cost)
+    {
+        damage = _damage;
+        speed = _speed;
+        range = _range;
+        duration = _duration;
+        cost = _cost;
+    }
+}
+
 public abstract class Tower : MonoBehaviour
 {
     public const int MaxLevel = 3;
     public const int TypeCount = 4;
-    public const int Tower1SpawnCost = 30;
-    public const int Tower2SpawnCost = 80;
-    public const int Tower3SpawnCost = 50;
-    public const int Tower4SpawnCost = 100;
-    public const float Tower1Level1AttackRadius = 6f;
-    public const float Tower2Level1AttackRadius = 4f;
-    public const float Tower3Level1AttackRadius = 6f;
-    public const float Tower4Level1AttackRadius = 5f;
+    public enum Type { Tower0, Tower1, Tower2, Tower3, Tower4 }
+    public Type TowerType;
 
+    public static TowerData[,] TowerDataList = {
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0)},              // 타워0
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(10, 0.7f, 6, 0f, 30), new TowerData(10, 0.5f, 6, 0f, 20), new TowerData(15, 0.2f, 8, 0f, 80)},  // 타워1
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(10, 1f, 4, 0.7f, 80), new TowerData(15, 1f, 4, 1f, 50), new TowerData(20, 0.7f, 4, 1.5f, 100)}, // 타워2
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(30, 1f, 6, 0f, 50), new TowerData(50, 1f, 6, 0f, 50), new TowerData(100, 0.8f, 6, 0f, 80)},     // 타워3
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(30, 3f, 5, 1f, 100), new TowerData(40, 3f, 5, 2f, 110), new TowerData(50, 1.5f, 5, 2f, 90)}     // 타워4
+    };
 
     //타워 상태 저장변수
     #region Tower Variables
@@ -31,10 +50,6 @@ public abstract class Tower : MonoBehaviour
     public int Damage { get; set; } //타워 공격력
     public int Cost;
     public float Duration;
-
-    
-
-     
 
     #region Inner Variables
     //레벨마다 다른 모양이 되기위한 참조변수
@@ -64,7 +79,7 @@ public abstract class Tower : MonoBehaviour
 
         //타워 상태 설정(기본값)
         Level = 1;
-        SetValues(Level);
+        SetValues(TowerType ,Level);
         LoadSprites();
         SyncSprite();
     }
@@ -81,7 +96,6 @@ public abstract class Tower : MonoBehaviour
     #endregion
 
     #region Tower Builder Logic
-    public enum Type { Tower1, Tower2, Tower3, Tower4 }
 
     public static TowerBuilder Builder()
     {
@@ -136,8 +150,6 @@ public abstract class Tower : MonoBehaviour
         StartCoroutine("SetAttackCycle");
     }
 
-
-
     //각 타워에 맞는 투사체(Projectile) 이름을 다형적으로 반환
     protected abstract string ProjectileName();
 
@@ -153,12 +165,19 @@ public abstract class Tower : MonoBehaviour
     public void LevelUp()
     {
         if (!(Level == 1 || Level == 2)) return;
-        SetValues(++Level);
+        SetValues(TowerType, ++Level);
         CoinManager.Instance.DecreaseCoin(Cost);
         SyncSprite();
     }
 
-    protected abstract void SetValues(int level);
+    protected void SetValues(Type towerType, int level)
+    {
+        Damage = TowerDataList[(int)towerType, level].damage;
+        AttackCycleSecond = TowerDataList[(int)towerType, level].speed;
+        AttackRadius = TowerDataList[(int)towerType, level].range;
+        Duration = TowerDataList[(int)towerType, level].duration;
+        Cost = TowerDataList[(int)towerType, level].cost;
+    }
 
     private void SyncSprite()
     {

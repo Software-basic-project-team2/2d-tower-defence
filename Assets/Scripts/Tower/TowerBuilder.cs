@@ -22,10 +22,11 @@ public class TowerBuilder
     private static void LoadTowers()
     {
         if (towers != null) return;
-        towers = new GameObject[Tower.TypeCount];
+
+        towers = new GameObject[Tower.TypeCount + 1];
         for (int i = 0; i < Tower.TypeCount; i++)
         {
-            towers[i] = Resources.Load<GameObject>("Prefabs\\Tower\\Tower" + (i + 1));
+            towers[i + 1] = Resources.Load<GameObject>("Prefabs\\Tower\\Tower" + (i + 1));
         }
     }
     #endregion

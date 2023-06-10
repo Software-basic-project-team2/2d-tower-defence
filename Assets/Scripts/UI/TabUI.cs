@@ -36,7 +36,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         cm = CoinManager.Instance;
-        cost = new int[Tower.TypeCount] { Tower.Tower1SpawnCost, Tower.Tower2SpawnCost, Tower.Tower3SpawnCost, Tower.Tower4SpawnCost };
+        cost = new int[Tower.TypeCount] { Tower.TowerDataList[1, 1].cost, Tower.TowerDataList[2, 1].cost, Tower.TowerDataList[3, 1].cost, Tower.TowerDataList[4, 1].cost };
         button = new GameObject[Tower.TypeCount] { Tower1Button, Tower2Button, Tower3Button, Tower4Button };
         Tower1Cost.text = $"{cost[0]}";
         Tower2Cost.text = $"{cost[1]}";
