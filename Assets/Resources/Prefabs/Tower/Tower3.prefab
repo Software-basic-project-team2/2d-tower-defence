@@ -603,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041332db338425445adbb5d9c44301a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerType: 3
   Center: {fileID: 1732254966203749062}
   Cost: 0
   Duration: 0
