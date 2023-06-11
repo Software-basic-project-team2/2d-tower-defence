@@ -13,7 +13,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("EnemySpawnerStart");
         round = 0;
         isRound = false;
         spawnRule = EnemySpawnRule.GetEnemySpawnRule();
@@ -35,29 +34,20 @@ public class EnemySpawner : MonoBehaviour
     {
         if (isRoundNow()) return;
         if (++round > EnemySpawnRule.RoundMax) return;
+        isRound = true;
         SetSpawnTime(spawnRule.SpawnTimes[round]);
         StartCoroutine("SpawnEnemy");
-        Debug.Log("NextRound");
-    }
-
-    private void StopRound()
-    {
-        if (!isRoundNow()) return;
-        StopCoroutine("SpawnEnemy");
-        Debug.Log("StopRound");
     }
 
     private IEnumerator SpawnEnemy()
     {
-        Debug.Log("Current Round: " + round);
-        isRound = true;
         while (spawnRule.isEnemyLeft())
         {
             Instantiate(enemyPrefabs[spawnRule.getNextEnemyIndex()], transform);
             yield return new WaitForSeconds(spawnTime);
         }
-        spawnRule.NextRound();
+        yield return new WaitWhile(() => Enemy.GetEnemiesCount() > 0);
         isRound = false;
-        Debug.Log($" Round {round} end.");
+        spawnRule.NextRound();
     }
 }

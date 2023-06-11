@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     public const int TypeCount = 12;
+    private static int enemiesCount = 0;
     public bool isBurned = false;
     public bool isStunned = false;
     public float burnTimeRemaing = 0;
     public float stunTimeRemaing = 0;
 
     public Transform[] waypoints;
-    public int wayPointCount;
-   
+    public int wayPointCount;   
 
     private int currentWaypointIndex = 0;
     public float initialMoveSpeed;
@@ -71,8 +71,11 @@ public class Enemy : MonoBehaviour {
     }
     #endregion
 
+    public static int GetEnemiesCount() { return enemiesCount; }
+    private void OnDestroy() { enemiesCount--; }
     private void Start()
     {
+        enemiesCount++;
         waypoints = GameManager.instance.GetWaypoints();
         transform.position = waypoints[0].position;
         hpBarSprite = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>();

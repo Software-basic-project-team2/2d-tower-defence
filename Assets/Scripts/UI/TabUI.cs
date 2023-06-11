@@ -2,12 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    private static string[] towerDiscription = { null,
+        "타워 1의 설명이 여기에 적힙니다. 개행테스트. 개행태스트. 개행 개행",
+        "타워 2의 설명이 여기에 적힙니다. 여기까지 같이 오느라 ",
+        "타워 3의 설명이 여기에 적힙니다. 지금까지",
+        "타워 4의 설명이 여기에 적힙니다. 수고 많으셨습니다 :D !!!"};
+
     //inspector에서 가져오기
     public GameObject Tower1Image;
     public GameObject Tower2Image;
@@ -17,6 +24,8 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject Tower2Button;
     public GameObject Tower3Button;
     public GameObject Tower4Button;
+    public Button NextRoundButton;
+    public TMP_Text NextRoundButtonText;
     public TMP_Text Tower1Cost;
     public TMP_Text Tower2Cost;
     public TMP_Text Tower3Cost;
@@ -25,6 +34,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text TowerDescription;
     public RectTransform Background;
     public TowerInspectorUI inspector;
+    public EnemySpawner spawner;
 
     int[] cost;
     GameObject[] button;
@@ -101,7 +111,18 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnNextRoundClicked()
     {
         inspector.OffPanel();
-        GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().NextRound();
+        spawner.NextRound();
+        NextRoundButton.interactable = false;
+        NextRoundButtonText.text = $"Round\n{spawner.CurrentRound()}";
+        if (spawner.CurrentRound() <= EnemySpawnRule.RoundMax)
+            StartCoroutine(NextRoundButtonInteraction());
+    }
+
+    IEnumerator NextRoundButtonInteraction()
+    {
+        yield return new WaitWhile(() => spawner.isRoundNow());
+        NextRoundButton.interactable = true;
+        NextRoundButtonText.text = $"Round\n{spawner.CurrentRound()}\nStart";
     }
 
     #region Tower Button Event
@@ -115,6 +136,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //Logic
         type = t;
         SpawnedTower = Instantiate(Image, mousePosition(), Quaternion.identity);
+        TowerDescription.text = towerDiscription[(int)t];
 
         //Set Sprite
         body = SpawnedTower.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -125,7 +147,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnTower1Clicked()
     {
-        OnTowerButtonClicked(Tower1Image, Tower.Type.Tower1);
+        OnTowerButtonClicked(Tower1Image, Tower.Type.Tower1);        
     }
 
     public void OnTower2Clicked()
@@ -216,18 +238,17 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     CoinManager.Instance.DecreaseCoin(tower.GetComponent<Tower>().Cost);
                     inspector.OnPanel(tower.transform);
                 }
-
                 Destroy(SpawnedTower);
                 SpawnedTower = null;
+                TowerDescription.text = "";
             }
 
             if (Input.GetMouseButtonDown(1))
             {
                 Destroy(SpawnedTower);
                 SpawnedTower = null;
+                TowerDescription.text = "";
             }
         }
-
     }
-
 }
