@@ -96,9 +96,25 @@ public class TowerInspectorUI : MonoBehaviour
 
         textDamage.text = "Damage : " + currentTower.Damage;
         textLevel.text = "Level : " + (currentTower.Level == 3 ? "MAX" : $"{currentTower.Level}");
-        textDuration.text = "Duration : " + currentTower.Duration;
         textRate.text = "Rate : " + currentTower.AttackCycleSecond;
-        
+        /*
+        switch (currentTower.TowerType) {
+            case Tower.Type.Tower2 | Tower.Type.Tower4:
+                textDuration.text = "Duration : " + currentTower.Duration;
+                break;
+            default:               
+                textDuration.text = "";
+                break;
+        }
+ */
+        if(currentTower.TowerType == Tower.Type.Tower2 | currentTower.TowerType == Tower.Type.Tower4)
+        {
+            textDuration.text = "Duration : " + currentTower.Duration; // Tower2, 4일 때 지속시간 추가 출력
+        }
+        else
+        {
+            textDuration.text = "";
+        }
 
         if (currentTower.Level < 3)
         {
