@@ -113,16 +113,21 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         inspector.OffPanel();
         spawner.NextRound();
         NextRoundButton.interactable = false;
-        NextRoundButtonText.text = $"Round {spawner.CurrentRound()}";
         if (spawner.CurrentRound() <= EnemySpawnRule.RoundMax)
+        {
+            NextRoundButtonText.text = $"Round {spawner.CurrentRound()}";
             StartCoroutine(NextRoundButtonInteraction());
+        }
     }
 
     IEnumerator NextRoundButtonInteraction()
     {
         yield return new WaitWhile(() => spawner.isRoundNow());
-        NextRoundButton.interactable = true;
-        NextRoundButtonText.text = $"Round {spawner.CurrentRound() + 1}\nStart";
+        if (spawner.CurrentRound() < EnemySpawnRule.RoundMax)
+        {
+            NextRoundButton.interactable = true;
+            NextRoundButtonText.text = $"Round {spawner.CurrentRound() + 1}\nStart";
+        }
     }
 
     #region Tower Button Event
@@ -248,6 +253,12 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Destroy(SpawnedTower);
                 SpawnedTower = null;
                 TowerDescription.text = "";
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (NextRoundButton.interactable)
+                    OnNextRoundClicked();
             }
         }
     }
