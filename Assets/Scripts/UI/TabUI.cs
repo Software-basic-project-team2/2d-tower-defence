@@ -222,6 +222,12 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             OnTabButtonClicked();
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (NextRoundButton.interactable)
+                OnNextRoundClicked();
+        }
+
         //버튼을 클릭해 타워가 따라다니는 경우 로직
         if (SpawnedTower != null)
         {
@@ -253,12 +259,6 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Destroy(SpawnedTower);
                 SpawnedTower = null;
                 TowerDescription.text = "";
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                if (NextRoundButton.interactable)
-                    OnNextRoundClicked();
             }
         }
     }
