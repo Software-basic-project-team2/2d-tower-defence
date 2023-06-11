@@ -43,7 +43,6 @@ public abstract class EnemySpawnRule
             leftEnemiesSpecial[i] = new List<int>();
         }
 
-
         //라운드별 인덱스 초기화
         for (int i = 0; i < RoundMax; i++)
         {
@@ -112,8 +111,6 @@ public abstract class EnemySpawnRule
         return leftEnemies[round - 1][index++];
     }
     protected abstract int[,] getEnemiesSpawnTable();
-
-    
 }
 
 //MapEasy에서 스폰 규칙 정의
@@ -220,8 +217,4 @@ public class MapDungeonEnemySpawnRule : EnemySpawnRule
             /*Round 10*/{ 0, 0, 0, 0,   0, 0, 10, 10,   13, 13, 5, 1 }
         };
     }
-
-    
 }
-
-

@@ -10,7 +10,6 @@ public class EnemySpawner : MonoBehaviour
     private EnemySpawnRule spawnRule;
     private int round;
     private bool isRound;
-    public GameObject result;
 
     private void Start()
     {
@@ -60,19 +59,5 @@ public class EnemySpawner : MonoBehaviour
         spawnRule.NextRound();
         isRound = false;
         Debug.Log($" Round {round} end.");
-    }
-
-    private void Update()
-    {
-        if ((round == 10))
-        {
-            int childCount = transform.childCount;
-            if (childCount == 0)
-            {
-                result.SetActive(true);
-            }
-            
-
-        }
     }
 }
