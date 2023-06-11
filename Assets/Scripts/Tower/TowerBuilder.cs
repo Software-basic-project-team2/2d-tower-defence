@@ -49,11 +49,11 @@ public class TowerBuilder
         tower.TowerType = type;
 
         position = obj.transform.position;
-        attackRadius = tower.AttackRadius;
-        attackCycleSecond = tower.AttackCycleSecond;
-        damage = tower.Damage;
-        cost = tower.Cost;
-        duration = tower.Duration;
+        damage = Tower.TowerDataList[(int)type, 1].damage;
+        attackCycleSecond = Tower.TowerDataList[(int)type, 1].speed;
+        attackRadius = Tower.TowerDataList[(int)type, 1].range;
+        duration = Tower.TowerDataList[(int)type, 1].duration;
+        cost = Tower.TowerDataList[(int)type, 1].cost;
 
         obj.SetActive(false);
 

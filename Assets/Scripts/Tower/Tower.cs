@@ -28,11 +28,11 @@ public abstract class Tower : MonoBehaviour
     public enum Type { Tower0, Tower1, Tower2, Tower3, Tower4 }
 
     public static TowerData[,] TowerDataList = {
-    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0)},              // 타워0
-    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(10, 0.7f, 6, 0f, 30), new TowerData(10, 0.5f, 6, 0f, 20), new TowerData(15, 0.2f, 8, 0f, 80)},  // 타워1
-    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(10, 1f, 4, 0.7f, 80), new TowerData(15, 1f, 4, 1f, 50), new TowerData(20, 0.7f, 4, 1.5f, 100)}, // 타워2
-    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(30, 1f, 6, 0f, 50), new TowerData(50, 1f, 6, 0f, 50), new TowerData(100, 0.8f, 6, 0f, 80)},     // 타워3
-    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(30, 3f, 5, 1f, 100), new TowerData(40, 3f, 5, 2f, 110), new TowerData(50, 1.5f, 5, 2f, 90)}     // 타워4
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0) },              // 타워0
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(10, 0.7f, 6, 0f, 30), new TowerData(10, 0.5f, 6, 0f, 20), new TowerData(15, 0.2f, 8, 0f, 80) },  // 타워1
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(10, 1f, 4, 0.7f, 80), new TowerData(15, 1f, 4, 1f, 50), new TowerData(20, 0.7f, 4, 1.5f, 100) }, // 타워2
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(30, 1f, 6, 0f, 50), new TowerData(50, 1f, 6, 0f, 50), new TowerData(100, 0.8f, 6, 0f, 80) },     // 타워3
+    { new TowerData(0, 0f, 0, 0f, 0), new TowerData(30, 3f, 5, 1f, 100), new TowerData(40, 3f, 5, 2f, 110), new TowerData(50, 1.5f, 5, 2f, 90) }     // 타워4
     };
 
     //타워 상태 저장변수
@@ -174,6 +174,10 @@ public abstract class Tower : MonoBehaviour
     {
         Damage = TowerDataList[(int)towerType, level].damage;
         AttackCycleSecond = TowerDataList[(int)towerType, level].speed;
+        Debug.Log(towerType + " " + level);
+        Debug.Log("data : " + TowerDataList[2, 2].speed);
+        Debug.Log("field : " + AttackCycleSecond);
+
         AttackRadius = TowerDataList[(int)towerType, level].range;
         Duration = TowerDataList[(int)towerType, level].duration;
         Cost = TowerDataList[(int)towerType, level].cost;
