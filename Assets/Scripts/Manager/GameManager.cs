@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1920, 1080, false);
+        Screen.SetResolution(1920, 1080, true);
         Singleton();
         Map = InitialGameMode;
         GameSpeed = 1.0f;
