@@ -61,6 +61,12 @@ public class TowerInspectorUI : MonoBehaviour
         } 
         
         if (Input.GetMouseButtonDown(1)) OffPanel();
+
+        if (Input.GetKeyDown(KeyCode.F)) // F를 눌러 타워 업그레이드 가능
+        {
+            if (isActive() && UpgradeButton.interactable)
+                OnUpgradeButtonClicked();
+        }
     }
 
     private bool isActive()
