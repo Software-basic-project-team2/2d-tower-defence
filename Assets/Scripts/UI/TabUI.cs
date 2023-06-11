@@ -10,10 +10,10 @@ using UnityEngine.UI;
 public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private static string[] towerDiscription = { null,
-        "타워 1의 설명이 여기에 적힙니다. 개행테스트. 개행태스트. 개행 개행",
-        "타워 2의 설명이 여기에 적힙니다. 여기까지 같이 오느라 ",
-        "타워 3의 설명이 여기에 적힙니다. 지금까지",
-        "타워 4의 설명이 여기에 적힙니다. 수고 많으셨습니다 :D !!!"};
+        "이 타워는 긴 사거리와 빠른 공격 속도가 특징입니다. 체력이 적은 다수의 적을 상대할 때 효과적이죠!",
+        "이 타워는 다수의 적을 강력한 화염으로 태워버립니다. 화상을 입은 적들은 타워에게 두 배의 피해를 입습니다.",
+        "이 타워는 다소 공격속도는 느리지만 무시무시한 공격력을 자랑합니다. 강한 적에게 큰 피해를 입히기에 최적이죠!",
+        "이 타워는 큰 바위를 던져 적들을 기절시킵니다. 기절을 당한 적들은 이동속도가 감소합니다."};
 
     //inspector에서 가져오기
     public GameObject Tower1Image;
