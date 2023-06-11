@@ -122,7 +122,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         yield return new WaitWhile(() => spawner.isRoundNow());
         NextRoundButton.interactable = true;
-        NextRoundButtonText.text = $"Round\n{spawner.CurrentRound()}\nStart";
+        NextRoundButtonText.text = $"Round\n{spawner.CurrentRound() + 1}\nStart";
     }
 
     #region Tower Button Event
