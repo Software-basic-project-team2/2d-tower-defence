@@ -113,7 +113,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         inspector.OffPanel();
         spawner.NextRound();
         NextRoundButton.interactable = false;
-        NextRoundButtonText.text = $"Round\n{spawner.CurrentRound()}";
+        NextRoundButtonText.text = $"Round {spawner.CurrentRound()}";
         if (spawner.CurrentRound() <= EnemySpawnRule.RoundMax)
             StartCoroutine(NextRoundButtonInteraction());
     }
@@ -122,7 +122,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         yield return new WaitWhile(() => spawner.isRoundNow());
         NextRoundButton.interactable = true;
-        NextRoundButtonText.text = $"Round\n{spawner.CurrentRound() + 1}\nStart";
+        NextRoundButtonText.text = $"Round {spawner.CurrentRound() + 1}\nStart";
     }
 
     #region Tower Button Event
