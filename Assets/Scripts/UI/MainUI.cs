@@ -12,6 +12,15 @@ public class MainUI : MonoBehaviour
     public TMP_Text AdvancedText;
     public TMP_Text ExperText;
 
+    public void OnXButtonClicked()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
     public void OnButtonPointerExit()
     {
         BeginnerText.color = Color.white;
