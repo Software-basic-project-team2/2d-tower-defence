@@ -5,43 +5,24 @@ using UnityEngine;
 
 public class ResultUI : MonoBehaviour
 {
-    public GameObject resultUI;
+    public GameObject resultCanvas;
     public TMP_Text homeText;
     public TMP_Text restartText;
     public TMP_Text exitText;
     public TMP_Text result;
-    private PlayerController player;
 
-    private void Update()
+    public void ShowResult(bool cleared)
     {
-
-    }
-
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
-        ResultText();
-    }
-
-    public bool isPaused()
-    {
-        return resultUI.activeSelf;
+        resultCanvas.SetActive(true);
+        UpdateResultText(cleared);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = GameManager.instance.GameSpeed;
         GameManager.instance.isPaused = false;
-        resultUI.SetActive(false);
+        resultCanvas.SetActive(false);
     }
-
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
-        GameManager.instance.isPaused = true;
-        resultUI.SetActive(true);
-    }
-
 
     public void OnHomeButtonClicked()
     {
@@ -86,9 +67,9 @@ public class ResultUI : MonoBehaviour
         exitText.text = "";
     }
 
-    private void ResultText()
+    private void UpdateResultText(bool cleared)
     {
-        if (player.currentHP <= 0)
+        if (!cleared)
         {
             result.text = "Game Over";
         }

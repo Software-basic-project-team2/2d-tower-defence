@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float maxHP; // 최대 HP 값
     public float currentHP; // 현재 HP 값
     public Image screenFlashImage; // 빨간색 이미지를 가진 UI 요소
-    public GameObject result;
+    public ResultUI result;
 
     private void Start()
     {
@@ -20,22 +20,11 @@ public class PlayerController : MonoBehaviour
         UpdateHPBar();
     }
 
-    private void Update()
-    {
-        if (currentHP <= 0)
-        {
-            result.SetActive(true);
-        }
-
-    }
-
     // HP 바 업데이트 함수
     private void UpdateHPBar()
     {
         // 현재 HP에 따른 바의 길이 계산
         hpSlider.value = currentHP / maxHP;
-
-
     }
 
     // HP 감소 함수
@@ -44,11 +33,10 @@ public class PlayerController : MonoBehaviour
         currentHP -= amount;
 
 
-
         // HP가 0 이하로 떨어진 경우 처리
         if (currentHP <= 0)
         {
-            result.SetActive(true);
+            result.ShowResult(false);
         }
         else
         {
