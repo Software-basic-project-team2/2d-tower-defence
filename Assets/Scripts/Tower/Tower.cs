@@ -174,9 +174,6 @@ public abstract class Tower : MonoBehaviour
     {
         Damage = TowerDataList[(int)towerType, level].damage;
         AttackCycleSecond = TowerDataList[(int)towerType, level].speed;
-        Debug.Log(towerType + " " + level);
-        Debug.Log("data : " + TowerDataList[2, 2].speed);
-        Debug.Log("field : " + AttackCycleSecond);
 
         AttackRadius = TowerDataList[(int)towerType, level].range;
         Duration = TowerDataList[(int)towerType, level].duration;
