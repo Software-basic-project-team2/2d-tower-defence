@@ -22,11 +22,13 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text Tower3Cost;
     public TMP_Text Tower4Cost;
     public TMP_Text TapButtonText;
+    public TMP_Text TowerDescription;
     public RectTransform Background;
+    public TowerInspectorUI inspector;
 
     int[] cost;
     GameObject[] button;
-    Color32 forbiddenColor = new Color32(255, 150, 150, 255);
+    public static Color32 forbiddenColor = new Color32(255, 150, 150, 255);
     CoinManager cm;
     Tower.Type type;
     GameObject SpawnedTower = null;
@@ -53,10 +55,21 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         return pos;
     }
 
-    public void onTabButtonClicked()
+    public bool isHide()
+    {
+        return hide;
+    }
+
+    public bool isUIHovering()
+    {
+        return UIHovering;
+    }
+
+    public void OnTabButtonClicked()
     {
         if (!hide)
         {
+            inspector.OffPanel();
             StartCoroutine(TabAnimation(-1));
         }
         else
@@ -85,10 +98,9 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             TapButtonText.rectTransform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
     }
 
-    public void onNextRoundClicked()
+    public void OnNextRoundClicked()
     {
-        if (GameManager.instance.towerInspectorUI.isActive())
-            GameManager.instance.towerInspectorUI.OffPanel();
+        inspector.OffPanel();
         GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().NextRound();
     }
 
@@ -98,8 +110,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //PreCondition
         if (SpawnedTower != null)
             Destroy(SpawnedTower);
-        if (GameManager.instance.towerInspectorUI.isActive())
-            GameManager.instance.towerInspectorUI.OffPanel();
+        inspector.OffPanel();
 
         //Logic
         type = t;
@@ -112,22 +123,22 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         back = plate.GetChild(1).GetComponent<SpriteRenderer>();
     }
 
-    public void onTower1Clicked()
+    public void OnTower1Clicked()
     {
         OnTowerButtonClicked(Tower1Image, Tower.Type.Tower1);
     }
 
-    public void onTower2Clicked()
+    public void OnTower2Clicked()
     {
         OnTowerButtonClicked(Tower2Image, Tower.Type.Tower2);
     }
 
-    public void onTower3Clicked()
+    public void OnTower3Clicked()
     {
         OnTowerButtonClicked(Tower3Image, Tower.Type.Tower3);
     }
 
-    public void onTower4Clicked()
+    public void OnTower4Clicked()
     {
         OnTowerButtonClicked(Tower4Image, Tower.Type.Tower4);
     }
@@ -177,11 +188,11 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Update()
     {
-        if (GameManager.instance.isPaused()) return;
+        if (GameManager.instance.isPaused) return;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            onTabButtonClicked();
+            OnTabButtonClicked();
         }
 
         //버튼을 클릭해 타워가 따라다니는 경우 로직
@@ -203,7 +214,7 @@ public class TabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                         .Position(mousePosition())
                         .Build();
                     CoinManager.Instance.DecreaseCoin(tower.GetComponent<Tower>().Cost);
-                    GameManager.instance.towerInspectorUI.OnPanel(tower.transform);
+                    inspector.OnPanel(tower.transform);
                 }
 
                 Destroy(SpawnedTower);

@@ -11,6 +11,17 @@ public class PauseUI : MonoBehaviour
     public TMP_Text restartText;
     public TMP_Text exitText;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused()) 
+                ResumeGame();
+            else            
+                PauseGame();
+        }
+    }
+
     public bool isPaused()
     {
         return pauseUI.activeSelf;
@@ -19,12 +30,14 @@ public class PauseUI : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = GameManager.instance.GameSpeed;
+        GameManager.instance.isPaused = false;
         pauseUI.SetActive(false);
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
+        GameManager.instance.isPaused = true;
         pauseUI.SetActive(true);
     }
 
@@ -36,14 +49,12 @@ public class PauseUI : MonoBehaviour
     public void OnHomeButtonClicked()
     {
         OnXButtonClicked();
-        //GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
         GameManager.instance.LoadMainScene();
     }
         
     public void OnRestartButtonClicked()
     {
         OnXButtonClicked();
-        //GameObject.Find("EnemiesSpawner").GetComponent<EnemySpawner>().ResetSpawner();
         GameManager.instance.ReloadCurrentPlayMap();
     }
 

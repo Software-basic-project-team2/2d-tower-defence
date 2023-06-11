@@ -26,7 +26,6 @@ public abstract class Tower : MonoBehaviour
     public const int MaxLevel = 3;
     public const int TypeCount = 4;
     public enum Type { Tower0, Tower1, Tower2, Tower3, Tower4 }
-    public Type TowerType;
 
     public static TowerData[,] TowerDataList = {
     { new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0), new TowerData(0, 0f, 0, 0f, 0)},              // 타워0
@@ -39,6 +38,7 @@ public abstract class Tower : MonoBehaviour
     //타워 상태 저장변수
     #region Tower Variables
     [SerializeField] private Transform Center;
+    public Type TowerType;
     public Vector3 CenterPosition //타워 중심점
     {
         get { return Center.position; }
@@ -79,7 +79,7 @@ public abstract class Tower : MonoBehaviour
 
         //타워 상태 설정(기본값)
         Level = 1;
-        SetValues(TowerType ,Level);
+        SetValues(TowerType, Level);
         LoadSprites();
         SyncSprite();
     }
