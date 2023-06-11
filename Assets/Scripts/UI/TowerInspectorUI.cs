@@ -11,11 +11,13 @@ public class TowerInspectorUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textLevel;
     [SerializeField]
-    private TextMeshProUGUI textRadius;
+    private TextMeshProUGUI textDuration;
     [SerializeField]
     private TextMeshProUGUI textRate;
     [SerializeField]
     private TextMeshProUGUI textUpgradeCost;
+    
+    
     [SerializeField]
     private Image CoinImage;
     [SerializeField] 
@@ -94,8 +96,9 @@ public class TowerInspectorUI : MonoBehaviour
 
         textDamage.text = "Damage : " + currentTower.Damage;
         textLevel.text = "Level : " + (currentTower.Level == 3 ? "MAX" : $"{currentTower.Level}");
-        textRadius.text = "Radius : " + currentTower.AttackRadius;
+        textDuration.text = "Duration : " + currentTower.Duration;
         textRate.text = "Rate : " + currentTower.AttackCycleSecond;
+        
 
         if (currentTower.Level < 3)
         {
