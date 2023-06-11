@@ -113,7 +113,7 @@ public class TowerInspectorUI : MonoBehaviour
                 UpgradeButton.GetComponent<Image>().color = Color.white;
             }
         }
-        else
+        else //최대 레벨이면 코인이미지, 코인, 버튼 비활성화
         {
             textUpgradeCost.text = "";
             CoinImage.color = new Color32(255, 255, 255, 0);
