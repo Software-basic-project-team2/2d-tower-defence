@@ -46,6 +46,7 @@ public class TowerBuilder
     {
         obj = GameObject.Instantiate(towers[(int)type], Vector2.zero, Quaternion.identity, GameObject.Find("Towers").transform);
         tower = obj.GetComponent<Tower>();
+        tower.TowerType = type;
 
         position = obj.transform.position;
         damage = Tower.TowerDataList[(int)type, 1].damage;

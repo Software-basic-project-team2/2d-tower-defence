@@ -12,40 +12,15 @@ public class GameManager : MonoBehaviour
 {
     public PlayMap InitialGameMode; //기본 게임모드 (inspector에서 설정)
     public PlayMap Map { get; private set; }
-    public PauseUI pauseUI;
-    public TowerInspectorUI towerInspectorUI;
     public float GameSpeed;
+    public bool isPaused;
 
     private void Awake()
     {
         Singleton();
         Map = InitialGameMode;
         GameSpeed = 1.0f;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (pauseUI == null) return;
-            if (towerInspectorUI == null) return;
-
-            if (towerInspectorUI.isActive())
-            {
-                towerInspectorUI.OffPanel();
-                return;
-            }
-
-            if (isPaused())
-                pauseUI.ResumeGame();
-            else
-                pauseUI.PauseGame();
-        }
-    }
-
-    public bool isPaused()
-    {
-        return pauseUI.isPaused();
+        isPaused = false;
     }
 
     #region GameScene 로딩 코드
